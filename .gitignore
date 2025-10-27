@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build outputs
+dist/
+
+# Env files
+.env*
+
+# Logs
+npm-debug.log*
+
+# OS and tooling
+.DS_Store
+.vercel/
+
+# Locks (optional to ignore; keep if you prefer deterministic installs)
+# package-lock.json
+# yarn.lock
+
+# Ignore archive
+Archive.zip
