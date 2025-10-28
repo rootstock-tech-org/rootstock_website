@@ -44,10 +44,33 @@ export default function Header({ activeSection }: HeaderProps) {
           
           {/* Navigation Links */}
           <div className="hidden lg:flex space-x-6 xl:space-x-8 items-center">
-          <a href="#about" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'about' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>About</a>
-            <a href="#technology" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'technology' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Experties</a>
-            <a href="#FinSight" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'FinSight' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>FinSight</a>
-            <a href="#ethics" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'Ethics' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Career</a>
+            {/* Products with hover dropdown */}
+            <div className="relative group">
+              <a href="#technology" className={`font-medium transition-all duration-300 text-sm xl:text-base flex items-center gap-1 ${activeSection === 'technology' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}> 
+                <span>Products</span>
+                <svg className="w-3.5 h-3.5 text-current" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.126l3.71-3.896a.75.75 0 111.08 1.04l-4.24 4.46a.75.75 0 01-1.08 0L5.25 8.27a.75.75 0 01-.02-1.06z" clipRule="evenodd" />
+                </svg>
+              </a>
+              {/* Dropdown panel */}
+              <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto absolute left-1/2 -translate-x-1/2 top-full mt-0 pt-3 z-50">
+                <div className="min-w-[420px] bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/60 p-6">
+                  <div className="grid grid-cols-2 gap-10">
+                    <div>
+                      <div className="text-xs font-semibold tracking-widest text-gray-500 mb-3">API</div>
+                      <a href="/ocr" className="block font-semibold text-gray-900 hover:text-[#16BAC5]">OCR to Text</a>
+                      <a href="/audio-emotion" className="block font-semibold text-gray-900 hover:text-[#16BAC5] mt-2">Audio to Emotion</a>
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold tracking-widest text-gray-500 mb-3">Platform</div>
+                      <a href="/finsight" className="block font-semibold text-gray-900 hover:text-[#16BAC5]">FinSight</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#insights" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'insights' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Blog</a>
+            <a href="#ethics" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'Ethics' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Careers</a>
             <a href="#contact" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'contact' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Talk to us</a>
           </div>
           

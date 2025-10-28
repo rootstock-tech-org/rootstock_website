@@ -197,6 +197,26 @@ export default function BlogPostPage() {
     } catch {}
   }, [slug]);
 
+  // Try server store as well
+  useEffect(() => {
+    fetch('/api/posts')
+      .then(r => r.json())
+      .then((posts: any[]) => {
+        const m = posts.find(p => p.slug === slug);
+        if (m) {
+          setCustomPost({
+            slug: m.slug,
+            title: m.title,
+            date: m.date,
+            readTime: m.readTime,
+            content: m.content,
+            image: m.image,
+          });
+        }
+      })
+      .catch(() => {});
+  }, [slug]);
+
   const post = customPost || builtinPost;
 
   return (

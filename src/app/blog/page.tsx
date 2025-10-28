@@ -72,6 +72,7 @@ const builtinPosts: Post[] = [
 
 export default function BlogIndexPage() {
   const [customPosts, setCustomPosts] = useState<Post[]>([]);
+  const [serverPosts, setServerPosts] = useState<Post[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const categories = ["All", "Blog", "Article", "Research", "Guide", "Case Study"];
 
@@ -95,10 +96,26 @@ export default function BlogIndexPage() {
     } catch {}
   }, []);
 
+  // Load shared posts from API
+  useEffect(() => {
+    fetch('/api/posts')
+      .then(r => r.json())
+      .then((data: Post[]) => setServerPosts(data))
+      .catch(() => {});
+  }, []);
+
   const allPosts = useMemo(() => {
-    // Show admin-created posts first
-    return [...customPosts, ...builtinPosts];
-  }, [customPosts]);
+    const merged = [...serverPosts, ...customPosts, ...builtinPosts];
+    // Deduplicate by slug preserving first occurrence (server overrides local/builtin)
+    const seen = new Set<string>();
+    const deduped = merged.filter(p => {
+      if (seen.has(p.slug)) return false;
+      seen.add(p.slug);
+      return true;
+    });
+    // Sort newest first by date
+    return deduped.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }, [customPosts, serverPosts]);
   
   const filteredPosts = useMemo(() => {
     if (activeCategory === "All") {

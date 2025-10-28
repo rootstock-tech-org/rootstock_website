@@ -128,7 +128,7 @@ export default function AdminPage() {
     reader.readAsDataURL(file);
   };
 
-  const onCreate = (e: React.FormEvent) => {
+  const onCreate = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canSubmit) return;
     
@@ -145,6 +145,15 @@ export default function AdminPage() {
       ...form,
       slug: finalSlug,
     };
+
+    // Persist to shared server file via API
+    try {
+      await fetch('/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(toSave),
+      });
+    } catch {}
 
     const next = [toSave, ...posts];
     setPosts(next);

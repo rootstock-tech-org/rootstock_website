@@ -54,6 +54,10 @@ html {
   background: #6b7280;
 }
 
+/* Hide scrollbars for dedicated no-scrollbar containers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
 /* Custom utility classes */
 .bg-gradient-radial {
   background: radial-gradient(circle, var(--tw-gradient-stops));

@@ -26,11 +26,12 @@ export default function AboutSection() {
   };
 
   const coreValues = [
-    { icon: "🚀", value: "Innovation", desc: "Pushing boundaries of AI", measure: "3+ patents pending" },
-    { icon: "🔒", value: "Reliability", desc: "Delivering consistent solutions", measure: "99.9% uptime guarantee" },
-    { icon: "👁️", value: "Transparency", desc: "Every answer shows sources & confidence", measure: "100% explainable AI" },
-    { icon: "🌍", value: "Accessibility", desc: "Making advanced tools usable for all", measure: "Free tier always available" },
-    { icon: "⭐", value: "Excellence", desc: "Striving for the highest quality", measure: "90% user satisfaction" }
+    { icon: "🚀", value: "Innovation", desc: "We don’t just build AI — we redefine what’s possible.", measure: "From patented breakthroughs to emotionally intelligent systems, we’re shaping the next frontier of human–robot collaboration." },
+    { icon: "🔒", value: "Reliability", desc: "Trust is the foundation of every connection.", measure: "Our systems deliver consistent, secure, and dependable performance — ensuring humans can always rely on their digital collaborators." },
+    { icon: "👁️", value: "Transparency", desc: "Clarity creates confidence.", measure: "Every insight, decision, and interaction is explainable — because understanding builds trust between people and technology." },
+    { icon: "🌍", value: "Accessibility", desc: "Intelligence should empower everyone.", measure: "We design intuitive tools that make advanced AI understandable, ethical, and accessible — regardless of background or expertise." },
+    { icon: "💙", value: "Empathy", desc: "Technology should feel human.", measure: "We embed emotional intelligence into every system, creating machines that don’t just respond — they relate." },
+    { icon: "⭐", value: "Excellence", desc: "We pursue mastery in every line of code and every human interaction.", measure: "RootStock stands for quality, precision, and purpose in all we deliver." }
   ];
 
   return (
@@ -51,13 +52,8 @@ export default function AboutSection() {
               <div className="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200 h-full flex flex-col hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 group">
                 <h3 className="text-2xl font-bold text-[#7AE582] mb-4 group-hover:scale-[1.02] transition-transform">Vision</h3>
                 <p className="text-lg text-gray-700 leading-relaxed flex-grow group-hover:text-[#0B3762] transition-colors">
-                  To become the industry leader in AI-powered evaluation and decision solutions — enabling organizations and individuals to make <span className="font-semibold">confident, informed choices</span>.
+                   To build a world where humans and robots collaborate as trusted partners - machines that think with intelligence and connect with empathy.
                 </p>
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="text-[#7AE582] text-sm font-medium group-hover:scale-105 transition-transform">
-                    🎯 Leading the Future
-                  </div>
-                </div>
               </div>
             </div>
             <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -65,17 +61,9 @@ export default function AboutSection() {
                 <h3 className="text-2xl font-bold text-[#16BAC5] mb-4 group-hover:scale-[1.02] transition-transform">Mission</h3>
                 <div className="flex-grow">
                   <p className="text-lg text-gray-700 leading-relaxed mb-4 group-hover:text-[#0B3762] transition-colors">
-                    We design intuitive, <span className="font-semibold">emotion-aware AI tools</span> that translate complexity into clarity.
+                    RootStock Technology fuses artificial and emotional intelligence to give robots a brain with understanding and a heart with empathy. We build systems that transform machines into collaborators -  amplifying human potential, enhanching trust, and shaping a future of meaningful human-robot synergy.
                   </p>
-                  <p className="text-lg text-gray-700 leading-relaxed group-hover:text-[#0B3762] transition-colors">
-                    We democratize access to sophisticated decision systems, embedding <span className="font-semibold">trust, transparency, and ethical intelligence</span> into every product.
-                  </p>
-                </div>
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="text-[#16BAC5] text-sm font-medium group-hover:scale-105 transition-transform">
-                    🚀 Building Tomorrow
-                  </div>
-                </div>
+                </div>  
               </div>
             </div>
           </div>
@@ -86,14 +74,17 @@ export default function AboutSection() {
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Why RootStock Exists</h3>
             <div className="text-2xl font-bold text-[#16BAC5] mb-4">
-              Most platforms give more data.<br />
-              We give <span className="text-[#0B3762]">more meaning</span>.
+              Most platforms deliver more data.<br />
+              FinSight your financial assistant delivers deeper understanding.
             </div>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
               In a world drowning in information, people don't need another chart, metric, or dashboard.
             </p>
             <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mt-4">
-              They need <span className="font-semibold">translation</span> — AI that can answer:
+              They need <span className="font-semibold">clarity</span>
+            </p>
+            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mt-4">
+              FinSight transforms complexity into meaning through  Intelligence Engineered with Empathy Embedded that can answer
             </p>
           </div>
           <div className="mx-auto max-w-5xl">
@@ -105,12 +96,12 @@ export default function AboutSection() {
                 <h4 className="text-xl font-bold text-[#16BAC5] italic">What does it mean for me?</h4>
               </div>
               <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:border-[#7AE582]/50">
-                <h4 className="text-xl font-bold text-[#7AE582] italic">What should I do now?</h4>
+                <h4 className="text-xl font-bold text-[#7AE582] italic">What should I do next?</h4>
               </div>
             </div>
             <div className="text-center mt-8">
               <p className="text-2xl font-bold text-gray-900">
-                That's the RootStock philosophy: <span className="text-[#7AE582] font-bold">Decisions, not dashboards.</span>
+                That's the RootStock Technologies philosophy: <span className="text-[#7AE582] font-bold">Insight that drives action.</span>
               </p>
             </div>
           </div>
@@ -160,7 +151,7 @@ export default function AboutSection() {
         </div>
 
         {/* Founder's Note - card */}
-        <div className="max-w-5xl mx-auto">
+        {/* <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8">
             <h3 className="text-3xl font-bold text-[#7AE582]">Founder's Note</h3>
           </div>
@@ -191,7 +182,7 @@ export default function AboutSection() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

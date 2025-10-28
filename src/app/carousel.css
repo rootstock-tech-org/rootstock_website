@@ -6,7 +6,7 @@
 
 /* Base carousel styles */
 .slider-track {
-  width: 200%;
+  width: max(200%, 2 * 100%);
   animation: scrollX 28s linear infinite;
   -webkit-animation: scrollX 28s linear infinite; /* Safari support */
   will-change: transform;
