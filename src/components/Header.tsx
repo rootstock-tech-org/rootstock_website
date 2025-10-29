@@ -71,6 +71,7 @@ export default function Header({ activeSection }: HeaderProps) {
             </div>
             <a href="#insights" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'insights' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Blog</a>
             <a href="#ethics" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'Ethics' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Careers</a>
+            <a href="#innovation" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'innovation' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Innovation</a>
             <a href="#contact" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'contact' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Talk to us</a>
           </div>
           
@@ -99,6 +100,7 @@ export default function Header({ activeSection }: HeaderProps) {
             <a href="#technology" className={`block py-3 px-4 rounded-lg transition-all duration-300 ${activeSection === 'technology' ? 'text-[#7AE582] bg-[#7AE582]/10' : 'text-gray-700 hover:text-[#7AE582] hover:bg-gray-200/50'}`}>Experties</a>
             <a href="#FinSight" className={`block py-3 px-4 rounded-lg transition-all duration-300 ${activeSection === 'FinSight' ? 'text-[#7AE582] bg-[#7AE582]/10' : 'text-gray-700 hover:text-[#7AE582] hover:bg-gray-200/50'}`}>FinSight</a>
             <a href="#ethics" className={`block py-3 px-4 rounded-lg transition-all duration-300 ${activeSection === 'Ethics' ? 'text-[#7AE582] bg-[#7AE582]/10' : 'text-gray-700 hover:text-[#7AE582] hover:bg-gray-200/50'}`}>Career</a>
+            <a href="#innovation" className={`block py-3 px-4 rounded-lg transition-all duration-300 ${activeSection === 'innovation' ? 'text-[#7AE582] bg-[#7AE582]/10' : 'text-gray-700 hover:text-[#7AE582] hover:bg-gray-200/50'}`}>Innovation</a>
             <a href="#contact" className={`block py-3 px-4 rounded-lg transition-all duration-300 ${activeSection === 'contact' ? 'text-[#7AE582] bg-[#7AE582]/10' : 'text-gray-700 hover:text-[#7AE582] hover:bg-gray-200/50'}`}>Talk to us</a>
             
             <a href="https://e9cwq4w7punvx7-1004.proxy.runpod.net/" target="_blank" rel="noopener noreferrer" className="btn bg-gradient-to-r from-[#16BAC5] to-[#7AE582] text-black shadow-md hover:shadow-lg block mt-4 text-center w-full">

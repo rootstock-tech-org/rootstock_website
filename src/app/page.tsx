@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import DiscoverSection from '@/components/DiscoverSection';
 import TechnologySection from '@/components/TechnologySection';
-import FinSightSection from '@/components/FinSightSection';
 import EthicsSection from '@/components/EthicsSection';
 import InsightsSection from '@/components/InsightsSection';
 import AboutSection from '@/components/AboutSection';
@@ -60,8 +59,6 @@ export default function Home() {
         <Header activeSection={activeSection} />
         <div className="reveal"><HeroSection /></div>
         <div className="reveal"><TechnologySection /></div>
-        <div className="reveal"><FinSightSection /></div>
-        <div className="reveal"><EthicsSection /></div>
         <div className="reveal"><InsightsSection /></div>
         <div className="reveal"><AboutSection /></div>
         <div className="reveal"><ContactSection /></div>
