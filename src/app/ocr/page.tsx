@@ -19,7 +19,7 @@ export default function OCRPage() {
               Parse documents, invoices and scans accurately. Built for noisy, low‑quality inputs — exports clean, structured text for downstream workflows.
             </p>
             <div className="mt-8 flex items-center justify-center gap-4">
-              <a href="#get-started" className="btn btn-primary">Get Started</a>
+              <a href="https://z23pvle7xmnqur-1008.proxy.runpod.net" className="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Started</a>
               <a href="#features" className="btn btn-outline">See Features</a>
             </div>
           </div>

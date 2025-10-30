@@ -71,7 +71,7 @@ export default function Header({ activeSection }: HeaderProps) {
             </div>
             <a href="#insights" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'insights' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Blog</a>
             <a href="#ethics" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'Ethics' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Careers</a>
-            <a href="#innovation" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'innovation' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Innovation</a>
+            <a href="/innovation" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'innovation' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Innovation</a>
             <a href="#contact" className={`font-medium transition-all duration-300 text-sm xl:text-base ${activeSection === 'contact' ? 'text-[#7AE582] underline underline-offset-4' : 'text-gray-700 hover:text-[#7AE582]'}`}>Talk to us</a>
           </div>
           

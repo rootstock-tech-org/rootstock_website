@@ -59,6 +59,7 @@ export default function Home() {
         <Header activeSection={activeSection} />
         <div className="reveal"><HeroSection /></div>
         <div className="reveal"><TechnologySection /></div>
+        <div className="reveal"><EthicsSection /></div>
         <div className="reveal"><InsightsSection /></div>
         <div className="reveal"><AboutSection /></div>
         <div className="reveal"><ContactSection /></div>

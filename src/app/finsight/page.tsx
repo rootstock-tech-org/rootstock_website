@@ -19,7 +19,7 @@ export default function FinSightPage() {
               Emotion‑aware insights for portfolios. Context across holdings, goals and risk preferences — explained with clarity.
             </p>
             <div className="mt-8 flex items-center justify-center gap-4">
-              <a href="#use-cases" className="btn btn-primary">See Use Cases</a>
+            <a href="https://z23pvle7xmnqur-3000.proxy.runpod.net" className="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Started</a>
               <a href="#cta" className="btn btn-outline">Request a Demo</a>
             </div>
           </div>

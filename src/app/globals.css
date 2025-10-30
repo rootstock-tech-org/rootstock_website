@@ -144,6 +144,29 @@ html {
   .btn { transition: none; }
 }
 
+/* Animated hero waves */
+@keyframes waveScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+/* Seamless scroll across a 3-tile strip (0 -> -33.3333%) */
+@keyframes waveScrollSeamless {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333333%); }
+}
+@keyframes waveBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.wave-scroll { animation: waveScroll 18s linear infinite; will-change: transform; }
+.wave-scroll-slow { animation: waveScroll 28s linear infinite reverse; will-change: transform; }
+.wave-scroll-seamless { animation: waveScrollSeamless 18s linear infinite; will-change: transform; transform-box: fill-box; }
+.wave-scroll-seamless-slow { animation: waveScrollSeamless 28s linear infinite reverse; will-change: transform; transform-box: fill-box; }
+.wave-bob { animation: waveBob 6s ease-in-out infinite; will-change: transform; }
+@media (prefers-reduced-motion: reduce) {
+  .wave-scroll, .wave-scroll-slow, .wave-scroll-seamless, .wave-scroll-seamless-slow, .wave-bob { animation: none; }
+}
+
 /* Section rhythm and subtle separators */
 .section { padding: var(--section-y) 0; }
 @media (min-width: 768px) { .section { padding: 6rem 0; } }
