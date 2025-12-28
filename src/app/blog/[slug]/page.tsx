@@ -250,15 +250,15 @@ export default function BlogPostPage() {
       <section className="pb-20">
         <div className="container mx-auto px-6">
           {post ? (
-            <article className="prose prose-invert max-w-3xl">
+            <article className="prose prose-invert max-w-3xl text-white">
               {customPost?.image && (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={customPost.image} alt={post.title} className="rounded-2xl border border-white/10 mb-6" />
               )}
-              <div 
-                dangerouslySetInnerHTML={{ 
-                  __html: post.content || "<p>This post was published via the Admin panel. Add full content in the Admin form to replace this placeholder.</p>" 
-                }} 
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: post.content || ""
+                }}
                 className="prose-headings:text-white prose-headings:font-bold prose-p:text-white prose-strong:text-white prose-strong:font-semibold prose-li:text-white prose-li:marker:text-[#7AE582] prose-a:text-[#7AE582] hover:prose-a:text-white prose-a:transition-colors"
               />
             </article>
