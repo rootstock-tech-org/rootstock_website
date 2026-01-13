@@ -1,0 +1,62 @@
+[
+  {
+    "title": "AI + Human Collaboration",
+    "excerpt": "Exploring the future of human–AI partnerships in decision-making.",
+    "date": "Dec 15, 2024",
+    "readTime": "4 min",
+    "category": "Blog",
+    "image": null,
+    "slug": "ai-human-collaboration",
+    "content": "<p>At RootStock, we explore human–AI partnerships across domains. This post outlines how collaboration improves outcomes over either working alone.</p>"
+  },
+  {
+    "title": "Emotional Intelligence in AI",
+    "excerpt": "How emotional awareness transforms AI from tools to trusted advisors.",
+    "date": "Dec 10, 2024",
+    "readTime": "6 min",
+    "category": "Article",
+    "image": null,
+    "slug": "emotional-intelligence-in-ai",
+    "content": "<p>Emotional intelligence is a crucial frontier in AI development. We discuss capabilities and ethical safeguards.</p>"
+  },
+  {
+    "title": "Case Studies & Whitepapers",
+    "excerpt": "Real-world applications and deep technical insights.",
+    "date": "Dec 5, 2024",
+    "readTime": "12 min",
+    "category": "Research",
+    "image": null,
+    "slug": "case-studies-and-whitepapers",
+    "content": "<p>Highlights from our recent deployments and research papers in financial AI.</p>"
+  },
+  {
+    "title": "Responsible AI in Finance",
+    "excerpt": "Principles and practices for risk-aware, transparent AI systems.",
+    "date": "Nov 28, 2024",
+    "readTime": "7 min",
+    "category": "Blog",
+    "image": null,
+    "slug": "responsible-ai-in-finance",
+    "content": "<p>Practical steps for building responsible AI in financial services.</p>"
+  },
+  {
+    "title": "Designing Trust into Products",
+    "excerpt": "Why trust isn’t a feature, it’s the foundation.",
+    "date": "Nov 22, 2024",
+    "readTime": "5 min",
+    "category": "Article",
+    "image": null,
+    "slug": "designing-trust-into-products",
+    "content": "<p>Frameworks for making trust a first‑class concern in product design.</p>"
+  },
+  {
+    "title": "Explainable AI: A Practical Guide",
+    "excerpt": "A pragmatic approach to XAI with examples and trade-offs.",
+    "date": "Nov 14, 2024",
+    "readTime": "9 min",
+    "category": "Guide",
+    "image": null,
+    "slug": "explainable-ai-practical-guide",
+    "content": "<p>A practitioner's guide to implementing explainability.</p>"
+  }
+]
