@@ -37,7 +37,7 @@ const products = [
 
 export default function TechnologySection() {
   return (
-    <section id="technology" className="section section--divider divider-light py-24 bg-gray-50/50">
+    <section id="technology" className="section section--divider divider-light pt-10 pb-24 bg-gray-50/50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2

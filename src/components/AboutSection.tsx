@@ -160,7 +160,7 @@ export default function AboutSection() {
         </div>
 
         {/* Core Values - auto-scrolling carousel */}
-        <div className="mb-20">
+        <div className="mb-10">
           <div className="text-center mb-10">
             <h3 className="text-3xl font-bold text-secondary mb-4">Core Values</h3>
           </div>

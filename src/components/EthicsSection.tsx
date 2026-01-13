@@ -7,7 +7,7 @@ import { PulsatingButton } from './magicui/pulsating-button';
 
 export default function EthicsSection() {
   const ethicsCarouselRef = useRef<HTMLDivElement>(null);
-  const [form, setForm] = useState({ name: '', email: '', role: '' });
+  const [form, setForm] = useState({ name: '', email: '', role: '', type: 'Full Time' });
   const [resume, setResume] = useState<File | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -15,7 +15,8 @@ export default function EthicsSection() {
   const [open, setOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
-  const openApply = (e?: React.MouseEvent<HTMLAnchorElement>) => {
+
+  const openApply = (e?: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>) => {
     if (e) e.preventDefault();
     setOpen(true);
   };
@@ -33,28 +34,6 @@ export default function EthicsSection() {
       ethicsCarouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
-  const ethicalPrinciples = [
-    {
-      icon: "🎯",
-      principle: "We don't push trades or churn.",
-      color: "from-primary to-secondary"
-    },
-    {
-      icon: "🆓",
-      principle: "Free plan with summaries & Q&A. Advanced features later.",
-      color: "from-secondary to-[#5FBFF9]"
-    },
-    {
-      icon: "🔍",
-      principle: "Every suggestion shows risk level & confidence score.",
-      color: "from-[#5FBFF9] to-dark"
-    },
-    {
-      icon: "🛡️",
-      principle: "No ads. No third-party sharing. No selling user data — ever.",
-      color: "from-dark to-primary"
-    }
-  ];
 
   // Accessibility: close modal on Escape
   useEffect(() => {
@@ -85,20 +64,20 @@ export default function EthicsSection() {
     setError(null);
     setSuccess(null);
 
-    if (!form.name || !form.email || !form.role) {
-      setError('Please fill in your name, email, and the role you are applying for.');
+    if (!form.name || !form.email || !form.role || !form.type) {
+      setError('Please fill in all required fields.');
       return;
     }
 
     const to = 'rootstockai@gmail.com';
-    const subject = `Job Application: ${form.role} — ${form.name}`;
-    const body = `Hello Hiring Team,%0D%0A%0D%0AMy name is ${form.name}. I'd like to apply for the ${form.role} role.%0D%0A%0D%0AEmail: ${form.email}%0D%0AResume: ${resume ? resume.name : 'Please see attached (attach before sending)'}%0D%0A%0D%0AThanks!`;
+    const subject = `Job Application: ${form.role} (${form.type}) — ${form.name}`;
+    const body = `Hello Hiring Team,%0D%0A%0D%0AMy name is ${form.name}. I'd like to apply for the ${form.role} position (${form.type}).%0D%0A%0D%0AEmail: ${form.email}%0D%0AResume: ${resume ? resume.name : 'Please see attached (attach before sending)'}%0D%0A%0D%0AThanks!`;
 
     try {
       setSubmitting(true);
       window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
       setSuccess('Opening your email client with a prefilled application. Please attach your resume if not attached automatically.');
-      setForm({ name: '', email: '', role: '' });
+      setForm({ name: '', email: '', role: '', type: 'Full Time' });
       setResume(null);
     } catch (err) {
       setError('Could not open email client. Please email your application to rootstockai@gmail.com.');
@@ -138,7 +117,13 @@ export default function EthicsSection() {
                     <span className="text-[11px] md:text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200">Design</span>
                   </div>
                 </div>
-                <div className="shrink-0">
+                <div className="shrink-0 flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="/careers"
+                    className="px-6 py-3.5 text-base font-semibold text-gray-700 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors text-center"
+                  >
+                    Look for Open Positions
+                  </a>
                   <PulsatingButton href="#apply" onClick={openApply} className="px-7 py-3.5 text-base md:text-lg">
                     Apply Now
                   </PulsatingButton>
@@ -164,7 +149,7 @@ export default function EthicsSection() {
             />
             <div
               ref={modalRef}
-              className="relative z-10 w-full max-w-xl mx-auto bg-gray-900 rounded-2xl border border-white/15 shadow-2xl p-6 md:p-8"
+              className="relative z-10 w-full max-w-xl mx-auto bg-gray-900 rounded-2xl border border-white/15 shadow-2xl p-6 md:p-8 max-h-[90vh] overflow-y-auto"
             >
               <div className="flex items-start justify-between">
                 <div>
@@ -212,6 +197,20 @@ export default function EthicsSection() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
+                    <label htmlFor="type" className="block text-sm font-medium text-gray-200 mb-1">Position Type</label>
+                    <select
+                      id="type"
+                      name="type"
+                      required
+                      value={form.type}
+                      onChange={handleInputChange}
+                      className="w-full rounded-lg bg-white/90 text-gray-900 px-4 py-2 outline-none focus:ring-2 focus:ring-primary"
+                    >
+                      <option value="Full Time">Full Time</option>
+                      <option value="Intern">Intern</option>
+                    </select>
+                  </div>
+                  <div>
                     <label htmlFor="role" className="block text-sm font-medium text-gray-200 mb-1">Role</label>
                     <select
                       id="role"
@@ -222,6 +221,7 @@ export default function EthicsSection() {
                       className="w-full rounded-lg bg-white/90 text-gray-900 px-4 py-2 outline-none focus:ring-2 focus:ring-primary"
                     >
                       <option value="" disabled>Select a role</option>
+                      <option value="Project Associate">Project Associate</option>
                       <option value="Frontend Engineer">Frontend Engineer</option>
                       <option value="Backend Engineer">Backend Engineer</option>
                       <option value="Full-Stack Engineer">Full-Stack Engineer</option>
@@ -230,18 +230,19 @@ export default function EthicsSection() {
                       <option value="Other">Other</option>
                     </select>
                   </div>
-                  <div>
-                    <label htmlFor="resume" className="block text-sm font-medium text-gray-200 mb-1">Resume (PDF/DOC)</label>
-                    <input
-                      id="resume"
-                      name="resume"
-                      type="file"
-                      accept=".pdf,.doc,.docx"
-                      onChange={handleResumeChange}
-                      className="w-full rounded-lg bg-white/90 text-gray-900 px-4 py-2 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-gray-900 hover:file:bg-primary/90"
-                    />
-                    <p className="text-xs text-gray-300 mt-1">Note: Attach your resume in the email draft after clicking Submit.</p>
-                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="resume" className="block text-sm font-medium text-gray-200 mb-1">Resume (PDF/DOC)</label>
+                  <input
+                    id="resume"
+                    name="resume"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    onChange={handleResumeChange}
+                    className="w-full rounded-lg bg-white/90 text-gray-900 px-4 py-2 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-gray-900 hover:file:bg-primary/90"
+                  />
+                  <p className="text-xs text-gray-300 mt-1">Note: Attach your resume in the email draft after clicking Submit.</p>
                 </div>
 
                 {error && <p className="text-red-400 text-sm">{error}</p>}
