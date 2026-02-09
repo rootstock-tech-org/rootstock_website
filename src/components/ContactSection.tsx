@@ -1,4 +1,43 @@
+'use client';
+
+import { useState, FormEvent } from 'react';
+
 export default function ContactSection() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage(error instanceof Error ? error.message : 'An error occurred');
+    }
+  };
+
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-6">
@@ -32,23 +71,22 @@ export default function ContactSection() {
                   </svg>
                   Incubation Centre, IIIT Delhi
                 </p>
-                <div className="pt-4">
-                  <h4 className="heading-section text-base text-secondary mb-2">Hours of Operation</h4>
-                  <p className="text-gray-600">Mon - Fri: 9:00am - 10:00pm</p>
-                  <p className="text-gray-600">Saturday: 9:00am - 6:00pm</p>
-                  <p className="text-gray-600">Sunday: 9:00am - 12:00pm</p>
-                </div>
+
               </div>
             </div>
             {/* Enhanced Form */}
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="group">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
                 <input
                   type="text"
                   id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Your Name"
-                  className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50"
+                  required
+                  disabled={status === 'submitting'}
+                  className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50 disabled:opacity-50"
                 />
               </div>
               <div className="group">
@@ -56,8 +94,12 @@ export default function ContactSection() {
                 <input
                   type="email"
                   id="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="Your Email"
-                  className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50"
+                  required
+                  disabled={status === 'submitting'}
+                  className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50 disabled:opacity-50"
                 />
               </div>
               <div className="group">
@@ -65,12 +107,37 @@ export default function ContactSection() {
                 <textarea
                   id="message"
                   rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Your Message"
-                  className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50 resize-none"
+                  required
+                  disabled={status === 'submitting'}
+                  className="w-full px-4 py-4 rounded-xl border-2 border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 group-hover:border-primary/50 resize-none disabled:opacity-50"
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary group w-full text-lg text-white">
-                <span className="relative z-10">Send Message</span>
+
+              {status === 'success' && (
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-xl">
+                  <p className="font-medium">Message sent successfully!</p>
+                  <p className="text-sm">We'll get back to you within 24-48 hours.</p>
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl">
+                  <p className="font-medium">Failed to send message</p>
+                  <p className="text-sm">{errorMessage}</p>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === 'submitting'}
+                className="w-full inline-flex items-center justify-center bg-[#415b3e] text-white font-semibold text-lg px-8 py-4 rounded-full hover:bg-[#2d402b] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <span className="relative z-10">
+                  {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                </span>
               </button>
             </form>
           </div>

@@ -4,31 +4,37 @@ import { motion } from 'framer-motion';
 
 const products = [
   {
+    slug: 'edu-stream-pipeline',
     title: 'Edu-Stream Pipeline',
     industry: 'Education / Syntex',
     description: 'A secure, multi-format (PDF/Audio/Video) injection engine that turns static content into searchable intelligence.'
   },
   {
+    slug: 'rt-ocr',
     title: 'RT-OCR',
     industry: 'Enterprise',
     description: 'Our proprietary OCR-to-Text model designed for high accuracy in complex, non-standard layouts.'
   },
   {
+    slug: 'conservatory-grade',
     title: 'Conservatory Grade',
     industry: 'Music / Arts',
     description: 'Automated music sheet analysis and grading—bridging the gap between physical performance and digital assessment.'
   },
   {
+    slug: 'sentience-vision',
     title: 'Sentience Vision',
     industry: 'General / Security',
     description: 'Real-time emotion detection from static or live imagery for empathetic AI interaction.'
   },
   {
+    slug: 'multi-doc-architect',
     title: 'Multi-Doc Architect',
     industry: 'Legal / Enterprise',
     description: 'A unique pipeline that synthesizes information across hundreds of documents simultaneously.'
   },
   {
+    slug: 'persona-fit-engine',
     title: 'Persona-Fit Engine',
     industry: 'Fashion / Retail',
     description: 'A virtual try-on solution using AI-generated avatars of any body type or size. Reduces return rates by 40% through precise neural fabric simulation.'
@@ -78,7 +84,7 @@ export default function TechnologySection() {
               </p>
 
               <div className="mt-6 pt-6 border-t border-gray-50">
-                <a href="#contact" className="inline-flex items-center text-sm font-semibold text-[#415b3e] hover:underline">
+                <a href={`/products/${product.slug}`} className="inline-flex items-center text-sm font-semibold text-[#415b3e] hover:underline">
                   Learn more
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

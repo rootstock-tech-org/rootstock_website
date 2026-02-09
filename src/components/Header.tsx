@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { motion, AnimatePresence } from 'framer-motion';
+import ConsultationModal from './ConsultationModal';
 
 interface HeaderProps {
   activeSection: string;
@@ -14,6 +15,7 @@ export default function Header({ activeSection }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
 
   // Shrink on scroll
   useEffect(() => {
@@ -34,12 +36,12 @@ export default function Header({ activeSection }: HeaderProps) {
   ];
 
   const products = [
-    "Edu-Stream Pipeline",
-    "RT-OCR",
-    "Conservatory Grade",
-    "Sentience Vision",
-    "Multi-Doc Architect",
-    "Persona-Fit Engine"
+    { name: "Edu-Stream Pipeline", slug: "edu-stream-pipeline" },
+    { name: "RT-OCR", slug: "rt-ocr" },
+    { name: "Conservatory Grade", slug: "conservatory-grade" },
+    { name: "Sentience Vision", slug: "sentience-vision" },
+    { name: "Multi-Doc Architect", slug: "multi-doc-architect" },
+    { name: "Persona-Fit Engine", slug: "persona-fit-engine" }
   ];
 
   return (
@@ -124,11 +126,11 @@ export default function Header({ activeSection }: HeaderProps) {
                     >
                       {products.map((product) => (
                         <Link
-                          key={product}
-                          href="/#technology"
+                          key={product.slug}
+                          href={`/products/${product.slug}`}
                           className="block px-6 py-3 text-sm text-gray-600 hover:text-[#415b3e] hover:bg-gray-50 transition-colors"
                         >
-                          {product}
+                          {product.name}
                         </Link>
                       ))}
                     </motion.div>
@@ -141,12 +143,12 @@ export default function Header({ activeSection }: HeaderProps) {
           {/* Actions */}
           <div className="flex items-center gap-3 pr-1">
             <div className="hidden lg:block">
-              <PulsatingButton
-                href="/#contact"
+              <button
+                onClick={() => setIsConsultationModalOpen(true)}
                 className="btn bg-white text-[#415b3e] border border-[#415b3e] hover:bg-gray-50 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm px-6 py-2.5 rounded-full font-semibold"
               >
                 Get Consultation
-              </PulsatingButton>
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -193,15 +195,26 @@ export default function Header({ activeSection }: HeaderProps) {
                   </Link>
                 ))}
                 <div className="mt-8 px-4">
-                  <Link href="/#contact" className="block w-full text-center bg-white text-[#415b3e] border border-[#415b3e] font-semibold py-4 rounded-[1.5rem] shadow-lg active:scale-95 transition-transform hover:bg-gray-50">
+                  <button
+                    onClick={() => {
+                      setIsConsultationModalOpen(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="block w-full text-center bg-white text-[#415b3e] border border-[#415b3e] font-semibold py-4 rounded-[1.5rem] shadow-lg active:scale-95 transition-transform hover:bg-gray-50"
+                  >
                     Get Consultation
-                  </Link>
+                  </button>
                 </div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+
+      <ConsultationModal
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
     </motion.header>
   );
 }

@@ -1,9 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import NeuralTree from './NeuralTree';
+import ConsultationModal from './ConsultationModal';
 
 export default function HeroSection() {
+  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white">
 
@@ -52,17 +56,22 @@ export default function HeroSection() {
             >
               About Us
             </motion.a>
-            <motion.a
+            <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#contact"
+              onClick={() => setIsConsultationModalOpen(true)}
               className="inline-flex items-center justify-center bg-white text-[#0b182f] border-2 border-[#0b182f]/10 hover:border-[#0b182f]/30 text-lg px-10 py-5 rounded-full hover:bg-gray-50 transition-all font-semibold min-w-[200px]"
             >
               Get Consultation
-            </motion.a>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
+
+      <ConsultationModal
+        isOpen={isConsultationModalOpen}
+        onClose={() => setIsConsultationModalOpen(false)}
+      />
     </section>
   );
 }

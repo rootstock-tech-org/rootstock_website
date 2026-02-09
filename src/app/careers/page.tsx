@@ -54,18 +54,44 @@ export default function CareersPage() {
             return;
         }
 
-        const to = 'rootstockai@gmail.com';
-        const subject = `Job Application: ${form.role} (${form.type}) — ${form.name}`;
-        const body = `Hello Hiring Team,%0D%0A%0D%0AMy name is ${form.name}. I'd like to apply for the ${form.role} position (${form.type}).%0D%0A%0D%0AEmail: ${form.email}%0D%0AResume: ${resume ? resume.name : 'Please see attached (attach before sending)'}%0D%0A%0D%0AThanks!`;
+        if (!resume) {
+            setError('Please upload your resume.');
+            return;
+        }
 
         try {
             setSubmitting(true);
-            window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${body}`;
-            setSuccess('Opening your email client with a prefilled application. Please attach your resume if not attached automatically.');
+
+            // Create FormData for file upload
+            const formData = new FormData();
+            formData.append('name', form.name);
+            formData.append('email', form.email);
+            formData.append('role', form.role);
+            formData.append('type', form.type);
+            formData.append('resume', resume);
+
+            const response = await fetch('/api/apply', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to submit application');
+            }
+
+            setSuccess('Application submitted successfully! Check your email for confirmation.');
             setForm({ name: '', email: '', role: 'Project Associate', type: 'Full Time' });
             setResume(null);
+
+            // Close modal after 3 seconds
+            setTimeout(() => {
+                setOpen(false);
+                setSuccess(null);
+            }, 3000);
         } catch (err) {
-            setError('Could not open email client. Please email your application to rootstockai@gmail.com.');
+            setError(err instanceof Error ? err.message : 'Failed to submit application. Please try again.');
         } finally {
             setSubmitting(false);
         }
@@ -277,7 +303,7 @@ export default function CareersPage() {
                                         onChange={handleResumeChange}
                                         className="w-full rounded-lg bg-white/90 text-gray-900 px-4 py-2 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-gray-900 hover:file:bg-primary/90"
                                     />
-                                    <p className="text-xs text-gray-300 mt-1">Note: Attach your resume in the email draft after clicking Submit.</p>
+                                    <p className="text-xs text-gray-300 mt-1">Your resume will be automatically attached to the application email.</p>
                                 </div>
 
                                 {error && <p className="text-red-400 text-sm">{error}</p>}
