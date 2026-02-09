@@ -1,39 +1,46 @@
-import { Resend } from 'resend';
 import { NextRequest, NextResponse } from 'next/server';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import nodemailer from 'nodemailer';
 
 export async function POST(request: NextRequest) {
-    try {
-        const body = await request.json();
-        const { name, email, company, message, preferredTime } = body;
+  try {
+    const body = await request.json();
+    const { name, email, company, message, preferredTime } = body;
 
-        // Validate input
-        if (!name || !email || !message) {
-            return NextResponse.json(
-                { error: 'Missing required fields' },
-                { status: 400 }
-            );
-        }
+    // Validate input
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
 
-        // Validate email format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return NextResponse.json(
-                { error: 'Invalid email format' },
-                { status: 400 }
-            );
-        }
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      );
+    }
 
-        const companyEmail = process.env.COMPANY_EMAIL || 'rootstockai@gmail.com';
-        const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
+    // Create a transporter using SMTP
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || 'smtpout.secureserver.net',
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-        // Send notification email to company
-        const companyEmailResult = await resend.emails.send({
-            from: fromEmail,
-            to: companyEmail,
-            subject: `New Consultation Request from ${name}${company ? ` (${company})` : ''}`,
-            html: `
+    // Send notification email to company
+    await transporter.sendMail({
+      from: `"${name}" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER,
+      replyTo: email,
+      subject: `New Consultation Request from ${name}${company ? ` (${company})` : ''}`,
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">New Consultation Request</h2>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -49,14 +56,14 @@ export async function POST(request: NextRequest) {
           </p>
         </div>
       `,
-        });
+    });
 
-        // Send confirmation email to requester
-        const userEmailResult = await resend.emails.send({
-            from: fromEmail,
-            to: email,
-            subject: 'Your Consultation Request - RootStock Technology',
-            html: `
+    // Send confirmation email to requester
+    await transporter.sendMail({
+      from: `"RootStock Technology" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: 'Your Consultation Request - RootStock Technology',
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">Consultation Request Received</h2>
           <p>Dear ${name},</p>
@@ -81,19 +88,17 @@ export async function POST(request: NextRequest) {
           </p>
         </div>
       `,
-        });
+    });
 
-        return NextResponse.json({
-            success: true,
-            message: 'Consultation request sent successfully',
-            companyEmailId: companyEmailResult.data?.id,
-            userEmailId: userEmailResult.data?.id,
-        });
-    } catch (error) {
-        console.error('Error sending consultation request emails:', error);
-        return NextResponse.json(
-            { error: 'Failed to send consultation request. Please try again later.' },
-            { status: 500 }
-        );
-    }
+    return NextResponse.json({
+      success: true,
+      message: 'Consultation request sent successfully',
+    });
+  } catch (error) {
+    console.error('Error sending consultation request emails:', error);
+    return NextResponse.json(
+      { error: 'Failed to send consultation request. Please try again later.' },
+      { status: 500 }
+    );
+  }
 }
