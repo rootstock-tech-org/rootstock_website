@@ -2,29 +2,13 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-secondary to-primary text-black py-6">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-10 mb-6">
+        <div className="grid md:grid-cols-2 gap-10 mb-6">
           <div>
             <h4 className="heading-section text-black text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li><a href="#home" className="transition-colors hover:text-dark">Home</a></li>
               <li><a href="#about" className="transition-colors hover:text-dark">About Us</a></li>
               <li><a href="#technology" className="transition-colors hover:text-dark">Technology</a></li>
-              <li><a href="#FinSight" className="transition-colors hover:text-dark">FinSight</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="heading-section text-black text-lg mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><a href="#ethics" className="transition-colors hover:text-dark">Ethics & Trust</a></li>
-              <li><a href="#insights" className="transition-colors hover:text-dark">Insights</a></li>
-              <li><a href="#contact" className="transition-colors hover:text-dark">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="heading-section text-black text-lg mb-4">Legal</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="transition-colors hover:text-dark">Privacy Policy</a></li>
-              <li><a href="#" className="transition-colors hover:text-dark">Terms of Use</a></li>
             </ul>
           </div>
           <div>
@@ -63,7 +47,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-black/10 pt-4 text-center">
-          <p className="mb-1 text-black/70">&copy; 2025 RootStock Technology. All Rights Reserved.</p>
+          <p className="mb-1 text-black/70">&copy; 2026 RootStock Technology. All Rights Reserved.</p>
           <p className="text-xs text-black/60">Built by RootStock Technology</p>
         </div>
       </div>
