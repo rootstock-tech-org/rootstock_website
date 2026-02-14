@@ -145,7 +145,7 @@ export default function AboutSection() {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all">
                 <div className="text-[#415b3e] font-bold text-lg mb-2">Advanced pipelines</div>
-                <p className="text-gray-600">Proprietary OCR-to-text models and unique multi-document architecture for synthesizing vast information.</p>
+                <p className="text-gray-600">Proprietary OCR models and unique multi-document architecture for synthesizing vast information.</p>
               </div>
               <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all">
                 <div className="text-[#415b3e] font-bold text-lg mb-2">Arts & Emotion</div>

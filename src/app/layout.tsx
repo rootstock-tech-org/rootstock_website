@@ -3,7 +3,7 @@ import "./globals.css";
 import "./carousel.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import HydrationSuppressor from "../components/HydrationSuppressor";
- 
+
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   description: "We humanize investment technology, bridging the gap between quantitative data and human emotional dynamics to give institutional investors a decisive edge.",
   keywords: "AI, emotional intelligence, investment intelligence, fintech, mutual funds, stock market analysis, AI evaluation tools",
   authors: [{ name: "Root Stock Tech" }],
+  icons: {
+    icon: '/RootStock.jpeg',
+    apple: '/RootStock.jpeg',
+  },
 };
 
 export default function RootLayout({

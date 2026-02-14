@@ -5,37 +5,37 @@ import { motion } from 'framer-motion';
 const products = [
   {
     slug: 'edu-stream-pipeline',
-    title: 'Edu-Stream Pipeline',
+    title: 'EduStream',
     industry: 'Education / Syntex',
-    description: 'A secure, multi-format (PDF/Audio/Video) injection engine that turns static content into searchable intelligence.'
+    description: 'A secure, multi-format (PDF/Audio/Video) ingestion pipeline that turns static content into searchable intelligence.'
   },
   {
     slug: 'rt-ocr',
     title: 'RT-OCR',
     industry: 'Enterprise',
-    description: 'Our proprietary OCR-to-Text model designed for high accuracy in complex, non-standard layouts.'
+    description: 'Our proprietary OCR model designed for high accuracy in complex, non-standard layouts.'
   },
   {
     slug: 'conservatory-grade',
-    title: 'Conservatory Grade',
+    title: 'MusicGrade',
     industry: 'Music / Arts',
     description: 'Automated music sheet analysis and grading—bridging the gap between physical performance and digital assessment.'
   },
   {
     slug: 'sentience-vision',
-    title: 'Sentience Vision',
+    title: 'SentienceVision',
     industry: 'General / Security',
     description: 'Real-time emotion detection from static or live imagery for empathetic AI interaction.'
   },
   {
     slug: 'multi-doc-architect',
-    title: 'Multi-Doc Architect',
+    title: 'DocArchitect',
     industry: 'Legal / Enterprise',
     description: 'A unique pipeline that synthesizes information across hundreds of documents simultaneously.'
   },
   {
     slug: 'persona-fit-engine',
-    title: 'Persona-Fit Engine',
+    title: 'PersonaFit',
     industry: 'Fashion / Retail',
     description: 'A virtual try-on solution using AI-generated avatars of any body type or size. Reduces return rates by 40% through precise neural fabric simulation.'
   }
@@ -71,9 +71,6 @@ export default function TechnologySection() {
               className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full group"
             >
               <div className="mb-6">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#415b3e]/10 text-[#415b3e] uppercase tracking-wider mb-3">
-                  {product.industry}
-                </span>
                 <h3 className="text-2xl font-bold text-gray-900 group-hover:text-[#415b3e] transition-colors duration-300">
                   {product.title}
                 </h3>

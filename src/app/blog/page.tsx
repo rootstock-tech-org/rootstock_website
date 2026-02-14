@@ -105,12 +105,6 @@ export default function BlogIndexPage() {
                     <span className="text-sm font-medium text-gray-400">
                       {post.readTime}
                     </span>
-                    <span className="inline-flex items-center text-[#415b3e] font-semibold hover:underline">
-                      Read more
-                      <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
                   </div>
                 </div>
               </article>

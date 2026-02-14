@@ -12,10 +12,10 @@ export interface Product {
 export const products: Product[] = [
     {
         slug: 'edu-stream-pipeline',
-        title: 'Edu-Stream Pipeline',
+        title: 'EduStream',
         industry: 'Education / Syntex',
         tagline: 'Transform static content into searchable intelligence',
-        description: 'A secure, multi-format injection engine that converts PDFs, audio, and video into searchable, structured knowledge. Built for educational institutions and content platforms that need to make their resources instantly accessible and queryable.',
+        description: 'A secure, multi-format ingestion pipeline that converts PDFs, audio, and video into searchable, structured knowledge. Built for educational institutions and content platforms that need to make their resources instantly accessible and queryable.',
         features: [
             'Multi-format support (PDF, Audio, Video)',
             'Secure content processing with encryption',
@@ -44,7 +44,7 @@ export const products: Product[] = [
         title: 'RT-OCR',
         industry: 'Enterprise',
         tagline: 'High-accuracy OCR for complex document layouts',
-        description: 'Our proprietary OCR-to-Text model designed specifically for high accuracy in complex, non-standard layouts. Perfect for enterprises dealing with diverse document types, from invoices to handwritten notes.',
+        description: 'Our proprietary OCR model designed specifically for high accuracy in complex, non-standard layouts. Perfect for enterprises dealing with diverse document types, from invoices to handwritten notes.',
         features: [
             'High accuracy on complex layouts',
             'Handwriting recognition',
@@ -70,7 +70,7 @@ export const products: Product[] = [
     },
     {
         slug: 'conservatory-grade',
-        title: 'Conservatory Grade',
+        title: 'MusicGrade',
         industry: 'Music / Arts',
         tagline: 'Automated music sheet analysis and grading',
         description: 'Bridge the gap between physical performance and digital assessment with our automated music sheet analysis system. Designed for music schools, conservatories, and online music education platforms.',
@@ -99,7 +99,7 @@ export const products: Product[] = [
     },
     {
         slug: 'sentience-vision',
-        title: 'Sentience Vision',
+        title: 'SentienceVision',
         industry: 'General / Security',
         tagline: 'Real-time emotion detection for empathetic AI',
         description: 'Real-time emotion detection from static or live imagery, enabling AI systems to understand and respond to human emotions. Perfect for customer service, security, and human-robot interaction applications.',
@@ -129,7 +129,7 @@ export const products: Product[] = [
     },
     {
         slug: 'multi-doc-architect',
-        title: 'Multi-Doc Architect',
+        title: 'DocArchitect',
         industry: 'Legal / Enterprise',
         tagline: 'Synthesize insights across hundreds of documents',
         description: 'A unique pipeline that synthesizes information across hundreds of documents simultaneously. Built for legal firms, research institutions, and enterprises that need to extract insights from massive document collections.',
@@ -159,10 +159,10 @@ export const products: Product[] = [
     },
     {
         slug: 'persona-fit-engine',
-        title: 'Persona-Fit Engine',
+        title: 'PersonaFit',
         industry: 'Fashion / Retail',
         tagline: 'AI-powered virtual try-on for any body type',
-        description: 'A virtual try-on solution using AI-generated avatars of any body type or size. Reduces return rates by 40% through precise neural fabric simulation, revolutionizing online fashion retail.',
+        description: 'A virtual try-on solution using AI-generated avatars of any body type or size. Reduces return rates through precise neural fabric simulation, revolutionizing online fashion retail.',
         features: [
             'AI-generated personalized avatars',
             'Accurate body measurement from photos',
@@ -184,7 +184,7 @@ export const products: Product[] = [
             'Physics-based fabric simulation',
             'Body shape estimation from single image',
             'Real-time 3D model generation',
-            '40% reduction in return rates'
+            'Significant reduction in return rates'
         ]
     }
 ];
