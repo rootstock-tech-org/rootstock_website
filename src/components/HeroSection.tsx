@@ -42,29 +42,7 @@ export default function HeroSection() {
             Human-Aware Intelligence that blends data, emotion, and <span className="text-[#0b182f] font-semibold">real-world context</span>.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-5 justify-center pt-8 items-center"
-          >
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#about"
-              className="inline-flex items-center justify-center bg-white text-[#415b3e] border-2 border-[#415b3e] hover:bg-gray-50 text-lg px-10 py-5 rounded-full shadow-xl hover:shadow-[#415b3e]/20 transition-all font-semibold min-w-[200px]"
-            >
-              About Us
-            </motion.a>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsConsultationModalOpen(true)}
-              className="inline-flex items-center justify-center bg-white text-[#0b182f] border-2 border-[#0b182f]/10 hover:border-[#0b182f]/30 text-lg px-10 py-5 rounded-full hover:bg-gray-50 transition-all font-semibold min-w-[200px]"
-            >
-              Get Consultation
-            </motion.button>
-          </motion.div>
+
         </motion.div>
       </div>
 

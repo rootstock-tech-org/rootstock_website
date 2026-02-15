@@ -44,9 +44,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 {/* Hero Section */}
                 <section className="container mx-auto px-6 max-w-5xl mb-16">
                     <div className="text-center mb-8">
-                        <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-[#415b3e]/10 text-[#415b3e] uppercase tracking-wider mb-4">
-                            {product.industry}
-                        </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
                             {product.title}
                         </h1>

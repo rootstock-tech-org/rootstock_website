@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, company, message, preferredTime } = body;
+    const { name, email, company, message, productInterested } = body;
 
     // Validate input
     if (!name || !email || !message) {
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             ${company ? `<p><strong>Company/Organization:</strong> ${company}</p>` : ''}
-            ${preferredTime ? `<p><strong>Preferred Contact Time:</strong> ${preferredTime}</p>` : ''}
+            ${productInterested ? `<p><strong>Product Interested:</strong> ${productInterested}</p>` : ''}
             <p><strong>Requirements/Message:</strong></p>
             <p style="white-space: pre-wrap;">${message}</p>
           </div>
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Your request details:</strong></p>
             ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
-            ${preferredTime ? `<p><strong>Preferred Time:</strong> ${preferredTime}</p>` : ''}
+            ${productInterested ? `<p><strong>Product Interested:</strong> ${productInterested}</p>` : ''}
             <p><strong>Message:</strong></p>
             <p style="white-space: pre-wrap;">${message}</p>
           </div>

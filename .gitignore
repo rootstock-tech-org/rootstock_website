@@ -24,3 +24,5 @@ npm-debug.log*
 
 # Ignore archive
 Archive.zip
+.vercel
+.env*.local

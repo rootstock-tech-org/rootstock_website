@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-r from-secondary to-primary text-black py-6">
@@ -6,9 +8,9 @@ export default function Footer() {
           <div>
             <h4 className="heading-section text-black text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#home" className="transition-colors hover:text-dark">Home</a></li>
-              <li><a href="#about" className="transition-colors hover:text-dark">About Us</a></li>
-              <li><a href="#technology" className="transition-colors hover:text-dark">Technology</a></li>
+              <li><Link href="/#home" className="transition-colors hover:text-dark">Home</Link></li>
+              <li><Link href="/#about" className="transition-colors hover:text-dark">About Us</Link></li>
+              <li><Link href="/#technology" className="transition-colors hover:text-dark">Technology</Link></li>
             </ul>
           </div>
           <div>
@@ -34,7 +36,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="rounded-xl px-4 py-2 bg-dark text-white font-medium hover:bg-[#0a2f53] focus:outline-none focus:ring-2 focus:ring-white/40"
+                className="rounded-xl px-4 py-2 bg-white text-dark font-bold hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-lg transition-all"
                 aria-label="Subscribe"
                 title="Subscribe"
               >
