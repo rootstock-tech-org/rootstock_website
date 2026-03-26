@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 
 const products = [
   {
+    slug: 'finsight',
+    title: 'Finsight',
+    industry: 'Finance / Fintech',
+    description: 'Finsight enables users to upload financial inputs in multiple formats to deliver deep, actionable insights using advanced AI models.'
+  },
+  {
     slug: 'edu-stream-pipeline',
     title: 'EduStream',
     industry: 'Education / Syntex',
     description: 'A secure, multi-format (PDF/Audio/Video) ingestion pipeline that turns static content into searchable intelligence.'
-  },
-  {
-    slug: 'rt-ocr',
-    title: 'RT-OCR',
-    industry: 'Enterprise',
-    description: 'Our proprietary OCR model designed for high accuracy in complex, non-standard layouts.'
   },
   {
     slug: 'conservatory-grade',
@@ -26,12 +26,6 @@ const products = [
     title: 'SentienceVision',
     industry: 'General / Security',
     description: 'Real-time emotion detection from static or live imagery for empathetic AI interaction.'
-  },
-  {
-    slug: 'multi-doc-architect',
-    title: 'DocArchitect',
-    industry: 'Legal / Enterprise',
-    description: 'A unique pipeline that synthesizes information across hundreds of documents simultaneously.'
   },
   {
     slug: 'persona-fit-engine',

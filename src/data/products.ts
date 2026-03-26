@@ -11,6 +11,29 @@ export interface Product {
 
 export const products: Product[] = [
     {
+        slug: 'finsight',
+        title: 'Finsight',
+        industry: 'Finance / Fintech',
+        tagline: 'AI-powered finance analyzer',
+        description: 'Finsight enables users to upload financial inputs in multiple formats, including images, PDFs, stock charts, and financial reports. Using advanced AI models, the platform automatically interprets and analyzes the provided data to deliver deep, actionable insights.',
+        features: [
+            'Real-time Stock Tracking: Monitor stocks and mutual funds with live price updates',
+            'AI-Powered Analysis: Advanced algorithms for financial document analysis',
+            'Multi-channel Notifications: WhatsApp, Telegram, SMS, and Email support',
+            'Subscription Plans: Tiered pricing with different stock limits'
+        ],
+        useCases: [
+            'Multi-format Input Processing: Supports analysis of stock charts, annual reports, balance sheets, earnings documents, and screenshots.',
+            'Automated Insight Generation: Extracts and presents key highlights, important financial metrics, and critical observations from the input data.',
+            'Risk Identification: Detects potential financial risks, red flags, and weaknesses in the company or asset.'
+        ],
+        technicalHighlights: [
+            'Trend & Pattern Recognition: Identifies market trends, price patterns, and performance signals from charts and historical data.',
+            'Management & Business Analysis: Provides insights into management quality, strategic direction, and operational efficiency based on available data.',
+            'Actionable Recommendations: Converts complex financial information into clear, decision-ready insights for investors and analysts.'
+        ]
+    },
+    {
         slug: 'edu-stream-pipeline',
         title: 'EduStream',
         industry: 'Education / Syntex',
@@ -37,35 +60,6 @@ export const products: Product[] = [
             'Scalable microservices architecture',
             'Real-time processing pipeline',
             'Multi-language support'
-        ]
-    },
-    {
-        slug: 'rt-ocr',
-        title: 'RT-OCR',
-        industry: 'Enterprise',
-        tagline: 'High-accuracy OCR for complex document layouts',
-        description: 'Our proprietary OCR model designed specifically for high accuracy in complex, non-standard layouts. Perfect for enterprises dealing with diverse document types, from invoices to handwritten notes.',
-        features: [
-            'High accuracy on complex layouts',
-            'Handwriting recognition',
-            'Multi-language support (50+ languages)',
-            'Table and form extraction',
-            'Real-time processing',
-            'Cloud and on-premise deployment'
-        ],
-        useCases: [
-            'Invoice and receipt processing',
-            'Legal document digitization',
-            'Medical records extraction',
-            'Form automation',
-            'Archive digitization'
-        ],
-        technicalHighlights: [
-            'Custom-trained transformer models',
-            'Layout-aware text extraction',
-            'Confidence scoring for quality assurance',
-            'Batch processing capabilities',
-            'RESTful API integration'
         ]
     },
     {
@@ -127,36 +121,7 @@ export const products: Product[] = [
             'Multi-platform SDK (iOS, Android, Web)'
         ]
     },
-    {
-        slug: 'multi-doc-architect',
-        title: 'DocArchitect',
-        industry: 'Legal / Enterprise',
-        tagline: 'Synthesize insights across hundreds of documents',
-        description: 'A unique pipeline that synthesizes information across hundreds of documents simultaneously. Built for legal firms, research institutions, and enterprises that need to extract insights from massive document collections.',
-        features: [
-            'Cross-document information synthesis',
-            'Intelligent document clustering',
-            'Automated summarization',
-            'Entity and relationship extraction',
-            'Contradiction detection',
-            'Citation and reference tracking'
-        ],
-        useCases: [
-            'Legal case research and discovery',
-            'Due diligence for M&A',
-            'Academic literature review',
-            'Regulatory compliance analysis',
-            'Patent research',
-            'Contract analysis and comparison'
-        ],
-        technicalHighlights: [
-            'Large language model integration',
-            'Distributed processing architecture',
-            'Graph-based knowledge representation',
-            'Semantic similarity matching',
-            'Scalable to 1000+ documents'
-        ]
-    },
+
     {
         slug: 'persona-fit-engine',
         title: 'PersonaFit',

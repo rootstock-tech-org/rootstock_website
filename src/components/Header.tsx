@@ -36,11 +36,10 @@ export default function Header({ activeSection }: HeaderProps) {
   ];
 
   const products = [
+    { name: "Finsight", slug: "finsight" },
     { name: "Edu-Stream Pipeline", slug: "edu-stream-pipeline" },
-    { name: "RT-OCR", slug: "rt-ocr" },
     { name: "Conservatory Grade", slug: "conservatory-grade" },
     { name: "Sentience Vision", slug: "sentience-vision" },
-    { name: "Multi-Doc Architect", slug: "multi-doc-architect" },
     { name: "Persona-Fit Engine", slug: "persona-fit-engine" }
   ];
 
