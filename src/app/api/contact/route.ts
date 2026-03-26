@@ -78,7 +78,6 @@ export async function POST(request: NextRequest) {
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">
           <p style="color: #666; font-size: 12px;">
             RootStock Technology<br>
-            Incubation Centre, IIIT Delhi<br>
             Email: info@rootstocktech.co.in<br>
             Phone: +91 80855 22102
           </p>
