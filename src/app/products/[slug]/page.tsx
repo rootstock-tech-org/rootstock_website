@@ -190,7 +190,33 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     </div>
                 </section>
 
-                {/* CTA Section */}
+                {/* 🔥 FinSight Custom Banner */}
+                {slug === "finsight" && (
+                    <section className="container mx-auto px-6 max-w-5xl mb-16">
+                        <div
+                            className="rounded-3xl px-10 py-16 text-center shadow-xl"
+                            style={{
+                                background: "linear-gradient(135deg, #2d4a2d 0%, #1a3040 50%, #0f1f2e 100%)",
+                            }}
+                        >
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                Ready to watch DEMO
+                            </h2>
+
+
+                            <a
+                                href="https://finsight-frontend-2026.vercel.app"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-green-500 text-white font-semibold px-8 py-4 rounded-full hover:bg-green-600 transition shadow-lg"
+                            >
+                                Get Demo
+                            </a>
+                        </div>
+                    </section>
+                )}
+
+                {/* Default CTA */}
                 <section className="container mx-auto px-6 max-w-5xl">
                     <div className="bg-gradient-to-r from-[#415b3e] to-[#0b182f] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -202,6 +228,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                         <GetConsultationButton />
                     </div>
                 </section>
+
             </main>
 
             <Footer />
