@@ -29,9 +29,10 @@ const products = [
   },
   {
     slug: 'persona-fit-engine',
-    title: 'PersonaFit',
+    title: 'Virtual Fit Studio',
     industry: 'Fashion / Retail',
-    description: 'A virtual try-on solution using AI-generated avatars of any body type or size. Reduces return rates by 40% through precise neural fabric simulation.'
+    description:
+      'Size-accurate AI try-on: upload a garment, pick a size, and preview it on a matching model—built for retailers who want fewer returns and clearer fit communication.'
   }
 ];
 

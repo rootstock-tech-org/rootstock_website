@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getProductBySlug, getAllProductSlugs } from '@/data/products';
 import GetConsultationButton from '@/components/GetConsultationButton';
+import VirtualFitTryOnDemo from '@/components/VirtualFitTryOnDemo';
 
 export async function generateStaticParams() {
     const slugs = getAllProductSlugs();
@@ -62,6 +63,21 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                         </p>
                     </div>
                 </section>
+
+                {/* Live demo — Virtual Fit Studio (same API as tryon_api) */}
+                {slug === 'persona-fit-engine' && (
+                    <section className="container mx-auto px-6 max-w-5xl mb-16">
+                        <div className="text-center mb-10">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#415b3e] to-teal-700">
+                                Live virtual try-on preview
+                            </h2>
+                            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                                Upload a garment image, choose a size, and see an AI-generated preview on a matching model. Processing runs on the server with the same Gemini prompts and retry flow as our reference implementation—no separate API deployment required.
+                            </p>
+                        </div>
+                        <VirtualFitTryOnDemo />
+                    </section>
+                )}
 
                 {/* Live Demo Section - Only for Sentience Vision */}
                 {slug === 'sentience-vision' && (

@@ -40,7 +40,7 @@ export default function Header({ activeSection }: HeaderProps) {
     { name: "Edu-Stream Pipeline", slug: "edu-stream-pipeline" },
     { name: "Conservatory Grade", slug: "conservatory-grade" },
     { name: "Sentience Vision", slug: "sentience-vision" },
-    { name: "Persona-Fit Engine", slug: "persona-fit-engine" }
+    { name: "Virtual Fit Studio", slug: "persona-fit-engine" }
   ];
 
   return (

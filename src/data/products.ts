@@ -124,10 +124,11 @@ export const products: Product[] = [
 
     {
         slug: 'persona-fit-engine',
-        title: 'PersonaFit',
+        title: 'Virtual Fit Studio',
         industry: 'Fashion / Retail',
-        tagline: 'AI-powered virtual try-on for any body type',
-        description: 'A virtual try-on solution using AI-generated avatars of any body type or size. Reduces return rates through precise neural fabric simulation, revolutionizing online fashion retail.',
+        tagline: 'Size-accurate AI try-on previews for e-commerce',
+        description:
+            'Upload a garment once and preview it on size-matched models. Our pipeline analyzes the product image and generates realistic try-on visuals so shoppers can choose the right fit—reducing returns and boosting confidence at checkout.',
         features: [
             'AI-generated personalized avatars',
             'Accurate body measurement from photos',
