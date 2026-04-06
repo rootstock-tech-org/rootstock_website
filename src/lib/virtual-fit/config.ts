@@ -1,7 +1,7 @@
 /** Mirrors tryon_api/config.py (subset used by size-based try-on). */
 
-export const GENERATION_MODEL = 'gemini-3-pro-image-preview';
-export const GENERATION_MODEL_FALLBACK = 'gemini-3.1-flash-image-preview';
+export const GENERATION_MODEL: string = 'gemini-3-pro-image-preview';
+export const GENERATION_MODEL_FALLBACK: string = 'gemini-3.1-flash-image-preview';
 export const ANALYSIS_MODEL = 'gemini-2.5-flash';
 
 export const MAX_GENERATION_RETRIES = 4;
