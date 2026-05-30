@@ -9,7 +9,7 @@ export default function HeroSection() {
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[#FCFBF9]">
 
       {/* Neural Roots SVG Animation */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
@@ -24,11 +24,11 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-8 md:space-y-10"
         >
           {/* Main Heading covering multiple lines properly */}
-          <h1 className="flex flex-col items-center justify-center text-[2.5rem] sm:text-[3.6rem] md:text-[4.7rem] lg:text-[5.4rem] leading-[0.95] tracking-tight font-bold text-[#0b182f]">
+          <h1 className="flex flex-col items-center justify-center text-[2.5rem] sm:text-[3.6rem] md:text-[5rem] lg:text-[6rem] leading-[0.95] tracking-tight font-outfit font-bold text-[#0b182f]">
             <span>Intelligence</span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#415b3e] to-[#0b182f] pb-2 sm:pb-4">Engineered.</span>
           </h1>

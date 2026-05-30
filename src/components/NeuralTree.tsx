@@ -1,9 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 
 export default function NeuralTree() {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
 
     // Generate tree paths and nodes
@@ -80,6 +85,10 @@ export default function NeuralTree() {
 
         return { trunk: tPath, canopyPaths: cPaths, nodes: n, trunkTip: tTip };
     }, []);
+
+    if (!isMounted) {
+        return <div className="w-full h-full absolute inset-0 overflow-hidden"></div>;
+    }
 
     return (
         <div className="w-full h-full absolute inset-0 overflow-hidden">

@@ -6,6 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import DiscoverSection from '@/components/DiscoverSection';
 import TechnologySection from '@/components/TechnologySection';
 import EthicsSection from '@/components/EthicsSection';
+import ClientsSection from '@/components/ClientsSection';
 
 import AboutSection from '@/components/AboutSection';
 import TeamSection from '@/components/TeamSection';
@@ -61,6 +62,7 @@ export default function Home() {
         <div className="reveal"><HeroSection /></div>
         <div className="reveal"><AboutSection /></div>
         <div className="reveal"><TechnologySection /></div>
+        <div className="reveal"><ClientsSection /></div>
         {/* <div className="reveal"><TeamSection /></div> */}
         <div className="reveal"><EthicsSection /></div>
 

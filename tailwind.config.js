@@ -18,6 +18,7 @@ module.exports = {
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
+        'outfit': ['Outfit', 'sans-serif'],
       },
       colors: {
         primary: '#0b182f', // Deep Indigo (Logo)
