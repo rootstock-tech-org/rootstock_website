@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { PulsatingButton } from "@/components/magicui/pulsating-button";
 import { motion, AnimatePresence } from 'framer-motion';
 import ConsultationModal from './ConsultationModal';
+import { products } from '@/data/products';
 
 interface HeaderProps {
   activeSection: string;
@@ -31,17 +32,9 @@ export default function Header({ activeSection }: HeaderProps) {
   const navLinks = [
     { name: 'About Us', href: '/#about', id: 'about' },
     { name: 'Products', href: '/#technology', id: 'technology', dropdown: true },
-    { name: 'Blog', href: '/blog', id: 'blog' },
-    { name: 'Careers', href: '/#ethics', id: 'ethics' },
+    { name: 'Careers', href: '/careers', id: 'careers' },
   ];
 
-  const products = [
-    { name: "Finsight", slug: "finsight" },
-    { name: "Edu-Stream Pipeline", slug: "edu-stream-pipeline" },
-    { name: "Conservatory Grade", slug: "conservatory-grade" },
-    { name: "Sentience Vision", slug: "sentience-vision" },
-    { name: "Virtual Fit Studio", slug: "persona-fit-engine" }
-  ];
 
   return (
     <motion.header
@@ -129,7 +122,7 @@ export default function Header({ activeSection }: HeaderProps) {
                           href={`/products/${product.slug}`}
                           className="block px-6 py-3 text-sm text-gray-600 hover:text-[#415b3e] hover:bg-gray-50 transition-colors"
                         >
-                          {product.name}
+                          {product.title}
                         </Link>
                       ))}
                     </motion.div>

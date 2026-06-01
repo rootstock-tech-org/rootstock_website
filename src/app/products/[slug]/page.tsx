@@ -105,20 +105,20 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     </section>
                 )}
 
-                {/* Tutti Bot Demo - Only for Conservatory Grade */}
+                {/* MusicGrade Interactive Demo - Only for Conservatory Grade */}
                 {slug === 'conservatory-grade' && (
                     <section className="container mx-auto px-6 max-w-5xl mb-16">
                         <div className="text-center mb-10">
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                                Tutti bot - The Grading Tool
+                                MusicGrade - Interactive Assessment
                             </h2>
                             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                                Interact with our advanced music analysis bot. Upload your audio and score to get started.
+                                Interact with our advanced music analysis engine. Upload your audio and score to get started.
                             </p>
                         </div>
 
                         <div className="w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
-                            {/* Placeholder for Tutti Bot Demo - Replace with actual demo URL when available */}
+                            {/* Placeholder for Interactive Demo */}
                             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-12 text-center min-h-[600px] flex flex-col items-center justify-center">
                                 <div className="max-w-2xl">
                                     <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg">
@@ -128,7 +128,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                     </div>
                                     <h3 className="text-2xl font-bold text-gray-900 mb-4">Interactive Demo Coming Soon</h3>
                                     <p className="text-gray-600 mb-8">
-                                        The Tutti Bot interface features advanced music analysis with chat, performance metrics, research insights, and HRI design tools.
+                                        The MusicGrade interface features advanced music analysis with real-time feedback, performance metrics, research insights, and HRI design tools.
                                     </p>
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                                         <div className="bg-white rounded-xl p-4 shadow-sm">
@@ -206,6 +206,40 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     </div>
                 </section>
 
+                {/* Business Impact Section (Optional) */}
+                {product.businessImpact && (
+                    <section className="container mx-auto px-6 max-w-5xl mb-16">
+                        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-200">
+                            <h2 className="text-3xl font-bold text-gray-900 mb-8">Business Impact</h2>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                {product.businessImpact.map((impact, index) => (
+                                    <div key={index} className="flex items-start gap-3">
+                                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center mt-1">
+                                            <svg className="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                            </svg>
+                                        </div>
+                                        <p className="text-gray-700 leading-relaxed">{impact}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Deployment Approach Section (Optional) */}
+                {product.deploymentApproach && (
+                    <section className="container mx-auto px-6 max-w-5xl mb-16">
+                        <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-sm">
+                            <h2 className="text-3xl font-bold text-gray-900 mb-6">Deployment Approach</h2>
+                            <p className="text-lg text-gray-700 leading-relaxed">
+                                {product.deploymentApproach}
+                            </p>
+                        </div>
+                    </section>
+                )}
+
+
                 {/* 🔥 FinSight Custom Banner */}
                 {slug === "finsight" && (
                     <section className="container mx-auto px-6 max-w-5xl mb-16">
@@ -232,14 +266,105 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     </section>
                 )}
 
+                {/* Business Optimization Deep Dive & Phase II (Only for Manufacturing Products) */}
+                {product.industry === 'Manufacturing / ERP' && (
+                    <section className="container mx-auto px-6 max-w-5xl mb-16">
+                        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-200">
+                            <div className="grid lg:grid-cols-2 gap-12">
+                                {/* Summary Section */}
+                                <div>
+                                    <h3 className="text-3xl font-bold font-outfit text-gray-900 mb-4">Three solutions. Compounding returns.</h3>
+                                    <p className="text-gray-600 leading-relaxed mb-8">
+                                        Each solution delivers value independently. Together, they create an intelligent supply chain from component costing for vendor negotiation, through verified material arrival at the gate, all the way to live inventory intelligence that tells the team what to order next.
+                                    </p>
+                                    <div className="space-y-6">
+                                        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                            <h4 className="font-bold text-gray-900 mb-1">InvenSync</h4>
+                                            <p className="text-sm text-gray-600 mb-2">From reactive stock management to AI driven demand forecasting and proactive replenishment.</p>
+                                            <p className="text-sm font-semibold text-[#415b3e]">20 to 30 percent reduction in inventory carrying costs.</p>
+                                        </div>
+                                        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                            <h4 className="font-bold text-gray-900 mb-1">CostEngine</h4>
+                                            <p className="text-sm text-gray-600 mb-2">From hours of manual Excel work per component to an automated drawing to costing workflow.</p>
+                                            <p className="text-sm font-semibold text-[#415b3e]">2 to 4 hours saved per component with near zero calculation errors.</p>
+                                        </div>
+                                        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                            <h4 className="font-bold text-gray-900 mb-1">GateFlow</h4>
+                                            <p className="text-sm text-gray-600 mb-2">From manual gate entry and disconnected QC checks to a verified barcoded inbound chain.</p>
+                                            <p className="text-sm font-semibold text-[#415b3e]">Under 2 minutes gate clearance with zero re verification at QC.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Phase II Section */}
+                                <div>
+                                    <h3 className="text-3xl font-bold font-outfit text-gray-900 mb-4">What comes next</h3>
+                                    <p className="text-gray-600 leading-relaxed mb-8">
+                                        Phase II extends Business Optimization into a wider intelligent operations layer across the organization.
+                                    </p>
+                                    <ul className="space-y-4">
+                                        {[
+                                            "Unified dashboard with tailored views for HQ, regional offices, dealers, and service centres.",
+                                            "Role based access control so each location only sees the data it should.",
+                                            "Critical AI alerts for stock arrivals, dispatches, and minimum level breaches.",
+                                            "Smart triggers for custom event driven rules based on real time floor data.",
+                                            "Dealer network extension for inventory visibility across direct and indirect distribution channels."
+                                        ].map((item, idx) => (
+                                            <li key={idx} className="flex items-start gap-3">
+                                                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#415b3e]/10 flex items-center justify-center mt-0.5">
+                                                    <svg className="w-4 h-4 text-[#415b3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                                <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
+                {/* Why RootStock Technology (Only for Manufacturing Products) */}
+                {product.industry === 'Manufacturing / ERP' && (
+                    <section className="container mx-auto px-6 max-w-5xl mb-16">
+                        <div className="bg-gradient-to-r from-[#415b3e] to-[#0b182f] rounded-3xl p-8 md:p-12 border border-gray-200 shadow-2xl text-white">
+                            <div className="max-w-4xl mx-auto text-center">
+                                <h3 className="text-3xl font-bold font-outfit mb-4">Intelligence engineered for the real world.</h3>
+                                <p className="text-lg text-white/90 mb-10 leading-relaxed">
+                                    RootStock Technology builds AI grounded in how manufacturing businesses actually operate: complex, fast moving, and driven by people on the floor, not just by data in dashboards.
+                                </p>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                                    {[
+                                        "ERP native integration with existing systems.",
+                                        "Structured 3 month go live approach.",
+                                        "Explainable and auditable AI recommendations.",
+                                        "Built for non technical users.",
+                                        "Designed for manufacturing teams across India.",
+                                        "Dedicated support after deployment."
+                                    ].map((item, idx) => (
+                                        <div key={idx} className="flex items-center gap-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/10">
+                                            <svg className="w-5 h-5 text-[#7ae582] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            <span className="text-sm font-medium">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                )}
+
                 {/* Default CTA */}
                 <section className="container mx-auto px-6 max-w-5xl">
                     <div className="bg-gradient-to-r from-[#415b3e] to-[#0b182f] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Ready to Transform Your Business?
+                            {product.ctaTitle || "Ready to Transform Your Business?"}
                         </h2>
                         <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                            Let's discuss how {product.title} can help you achieve your goals.
+                            {product.ctaDescription || `Let's discuss how ${product.title} can help you achieve your goals.`}
                         </p>
                         <GetConsultationButton />
                     </div>

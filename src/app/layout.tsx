@@ -4,7 +4,6 @@ import "./carousel.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import HydrationSuppressor from "../components/HydrationSuppressor";
 
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -33,7 +32,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="antialiased">
+      <body className="antialiased bg-[#FCFBF9]">
         {/* Use HydrationSuppressor for content to avoid extension-related hydration issues */}
         <HydrationSuppressor>
           {children}

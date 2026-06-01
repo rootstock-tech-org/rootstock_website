@@ -125,7 +125,7 @@ export default function CareersPage() {
                             </div>
                             <button
                                 onClick={(e) => openApply('Project Associate', 'Full Time', e)}
-                                className="mt-4 md:mt-0 px-6 py-2.5 bg-primary text-white rounded-xl font-semibold hover:bg-[#344932] transition-colors"
+                                className="mt-4 md:mt-0 px-6 py-2.5 bg-[#415b3e] text-white rounded-xl font-semibold hover:bg-[#344932] hover:scale-105 hover:shadow-lg transition-all duration-300"
                             >
                                 Apply for this Role
                             </button>
@@ -165,7 +165,7 @@ export default function CareersPage() {
                             </div>
                             <button
                                 onClick={(e) => openApply('Intern', 'Intern', e)}
-                                className="mt-4 md:mt-0 px-6 py-2.5 bg-secondary text-white rounded-xl font-semibold hover:bg-[#12949d] transition-colors"
+                                className="mt-4 md:mt-0 px-6 py-2.5 bg-[#12949d] text-white rounded-xl font-semibold hover:bg-[#0e7c84] hover:scale-105 hover:shadow-lg transition-all duration-300"
                             >
                                 Apply for Internship
                             </button>
@@ -194,6 +194,22 @@ export default function CareersPage() {
 
             </main>
             <Footer />
+
+            {/* Permanently Visible Apply Bar */}
+            <div className="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] z-50 py-4 px-6">
+                <div className="container mx-auto max-w-5xl flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="text-center sm:text-left">
+                        <h4 className="font-bold text-gray-900">Ready to build the future?</h4>
+                        <p className="text-xs text-gray-500">Join our embodied intelligence team today.</p>
+                    </div>
+                    <button
+                        onClick={(e) => openApply('General Application', 'Full Time', e)}
+                        className="px-8 py-3 bg-[#415b3e] text-white rounded-xl font-bold shadow-lg hover:bg-[#344932] hover:scale-105 hover:shadow-xl transition-all duration-300 w-full sm:w-auto relative z-10"
+                    >
+                        Apply Now
+                    </button>
+                </div>
+            </div>
 
             {/* Modal - Reused Logic */}
             {open && isMounted && createPortal(

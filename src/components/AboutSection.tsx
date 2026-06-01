@@ -8,7 +8,7 @@ export default function AboutSection() {
     setIsVisible(true);
   }, []);
   return (
-    <section id="about" className="section section--divider divider-light relative overflow-hidden bg-[#FCFBF9]">
+    <section id="about" className="section section--divider divider-light relative overflow-hidden">
 
       <div className="container mx-auto px-6">
         {/* Title */}
@@ -16,7 +16,6 @@ export default function AboutSection() {
           <h2 className="text-4xl md:text-5xl font-bold font-outfit text-dark mb-4">About Us</h2>
         </div>
 
-        {/* Vision & Mission - timeline split */}
         <div className="relative mb-20">
           {/* vertical connector on md+ */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" aria-hidden="true"></div>
@@ -57,8 +56,6 @@ export default function AboutSection() {
               Our approach balances immediate impact with future innovation: we dedicate ourselves to deploying robust, existing AI models tailored to customer demands while consistently pushing boundaries through pure R&D in new logic pipelines and model architectures.
             </p>
           </div>
-
-
         </div>
 
 
