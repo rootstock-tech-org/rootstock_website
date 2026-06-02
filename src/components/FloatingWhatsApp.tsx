@@ -1,7 +1,7 @@
 "use client";
 
 export default function FloatingWhatsApp() {
-  const message = encodeURIComponent("Hi! I'd like to learn more about RootStock.");
+  const message = encodeURIComponent("Hi! I'd like to learn more about RootStock Technology.");
   // Using the direct API with the correct phone number format (with country code)
   const href = `https://api.whatsapp.com/send?phone=918085522102&text=${message}`;
 

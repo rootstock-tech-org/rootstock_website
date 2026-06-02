@@ -42,7 +42,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Why RootStock Exists - Refined Content */}
+        {/* Why RootStock Technology Exists - Refined Content */}
         <div className="mb-24">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold font-outfit text-gray-900 mb-6 tracking-tight">Embodied Intelligence</h3>

@@ -20,7 +20,7 @@ export default function TeamSection() {
                         </div>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">Rashmi Chawla</h3>
-                    <p className="text-primary font-medium mb-4">Head of RootStock</p>
+                    <p className="text-primary font-medium mb-4">Head of RootStock Technology</p>
                     <p className="text-gray-600 text-center max-w-2xl text-lg leading-relaxed">
                         Leading the vision to humanize AI and build systems that empower decision-making with empathy and precision.
                     </p>

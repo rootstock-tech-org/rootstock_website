@@ -16,7 +16,7 @@ const builtin = [
       
       <p>In the rapidly evolving landscape of artificial intelligence, the most promising path forward isn't AI replacing humans—it's AI collaborating with humans. This partnership approach combines the strengths of both: human creativity, ethical judgment, and contextual understanding with AI's processing power, pattern recognition, and tireless consistency.</p>
       
-      <p>At RootStock, we've been exploring these partnerships across several domains:</p>
+      <p>At RootStock Technology, we've been exploring these partnerships across several domains:</p>
       
       <h3>Decision Support in Finance</h3>
       
@@ -69,7 +69,7 @@ const builtin = [
         <li><strong>Emotional Memory:</strong> Maintaining awareness of emotional patterns across interactions</li>
       </ul>
       
-      <p>At RootStock, our research has focused particularly on developing these capabilities for financial advisory contexts, where emotional factors often drive decision-making as much as rational analysis.</p>
+      <p>At RootStock Technology, our research has focused particularly on developing these capabilities for financial advisory contexts, where emotional factors often drive decision-making as much as rational analysis.</p>
       
       <h3>Case Study: Emotion-Aware Investment Advising</h3>
       
@@ -108,7 +108,7 @@ const builtin = [
     content: `
       <h2>Case Studies & Technical Whitepapers</h2>
       
-      <p>At RootStock, we believe in sharing our research and implementation insights with the broader community. This collection highlights some of our recent case studies and technical whitepapers on AI implementation in financial services.</p>
+      <p>At RootStock Technology, we believe in sharing our research and implementation insights with the broader community. This collection highlights some of our recent case studies and technical whitepapers on AI implementation in financial services.</p>
       
       <h3>Case Study: Implementing Explainable AI for Credit Decisions</h3>
       

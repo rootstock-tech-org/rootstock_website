@@ -33,7 +33,7 @@ export default function DiscoverSection() {
       <div className="container mx-auto px-4 sm:px-6">
         {/* Heading */}
         <div className="text-center mb-8 sm:mb-10 reveal">
-          <h2 className="heading-section text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-3">Discover RootStock</h2>
+          <h2 className="heading-section text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-3">Discover RootStock Technology</h2>
           <p className="lead text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
             Explore our vision and see how FinSight brings it to life for Indian investors
           </p>

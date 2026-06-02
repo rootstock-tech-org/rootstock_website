@@ -34,7 +34,7 @@ const posts: Post[] = [
   },
   {
     title: "Teaching Machines to Feel Responsibly",
-    excerpt: "RootStock’s EI research fuses empathy with computation, exploring how AI can respond with emotional awareness — bridging the gap between logic and human connection.",
+    excerpt: "RootStock Technology's EI research fuses empathy with computation, exploring how AI can respond with emotional awareness — bridging the gap between logic and human connection.",
     readTime: "Research",
     category: "Emotional Intelligence",
     image: "/Tech/Human-Robot Collaboration.png",
