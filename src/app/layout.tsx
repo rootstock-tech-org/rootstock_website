@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const departureMono = localFont({
+  src: "./fonts/DepartureMono-Regular.woff2",
+  variable: "--font-departure-mono",
+  display: "swap",
+});
 import "./carousel.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import HydrationSuppressor from "../components/HydrationSuppressor";
+import RootstockMascot from "../components/RootstockMascot";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -32,11 +40,12 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="antialiased bg-[#FCFBF9]">
+      <body className={`antialiased bg-[#FCFBF9] ${departureMono.variable}`}>
         {/* Use HydrationSuppressor for content to avoid extension-related hydration issues */}
         <HydrationSuppressor>
           {children}
           <FloatingWhatsApp />
+          <RootstockMascot />
         </HydrationSuppressor>
       </body>
     </html>

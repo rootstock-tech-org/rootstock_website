@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -24,8 +24,10 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #FCFBF9;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Merriweather', Georgia, serif;
   overflow-x: hidden;
+  line-height: 1.6;
+  text-wrap: pretty;
 }
 
 * {
@@ -250,19 +252,7 @@ html {
 
 /* Section rhythm and subtle separators */
 .section {
-  padding: var(--section-y) 0;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: 6rem 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding: 8rem 0;
-  }
+  padding: clamp(4rem, 8vw, 8rem) 0;
 }
 
 .section--divider {

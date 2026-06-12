@@ -52,7 +52,7 @@ export default function Header({ activeSection }: HeaderProps) {
           }
         `}>
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group z-50 pl-2">
+          <Link href="/" className="flex items-center space-x-3 group z-50 pl-2 font-mono">
             <motion.div
               layout
               transition={{ duration: 0.3 }}
@@ -84,7 +84,7 @@ export default function Header({ activeSection }: HeaderProps) {
                 <Link
                   href={link.href}
                   className={`
-                    flex items-center gap-1 px-5 py-2 text-sm font-medium rounded-full transition-all duration-200
+                    flex items-center gap-1 px-5 py-2 text-sm font-normal pixel-font uppercase tracking-[0.15em] rounded-full transition-all duration-200
                     ${activeSection === link.id
                       ? 'text-gray-900'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'
@@ -181,7 +181,7 @@ export default function Header({ activeSection }: HeaderProps) {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block px-5 py-3.5 rounded-[1.25rem] font-medium transition-colors ${activeSection === link.id ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50'}`}
+                    className={`block px-5 py-3.5 rounded-[1.25rem] font-normal pixel-font uppercase tracking-[0.15em] transition-colors ${activeSection === link.id ? 'bg-primary/5 text-primary' : 'text-gray-600 hover:bg-gray-50'}`}
                   >
                     {link.name}
                   </Link>

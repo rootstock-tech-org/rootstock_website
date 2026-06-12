@@ -17,8 +17,8 @@ module.exports = {
         // '2xl': '1536px',
       },
       fontFamily: {
-        'inter': ['Inter', 'sans-serif'],
-        'outfit': ['Outfit', 'sans-serif'],
+        'serif': ['"Merriweather"', 'Georgia', 'serif'],
+        'mono': ['var(--font-departure-mono)', '"JetBrains Mono"', 'monospace'],
       },
       colors: {
         primary: '#0b182f', // Deep Indigo (Logo)

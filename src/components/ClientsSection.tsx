@@ -7,7 +7,7 @@ import React from 'react';
 const clients = [
   {
     name: "Definedge Securities",
-    logo: "/client_logos/definedge.jpg",
+    logo: "/client_logos/definedge.png",
   },
   {
     name: "ACE",
@@ -90,7 +90,7 @@ export default function ClientsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="heading-section text-4xl md:text-5xl font-outfit text-gray-900 mb-4 tracking-tight"
+            className="heading-section text-4xl md:text-5xl font-serif text-gray-900 mb-4 tracking-tight"
           >
             Our Clients
           </motion.h2>

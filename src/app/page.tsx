@@ -56,7 +56,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen text-gray-900 font-inter w-full relative">
+    <div className="min-h-screen text-gray-900 font-serif w-full relative">
       <div>
         <Header activeSection={activeSection} />
         <div className="reveal"><HeroSection /></div>

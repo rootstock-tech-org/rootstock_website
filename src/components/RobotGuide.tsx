@@ -97,7 +97,7 @@ export default function RobotGuide() {
             transition={{ duration: 0.2 }}
             className="absolute top-4 left-0 bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl rounded-tr-none shadow-xl border border-gray-100 whitespace-nowrap"
           >
-            <p className="text-sm font-semibold font-outfit text-gray-800">
+            <p className="text-sm font-semibold font-serif text-gray-800">
               Need help navigating?
             </p>
           </motion.div>

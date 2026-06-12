@@ -98,7 +98,7 @@ export default function CareersPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-900 font-inter">
+        <div className="min-h-screen bg-gray-50 text-gray-900 font-serif">
             <Header activeSection="careers" />
 
             <main className="pt-32 pb-20 container mx-auto px-6 max-w-5xl">

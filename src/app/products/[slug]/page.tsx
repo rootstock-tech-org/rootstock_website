@@ -38,7 +38,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     }
 
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-900 font-inter">
+        <div className="min-h-screen bg-gray-50 text-gray-900 font-serif">
             <Header activeSection="technology" />
 
             <main className="pt-32 pb-20">
@@ -273,7 +273,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                             <div className="grid lg:grid-cols-2 gap-12">
                                 {/* Summary Section */}
                                 <div>
-                                    <h3 className="text-3xl font-bold font-outfit text-gray-900 mb-4">Three solutions. Compounding returns.</h3>
+                                    <h3 className="text-3xl font-bold font-serif text-gray-900 mb-4">Three solutions. Compounding returns.</h3>
                                     <p className="text-gray-600 leading-relaxed mb-8">
                                         Each solution delivers value independently. Together, they create an intelligent supply chain from component costing for vendor negotiation, through verified material arrival at the gate, all the way to live inventory intelligence that tells the team what to order next.
                                     </p>
@@ -298,7 +298,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                                 {/* Phase II Section */}
                                 <div>
-                                    <h3 className="text-3xl font-bold font-outfit text-gray-900 mb-4">What comes next</h3>
+                                    <h3 className="text-3xl font-bold font-serif text-gray-900 mb-4">What comes next</h3>
                                     <p className="text-gray-600 leading-relaxed mb-8">
                                         Phase II extends Business Optimization into a wider intelligent operations layer across the organization.
                                     </p>
@@ -331,7 +331,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     <section className="container mx-auto px-6 max-w-5xl mb-16">
                         <div className="bg-gradient-to-r from-[#415b3e] to-[#0b182f] rounded-3xl p-8 md:p-12 border border-gray-200 shadow-2xl text-white">
                             <div className="max-w-4xl mx-auto text-center">
-                                <h3 className="text-3xl font-bold font-outfit mb-4">Intelligence engineered for the real world.</h3>
+                                <h3 className="text-3xl font-bold font-serif mb-4">Intelligence engineered for the real world.</h3>
                                 <p className="text-lg text-white/90 mb-10 leading-relaxed">
                                     RootStock Technology builds AI grounded in how manufacturing businesses actually operate: complex, fast moving, and driven by people on the floor, not just by data in dashboards.
                                 </p>
