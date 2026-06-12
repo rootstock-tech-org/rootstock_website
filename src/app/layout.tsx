@@ -10,7 +10,6 @@ const departureMono = localFont({
 import "./carousel.css";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import HydrationSuppressor from "../components/HydrationSuppressor";
-import RootstockMascot from "../components/RootstockMascot";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -45,7 +44,6 @@ export default function RootLayout({
         <HydrationSuppressor>
           {children}
           <FloatingWhatsApp />
-          <RootstockMascot />
         </HydrationSuppressor>
       </body>
     </html>
