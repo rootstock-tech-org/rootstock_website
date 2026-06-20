@@ -9,10 +9,10 @@ const clients = [
     name: "Definedge Securities",
     logo: "/client_logos/definedge.png",
   },
-  {
-    name: "ACE",
-    logo: "/client_logos/ace.png",
-  },
+  // {
+  //   name: "ACE",
+  //   logo: "/client_logos/ace.png",
+  // },
   {
     name: "Saket Metal Technocraft",
     logo: "/client_logos/saket_metal.jpeg",
@@ -100,7 +100,7 @@ export default function ClientsSection() {
         </div>
 
         {/* Client logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 lg:gap-12 max-w-4xl mx-auto">
           {clients.map((client, idx) => (
             <ClientCard key={idx} logo={client.logo} name={client.name} index={idx} />
           ))}
