@@ -23,68 +23,54 @@ const clients = [
   }
 ];
 
-const ClientCard = ({ logo, name, index }: { logo: string; name: string; index: number }) => {
-  return (
-    <motion.div 
-      className="flex flex-col items-center group cursor-pointer relative"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="relative w-full h-28 md:h-36 lg:h-40 z-10">
-        
-        {/* Animated Background Glow (Behind the glass pane) */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 flex items-center justify-center">
-          {/* Light Green Orb - Clockwise */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-            className="absolute w-[60%] h-[60%]"
-          >
-            <div className="absolute top-0 right-0 w-[70%] h-[70%] bg-[#7ae582] blur-2xl rounded-full opacity-20" />
-          </motion.div>
+// Repeat the set so the ribbon fills wide screens, then render it twice for a
+// seamless -50% loop.
+const loop = [...clients, ...clients, ...clients, ...clients];
 
-          {/* Cyan Orb - Counter-clockwise */}
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-            className="absolute w-[60%] h-[60%]"
-          >
-            <div className="absolute bottom-0 left-0 w-[70%] h-[70%] bg-[#16BAC5] blur-2xl rounded-full opacity-20" />
-          </motion.div>
-        </div>
-
-        {/* Pure Frosted Glass Card */}
-        <div className="relative w-full h-full flex items-center justify-center p-6 bg-white/80 backdrop-blur-3xl rounded-2xl z-10 border border-gray-100 transition-all duration-500 overflow-hidden">
-          
-          {/* Logo with subtle spring animation */}
-          <motion.img 
-            whileHover={{ scale: 1.08 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            src={logo} 
-            alt={name} 
-            className="relative z-20 max-w-full max-h-full object-contain drop-shadow-sm mix-blend-multiply" 
-            onError={(e) => { e.currentTarget.src = '/globe.svg'; }} 
-          />
-        </div>
-      </div>
-      
-      <span className="mt-6 text-sm font-semibold tracking-wide text-gray-500 group-hover:text-gray-900 transition-colors text-center">
-        {name}
-      </span>
-    </motion.div>
-  );
-};
+const LogoPill = ({ logo, name }: { logo: string; name: string }) => (
+  <div className="group shrink-0 mx-4 md:mx-5">
+    <div className="relative flex items-center justify-center h-28 w-52 md:h-32 md:w-64 rounded-2xl bg-white/80 backdrop-blur-xl border border-[#D4C9B8]/50 shadow-sm transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_20px_45px_-15px_rgba(22,186,197,0.35)] group-hover:border-[#16BAC5]/40 overflow-hidden">
+      {/* Hover glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-[#7ae582]/10 via-transparent to-[#16BAC5]/10" />
+      <img
+        src={logo}
+        alt={name}
+        className="relative z-10 max-h-14 md:max-h-16 max-w-[72%] object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 mix-blend-multiply"
+        onError={(e) => { e.currentTarget.src = '/globe.svg'; }}
+      />
+    </div>
+    <span className="block mt-3 text-center text-xs font-semibold tracking-wide text-gray-400 group-hover:text-gray-800 transition-colors duration-500">
+      {name}
+    </span>
+  </div>
+);
 
 export default function ClientsSection() {
   return (
-    <section id="clients" className="section section--divider divider-light pt-10 pb-24 bg-[#FCFBF9] overflow-hidden relative">
+    <section id="clients" className="section section--divider divider-light pt-10 pb-24 bg-[#F2F2F0] overflow-hidden relative">
+      {/* Marquee animation + hover pause */}
+      <style>{`
+        @keyframes clients-marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .clients-marquee-track {
+          animation: clients-marquee 32s linear infinite;
+          width: max-content;
+        }
+        .clients-marquee:hover .clients-marquee-track {
+          animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .clients-marquee-track { animation: none; }
+        }
+      `}</style>
+
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#7ae582]/5 blur-[120px] rounded-[100%] pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
+      <div className="relative z-10">
+        <div className="text-center mb-14 px-6">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -95,17 +81,30 @@ export default function ClientsSection() {
             Our Clients
           </motion.h2>
           <p className="lead text-xl text-gray-700 max-w-3xl mx-auto">
-            Partnering with industry leaders to deliver innovative solutions.
+            Trusted by industry leaders to deliver innovative solutions.
           </p>
         </div>
 
-        {/* Client logos Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 lg:gap-12 max-w-4xl mx-auto">
-          {clients.map((client, idx) => (
-            <ClientCard key={idx} logo={client.logo} name={client.name} index={idx} />
-          ))}
-        </div>
+        {/* Infinite marquee ribbon */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="clients-marquee relative w-full"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+          }}
+        >
+          <div className="clients-marquee-track flex items-center py-4">
+            {[...loop, ...loop].map((client, idx) => (
+              <LogoPill key={idx} logo={client.logo} name={client.name} />
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+

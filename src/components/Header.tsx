@@ -30,9 +30,12 @@ export default function Header({ activeSection }: HeaderProps) {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '/', id: 'home' },
+    { name: 'Solutions', href: '/#technology', id: 'technology', dropdown: true },
+    { name: 'Products', href: '/#technology', id: 'products' },
     { name: 'About Us', href: '/#about', id: 'about' },
-    { name: 'Products', href: '/#technology', id: 'technology', dropdown: true },
     { name: 'Careers', href: '/careers', id: 'careers' },
+    { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
 
@@ -47,7 +50,7 @@ export default function Header({ activeSection }: HeaderProps) {
         <div className={`
           relative flex justify-between items-center transition-all duration-300 
           ${isScrolled
-            ? 'bg-white/70 backdrop-blur-xl border border-gray-200/50 shadow-sm px-6 py-3 rounded-full'
+            ? 'bg-[#F0E8DC]/80 backdrop-blur-xl border border-[#D4C9B8]/60 shadow-sm px-6 py-3 rounded-full'
             : 'bg-transparent px-4 py-3'
           }
         `}>
@@ -73,7 +76,7 @@ export default function Header({ activeSection }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1 p-1.5 bg-gray-50/50 backdrop-blur-sm rounded-full border border-gray-100/50 absolute left-1/2 -translate-x-1/2">
+          <div className="hidden lg:flex items-center space-x-1 p-1.5 bg-[#E8DFD0]/60 backdrop-blur-sm rounded-full border border-[#D4C9B8]/50 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <div
                 key={link.name}
@@ -137,9 +140,12 @@ export default function Header({ activeSection }: HeaderProps) {
             <div className="hidden lg:block">
               <button
                 onClick={() => setIsConsultationModalOpen(true)}
-                className="btn bg-white text-[#415b3e] border border-[#415b3e] hover:bg-gray-50 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm px-6 py-2.5 rounded-full font-semibold"
+                className="inline-flex items-center gap-2 bg-[#3a6b38] text-white hover:bg-[#2d5a2c] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all text-sm px-6 py-2.5 rounded-full font-semibold"
               >
-                Get Consultation
+                Let&apos;s Connect
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </button>
             </div>
 
@@ -192,9 +198,9 @@ export default function Header({ activeSection }: HeaderProps) {
                       setIsConsultationModalOpen(true);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="block w-full text-center bg-white text-[#415b3e] border border-[#415b3e] font-semibold py-4 rounded-[1.5rem] shadow-lg active:scale-95 transition-transform hover:bg-gray-50"
+                    className="block w-full text-center bg-[#3a6b38] text-white font-semibold py-4 rounded-[1.5rem] shadow-lg active:scale-95 transition-transform hover:bg-[#2d5a2c]"
                   >
-                    Get Consultation
+                    Let&apos;s Connect
                   </button>
                 </div>
               </div>

@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import DiscoverSection from '@/components/DiscoverSection';
 import TechnologySection from '@/components/TechnologySection';
+import ProcessSection from '@/components/ProcessSection';
 import EthicsSection from '@/components/EthicsSection';
 import ClientsSection from '@/components/ClientsSection';
 
@@ -12,6 +13,8 @@ import AboutSection from '@/components/AboutSection';
 import TeamSection from '@/components/TeamSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import SmoothScroll from '@/components/SmoothScroll';
+import CursorSpotlight from '@/components/CursorSpotlight';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
@@ -57,11 +60,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen text-gray-900 font-serif w-full relative">
+      <SmoothScroll />
+      <CursorSpotlight />
       <div>
         <Header activeSection={activeSection} />
         <div className="reveal"><HeroSection /></div>
         <div className="reveal"><AboutSection /></div>
-        <div className="reveal"><TechnologySection /></div>
+        <TechnologySection />
+        <div className="reveal"><ProcessSection /></div>
         <div className="reveal"><ClientsSection /></div>
         {/* <div className="reveal"><TeamSection /></div> */}
         <div className="reveal"><EthicsSection /></div>
