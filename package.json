@@ -15,7 +15,7 @@
     "@google/genai": "^1.30.0",
     "framer-motion": "^12.23.12",
     "next": "^16.1.1",
-    "nodemailer": "^8.0.1",
+    "nodemailer": "^9.0.1",
     "particles.js": "^2.0.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
