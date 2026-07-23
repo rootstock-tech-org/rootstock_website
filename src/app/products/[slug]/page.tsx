@@ -240,7 +240,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 )}
 
 
-                {/* 🔥 FinSight Custom Banner */}
+                {/* FinSight Custom Banner */}
                 {slug === "finsight" && (
                     <section className="container mx-auto px-6 max-w-5xl mb-16">
                         <div

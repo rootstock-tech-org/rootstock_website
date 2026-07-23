@@ -244,16 +244,13 @@ export default function AboutSection() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center gap-6"
           >
-            {/* Rootie on a professional showcase stage */}
+            {/* Rootie standing freely — no panel/box */}
             <div className="relative w-[300px] sm:w-[340px] md:w-[380px] aspect-[4/5]">
-              {/* Backdrop panel */}
-              <div className="absolute inset-0 rounded-[28px] bg-gradient-to-b from-white/75 via-white/45 to-[#e9efe6]/70 border border-[#D4C9B8]/60 shadow-[0_24px_60px_-26px_rgba(20,50,20,0.28)] overflow-hidden">
-                <div className="absolute top-8 left-1/2 -translate-x-1/2 w-44 h-44 rounded-full bg-[#7ae582]/15 blur-3xl" />
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-52 h-24 rounded-full bg-[#16BAC5]/10 blur-3xl" />
-              </div>
+              {/* Soft ambient glow behind the mascot */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full bg-[#7ae582]/12 blur-3xl pointer-events-none" />
 
               {/* Ground shadow — keeps Rootie grounded, not floating */}
-              <div className="absolute bottom-[26px] left-1/2 -translate-x-1/2 w-28 h-4 rounded-[100%] bg-black/20 blur-md" />
+              <div className="absolute bottom-[26px] left-1/2 -translate-x-1/2 w-28 h-4 rounded-[100%] bg-black/15 blur-md" />
 
               {/* Mascot */}
               <div className="absolute inset-0 flex items-end justify-center pb-8" style={{ perspective: 800 }}>
@@ -263,7 +260,7 @@ export default function AboutSection() {
                   style={{ rotateX: prefersReducedMotion ? 0 : rotX, rotateY: prefersReducedMotion ? 0 : rotY, transformStyle: 'preserve-3d' }}
                 >
                   <Image
-                    src="/rootie_front.png"
+                    src="/rootie_wave.png"
                     alt="Rootie — RootStock AI Mascot"
                     width={420}
                     height={500}

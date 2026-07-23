@@ -9,7 +9,7 @@ interface Message {
   text: string;
 }
 
-// Cropped avatar — zooms into Rootie + laptop center, cuts lamp & pens
+// Cropped avatar — zooms into Rootie's face from the laptop artwork
 const RootieAvatar = ({ size }: { size: number }) => (
   <div
     className="rounded-full flex-shrink-0"
@@ -17,19 +17,19 @@ const RootieAvatar = ({ size }: { size: number }) => (
       width: size,
       height: size,
       backgroundImage: 'url(/rootie_desk.png)',
-      backgroundSize: '240%',
-      backgroundPosition: '54% 36%',
+      backgroundSize: '150%',
+      backgroundPosition: '64% 16%',
       backgroundRepeat: 'no-repeat',
     }}
   />
 );
 
 const SECTION_MESSAGES: Record<string, string> = {
-  about: "This is who we are — builders of intelligence! 🧠",
-  technology: "These are our AI products across 4 domains 🚀",
-  clients: "Amazing companies trust us with their AI journey 🤝",
-  ethics: "We're hiring! Come build the future with us 🌱",
-  contact: "Ready to connect? I'll get the team to you 📬",
+  about: "This is who we are — builders of intelligence!",
+  technology: "These are our AI products across 4 domains",
+  clients: "Amazing companies trust us with their AI journey",
+  ethics: "We're hiring! Come build the future with us",
+  contact: "Ready to connect? I'll get the team to you",
 };
 
 export default function RootieChat() {
@@ -134,7 +134,7 @@ export default function RootieChat() {
         }, 700);
       }
     } catch {
-      setMessages(p => [...p, { role: 'rootie', text: "Oops, give me a sec! 🌿" }]);
+      setMessages(p => [...p, { role: 'rootie', text: "Oops, give me a sec!" }]);
     } finally {
       setLoading(false);
     }
@@ -314,7 +314,7 @@ export default function RootieChat() {
               transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               className="relative bg-white rounded-2xl px-5 py-3 shadow-xl border border-gray-100"
             >
-              <p className="text-sm font-semibold text-gray-800">Hi there! 👋</p>
+              <p className="text-sm font-semibold text-gray-800">Hi there!</p>
               <p className="text-xs text-gray-500 mt-0.5">I'll guide you through the site</p>
               {/* bubble tail */}
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-r border-b border-gray-100 rotate-45" />

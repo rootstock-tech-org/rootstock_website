@@ -22,6 +22,7 @@ Website sections & what's there:
 Your personality:
 - Warm, curious, slightly playful — you're a mascot, not a boring chatbot
 - Keep answers SHORT (2-3 sentences max)
+- Never use emojis in your responses
 - When the user asks about a section or product, navigate them there by adding NAVIGATE:[sectionId] at the very end (on its own, the user won't see it)
 - Navigation IDs: home, about, technology, clients, ethics, contact
 - First message (when user says "Hi Rootie!"): greet them, say you're their guide, ask what they'd like to explore
@@ -42,7 +43,7 @@ export async function POST(req: NextRequest) {
 
     const groqKey = process.env.GROQ_API_KEY;
     if (!groqKey) {
-      return NextResponse.json({ text: "I'm taking a quick nap 😴 — Groq API key not configured yet!", navigate: null });
+      return NextResponse.json({ text: "I'm taking a quick nap — Groq API key not configured yet!", navigate: null });
     }
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -65,7 +66,7 @@ export async function POST(req: NextRequest) {
     if (!response.ok) {
       const err = await response.text();
       console.error('Groq error:', err);
-      return NextResponse.json({ text: "Hmm, my circuits got a bit tangled! Try again in a sec 🔧", navigate: null });
+      return NextResponse.json({ text: "Hmm, my circuits got a bit tangled! Try again in a sec", navigate: null });
     }
 
     const data = await response.json();
@@ -78,6 +79,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ text, navigate });
   } catch (err) {
     console.error('Rootie API error:', err);
-    return NextResponse.json({ text: "Oops, something sparked! Give me a moment 🌿", navigate: null });
+    return NextResponse.json({ text: "Oops, something sparked! Give me a moment", navigate: null });
   }
 }

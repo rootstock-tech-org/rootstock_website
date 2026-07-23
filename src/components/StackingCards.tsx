@@ -150,7 +150,7 @@ const CARDS = [
     body: () => (
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-[#d97706] bg-[#d9770612] px-3 py-1 rounded-full">🔥 High Intent</span>
+          <span className="text-xs font-bold text-[#d97706] bg-[#d9770612] px-3 py-1 rounded-full">High Intent</span>
           <span className="text-[11px] text-gray-400">Last 7 days</span>
         </div>
         {[
