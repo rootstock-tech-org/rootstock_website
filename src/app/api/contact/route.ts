@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #415b3e;">New Contact Form Submission</h2>
+          <h2 style="color: #2e5335;">New Contact Form Submission</h2>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
       subject: 'Thank you for contacting RootStock Technology',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #415b3e;">Thank You for Reaching Out!</h2>
+          <h2 style="color: #2e5335;">Thank You for Reaching Out!</h2>
           <p>Dear ${name},</p>
           <p>We've received your message and appreciate you taking the time to contact us.</p>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
             <p style="white-space: pre-wrap;">${message}</p>
           </div>
           <p>Our team will review your inquiry and get back to you within 24-48 hours.</p>
-          <p>In the meantime, feel free to explore our products and services at <a href="https://rootstocktech.co.in" style="color: #415b3e;">rootstocktech.co.in</a>.</p>
+          <p>In the meantime, feel free to explore our products and services at <a href="https://rootstocktech.co.in" style="color: #2e5335;">rootstocktech.co.in</a>.</p>
           <br>
           <p>Best regards,<br><strong>RootStock Technology Team</strong></p>
           <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;">

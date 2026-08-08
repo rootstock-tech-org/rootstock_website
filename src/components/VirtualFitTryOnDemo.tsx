@@ -104,7 +104,7 @@ export default function VirtualFitTryOnDemo() {
                                 type="file"
                                 accept="image/jpeg,image/png,image/webp,image/gif"
                                 onChange={onFileChange}
-                                className="block w-full cursor-pointer text-sm text-gray-600 file:mr-4 file:rounded-lg file:border-0 file:bg-[#415b3e]/10 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#415b3e] hover:file:bg-[#415b3e]/15"
+                                className="block w-full cursor-pointer text-sm text-gray-600 file:mr-4 file:rounded-lg file:border-0 file:bg-[#2e5335]/10 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-[#2e5335] hover:file:bg-[#2e5335]/15"
                             />
                             <p className="mt-2 text-xs text-gray-500">JPEG or PNG (max 20MB). Requires size model images in the project (see deployment notes).</p>
                         </div>
@@ -117,7 +117,7 @@ export default function VirtualFitTryOnDemo() {
                                 id="vf-size"
                                 value={size}
                                 onChange={(e) => setSize(e.target.value)}
-                                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 outline-none ring-[#415b3e] focus:ring-2"
+                                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-900 outline-none ring-[#2e5335] focus:ring-2"
                             >
                                 {SIZES.map((s) => (
                                     <option key={s} value={s}>
@@ -131,7 +131,7 @@ export default function VirtualFitTryOnDemo() {
                             type="button"
                             onClick={() => void generate()}
                             disabled={!file || loading}
-                            className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#415b3e] to-[#2d4030] px-6 py-3.5 font-semibold text-white shadow-md transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#2e5335] to-[#2d4030] px-6 py-3.5 font-semibold text-white shadow-md transition hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-50"
                         >
                             {loading ? (
                                 <span className="flex items-center gap-2">

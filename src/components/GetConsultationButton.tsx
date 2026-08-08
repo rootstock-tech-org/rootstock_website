@@ -10,7 +10,7 @@ export default function GetConsultationButton() {
         <>
             <button
                 onClick={() => setIsOpen(true)}
-                className="inline-flex items-center justify-center bg-white text-[#415b3e] font-semibold text-lg px-8 py-4 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="inline-flex items-center justify-center bg-white text-[#2e5335] font-semibold text-lg px-8 py-4 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
                 Get Consultation
                 <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

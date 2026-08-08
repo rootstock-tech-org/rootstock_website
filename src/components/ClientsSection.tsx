@@ -29,9 +29,9 @@ const loop = [...clients, ...clients, ...clients, ...clients];
 
 const LogoPill = ({ logo, name }: { logo: string; name: string }) => (
   <div className="group shrink-0 mx-4 md:mx-5">
-    <div className="relative flex items-center justify-center h-28 w-52 md:h-32 md:w-64 rounded-2xl bg-white/80 backdrop-blur-xl border border-[#D4C9B8]/50 shadow-sm transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_20px_45px_-15px_rgba(22,186,197,0.35)] group-hover:border-[#16BAC5]/40 overflow-hidden">
+    <div className="relative flex items-center justify-center h-28 w-52 md:h-32 md:w-64 rounded-2xl bg-white/80 backdrop-blur-xl border border-[#e5e7eb]/50 shadow-sm transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_20px_45px_-15px_rgba(47, 168, 216,0.35)] group-hover:border-[#2fa8d8]/40 overflow-hidden">
       {/* Hover glow */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-[#7ae582]/10 via-transparent to-[#16BAC5]/10" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-[#35c8ff]/10 via-transparent to-[#2fa8d8]/10" />
       <img
         src={logo}
         alt={name}
@@ -47,7 +47,7 @@ const LogoPill = ({ logo, name }: { logo: string; name: string }) => (
 
 export default function ClientsSection() {
   return (
-    <section id="clients" className="section section--divider divider-light pt-10 pb-24 bg-[#F2F2F0] overflow-hidden relative">
+    <section id="clients" className="section section--divider divider-light pt-10 pb-24 bg-[#f7f8fa] overflow-hidden relative">
       {/* Marquee animation + hover pause */}
       <style>{`
         @keyframes clients-marquee {
@@ -67,7 +67,7 @@ export default function ClientsSection() {
       `}</style>
 
       {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#7ae582]/5 blur-[120px] rounded-[100%] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#35c8ff]/5 blur-[120px] rounded-[100%] pointer-events-none" />
 
       <div className="relative z-10">
         <div className="text-center mb-14 px-6">

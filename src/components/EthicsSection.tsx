@@ -103,7 +103,7 @@ export default function EthicsSection() {
                     <span className="text-xs font-semibold tracking-wide text-gray-700">We're hiring</span>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-extrabold mt-3 leading-tight">
-                    <span className="text-[#415b3e]">Join our mission</span>
+                    <span className="text-[#2e5335]">Join our mission</span>
                     <span className="text-gray-900"> to build ethical, transparent AI</span>
                   </h3>
                   <p className="text-sm md:text-base text-gray-600 mt-3 max-w-2xl">

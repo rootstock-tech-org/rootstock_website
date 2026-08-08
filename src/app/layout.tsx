@@ -39,7 +39,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`antialiased bg-[#F2F2F0] ${departureMono.variable}`}>
+      <body className={`antialiased bg-[#f7f8fa] ${departureMono.variable}`}>
         {/* Use HydrationSuppressor for content to avoid extension-related hydration issues */}
         <HydrationSuppressor>
           {children}

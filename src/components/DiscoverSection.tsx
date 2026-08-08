@@ -62,11 +62,11 @@ export default function DiscoverSection() {
               <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                 <li className="flex items-start gap-3 reveal"><span className="text-secondary mt-1">•</span><span className="text-sm sm:text-base">Context-first AI that blends data, signals, and human factors</span></li>
                 <li className="flex items-start gap-3 reveal"><span className="text-primary mt-1">•</span><span className="text-sm sm:text-base">Transparent, ethical, and explainable outcomes</span></li>
-                <li className="flex items-start gap-3 reveal"><span className="text-[#5FBFF9] mt-1">•</span><span className="text-sm sm:text-base">Built for real-world decisions, not just dashboards</span></li>
+                <li className="flex items-start gap-3 reveal"><span className="text-[#35c8ff] mt-1">•</span><span className="text-sm sm:text-base">Built for real-world decisions, not just dashboards</span></li>
               </ul>
               <div className="flex flex-col items-center gap-3">
-                <a href="#about" className="btn bg-white text-[#415b3e] border border-[#415b3e] hover:bg-gray-50 animate-pulse-glow text-sm sm:text-base px-6 py-2 rounded-full font-semibold">Learn More</a>
-                <a href="#demo" className="btn text-gray-600 hover:text-[#415b3e] text-sm sm:text-base font-medium">See a 30-sec Demo</a>
+                <a href="#about" className="btn bg-white text-[#2e5335] border border-[#2e5335] hover:bg-gray-50 animate-pulse-glow text-sm sm:text-base px-6 py-2 rounded-full font-semibold">Learn More</a>
+                <a href="#demo" className="btn text-gray-600 hover:text-[#2e5335] text-sm sm:text-base font-medium">See a 30-sec Demo</a>
               </div>
             </div>
           </div>
@@ -92,11 +92,11 @@ export default function DiscoverSection() {
               <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                 <li className="flex items-start gap-3 reveal"><span className="text-secondary mt-1">•</span><span className="text-sm sm:text-base">WhatsApp + Web companion, 24×7</span></li>
                 <li className="flex items-start gap-3 reveal"><span className="text-primary mt-1">•</span><span className="text-sm sm:text-base">Actionable summaries from complex reports</span></li>
-                <li className="flex items-start gap-3 reveal"><span className="text-[#5FBFF9] mt-1">•</span><span className="text-sm sm:text-base">Personalised to your portfolio and risk</span></li>
+                <li className="flex items-start gap-3 reveal"><span className="text-[#35c8ff] mt-1">•</span><span className="text-sm sm:text-base">Personalised to your portfolio and risk</span></li>
               </ul>
               <div className="flex flex-col items-center gap-3">
-                <a href="#FinSight" className="btn bg-white text-[#415b3e] border border-[#415b3e] hover:bg-gray-50 animate-pulse-glow text-sm sm:text-base px-6 py-2 rounded-full font-semibold">Learn More</a>
-                <a href="#demo" className="btn text-gray-600 hover:text-[#415b3e] text-sm sm:text-base font-medium">See a 30-sec Demo</a>
+                <a href="#FinSight" className="btn bg-white text-[#2e5335] border border-[#2e5335] hover:bg-gray-50 animate-pulse-glow text-sm sm:text-base px-6 py-2 rounded-full font-semibold">Learn More</a>
+                <a href="#demo" className="btn text-gray-600 hover:text-[#2e5335] text-sm sm:text-base font-medium">See a 30-sec Demo</a>
               </div>
             </div>
           </div>

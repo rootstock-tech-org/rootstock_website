@@ -125,7 +125,7 @@ export default function CareersPage() {
                             </div>
                             <button
                                 onClick={(e) => openApply('Project Associate', 'Full Time', e)}
-                                className="mt-4 md:mt-0 px-6 py-2.5 bg-[#415b3e] text-white rounded-xl font-semibold hover:bg-[#344932] hover:scale-105 hover:shadow-lg transition-all duration-300"
+                                className="mt-4 md:mt-0 px-6 py-2.5 bg-[#2e5335] text-white rounded-xl font-semibold hover:bg-[#344932] hover:scale-105 hover:shadow-lg transition-all duration-300"
                             >
                                 Apply for this Role
                             </button>
@@ -204,7 +204,7 @@ export default function CareersPage() {
                     </div>
                     <button
                         onClick={(e) => openApply('General Application', 'Full Time', e)}
-                        className="px-8 py-3 bg-[#415b3e] text-white rounded-xl font-bold shadow-lg hover:bg-[#344932] hover:scale-105 hover:shadow-xl transition-all duration-300 w-full sm:w-auto relative z-10"
+                        className="px-8 py-3 bg-[#2e5335] text-white rounded-xl font-bold shadow-lg hover:bg-[#344932] hover:scale-105 hover:shadow-xl transition-all duration-300 w-full sm:w-auto relative z-10"
                     >
                         Apply Now
                     </button>

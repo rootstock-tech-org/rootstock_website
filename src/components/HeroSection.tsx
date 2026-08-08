@@ -36,7 +36,7 @@ export default function HeroSection() {
     <section
       id="home"
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 bg-[#F2F2F0]"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 bg-[#f7f8fa]"
     >
       {/* NeuralTree background */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-35">
@@ -47,11 +47,11 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
           style={{ y: yBlobA, x: blobAX }}
-          className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#415b3e]/[0.06] rounded-full blur-3xl"
+          className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#2e5335]/[0.06] rounded-full blur-3xl"
         />
         <motion.div
           style={{ y: yBlobB, x: blobBX }}
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-400/[0.04] rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#35c8ff]/[0.05] rounded-full blur-3xl"
         />
       </div>
 
@@ -71,11 +71,11 @@ export default function HeroSection() {
             style={{ transformStyle: 'preserve-3d' }}
           >
             <h1
-              className="flex flex-col items-center justify-center text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[0.92] tracking-tighter font-bold text-[#0b182f]"
+              className="flex flex-col items-center justify-center text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[0.92] tracking-tighter font-bold text-[#0b163b]"
               style={{ fontFamily: 'Outfit, serif', transform: 'translateZ(55px)' }}
             >
               <span>Intelligence</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#3a6b38] to-[#0b182f] pb-2 sm:pb-4 drop-shadow-sm">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#1e6b4f] via-[#157a7a] to-[#184b8a] pb-2 sm:pb-4 drop-shadow-sm">
                 Engineered.
               </span>
             </h1>
@@ -88,7 +88,7 @@ export default function HeroSection() {
               style={{ transform: 'translateZ(28px)' }}
             >
               Human-Aware Intelligence that blends data, emotion, and{' '}
-              <span className="text-[#0b182f] font-semibold">real-world context</span>.
+              <span className="text-[#0b163b] font-semibold">real-world context</span>.
             </motion.p>
           </motion.div>
         </motion.div>

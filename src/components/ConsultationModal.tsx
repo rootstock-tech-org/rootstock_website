@@ -215,7 +215,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                             <button
                                 type="submit"
                                 disabled={status === 'submitting'}
-                                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#415b3e] to-[#0b182f] text-white font-semibold px-8 py-3 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#415b3e] disabled:opacity-60 disabled:hover:scale-100 transition-all"
+                                className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2e5335] to-[#0b163b] text-white font-semibold px-8 py-3 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2e5335] disabled:opacity-60 disabled:hover:scale-100 transition-all"
                             >
                                 {status === 'submitting' ? (
                                     <>

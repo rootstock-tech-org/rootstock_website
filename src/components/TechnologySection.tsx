@@ -6,7 +6,7 @@ import React, { useRef } from 'react';
 const domains = [
   {
     title: 'Business Optimization',
-    accent: '#3a6b38',
+    accent: '#1e6b4f',
     description: 'End-to-end AI for manufacturers and enterprises.',
     products: [
       { slug: 'inventoai',  title: 'InvenSync',  description: 'AI powered inventory intelligence for manufacturers.' },
@@ -16,7 +16,7 @@ const domains = [
   },
   {
     title: 'EdTech',
-    accent: '#1a6fa8',
+    accent: '#184b8a',
     description: 'Learning systems built around context and tradition.',
     products: [
       { slug: 'edu-stream-pipeline', title: 'EduStream',  description: 'Content ingestion that understands context, turning your existing materials into searchable intelligence without losing the nuance of how your learners think.' },
@@ -25,7 +25,7 @@ const domains = [
   },
   {
     title: 'FinTech',
-    accent: '#7c3aed',
+    accent: '#184b8a',
     description: 'Finance made legible for everyone.',
     products: [
       { slug: 'finsight', title: 'Finsight', description: 'Upload any financial document, chart, PDF, or screenshot and get the insights your broker never had time to explain.' },
@@ -33,7 +33,7 @@ const domains = [
   },
   {
     title: 'Experio AI',
-    accent: '#0e9488',
+    accent: '#157a7a',
     badge: 'Innovation Hub',
     description: 'Exploring artistic, fun, and human-centric AI experiences.',
     products: [
@@ -52,7 +52,7 @@ const ProductCard = ({ product, accent }: { product: Product; accent: string }) 
     <motion.div
       whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="bg-white/85 backdrop-blur-sm p-6 rounded-2xl border border-[#D4C9B8]/60 transition-all duration-300 flex flex-col h-full group relative overflow-hidden hover:shadow-lg"
+      className="bg-white/85 backdrop-blur-sm p-6 rounded-2xl border border-[#e5e7eb]/60 transition-all duration-300 flex flex-col h-full group relative overflow-hidden hover:shadow-lg"
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
@@ -103,7 +103,7 @@ function StackCard({
           scale: prefersReducedMotion ? 1 : scale,
           top: `calc(-6vh + ${i * 34}px)`,
         }}
-        className="stack-card relative w-full max-w-[1240px] min-h-[68vh] flex flex-col rounded-[32px] border border-[#D4C9B8]/60 bg-[#FBFAF7]/95 backdrop-blur-sm shadow-[0_30px_80px_-24px_rgba(0,0,0,0.28)] overflow-hidden origin-top"
+        className="stack-card relative w-full max-w-[1240px] min-h-[68vh] flex flex-col rounded-[32px] border border-[#e5e7eb]/60 bg-[#f7f8fa]/95 backdrop-blur-sm shadow-[0_30px_80px_-24px_rgba(0,0,0,0.28)] overflow-hidden origin-top"
       >
         {/* Accent top bar */}
         <div className="h-1.5 w-full" style={{ background: domain.accent }} />

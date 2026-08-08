@@ -222,12 +222,12 @@ export default function BlogPostPage() {
   return (
     <main className="bg-gray-900 min-h-screen">
       <section className="relative overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[#16BAC5]/30 blur-3xl" />
-        <div className="absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-[#7AE582]/25 blur-3xl" />
+        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[#2fa8d8]/30 blur-3xl" />
+        <div className="absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-[#35c8ff]/25 blur-3xl" />
 
         <div className="container mx-auto px-6 pt-16 pb-10">
           <div className="max-w-3xl">
-            <Link href="/blog" className="text-[#7AE582] hover:text-white text-sm font-semibold">← All posts</Link>
+            <Link href="/blog" className="text-[#35c8ff] hover:text-white text-sm font-semibold">← All posts</Link>
             {post ? (
               <>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mt-3">
@@ -259,12 +259,12 @@ export default function BlogPostPage() {
                 dangerouslySetInnerHTML={{
                   __html: post.content || ""
                 }}
-                className="prose-headings:text-white prose-headings:font-bold prose-p:text-white prose-strong:text-white prose-strong:font-semibold prose-li:text-white prose-li:marker:text-[#7AE582] prose-a:text-[#7AE582] hover:prose-a:text-white prose-a:transition-colors"
+                className="prose-headings:text-white prose-headings:font-bold prose-p:text-white prose-strong:text-white prose-strong:font-semibold prose-li:text-white prose-li:marker:text-[#35c8ff] prose-a:text-[#35c8ff] hover:prose-a:text-white prose-a:transition-colors"
               />
             </article>
           ) : (
             <div className="prose prose-invert max-w-3xl">
-              <p>Try returning to the <Link href="/blog" className="text-[#7AE582]">blog index</Link>.</p>
+              <p>Try returning to the <Link href="/blog" className="text-[#35c8ff]">blog index</Link>.</p>
             </div>
           )}
         </div>

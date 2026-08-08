@@ -48,13 +48,13 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-2xl max-w-6xl mx-auto border border-[#D4C9B8]/60 overflow-hidden">
+        <div className="bg-white/85 backdrop-blur-sm rounded-3xl shadow-2xl max-w-6xl mx-auto border border-[#e5e7eb]/60 overflow-hidden">
           <div className="grid md:grid-cols-5">
             {/* ── Left: info panel (Microsoft-style dark gradient) ── */}
-            <div className="md:col-span-2 relative p-8 md:p-10 text-white bg-gradient-to-br from-[#415b3e] to-[#243521] overflow-hidden">
+            <div className="md:col-span-2 relative p-8 md:p-10 text-white bg-gradient-to-br from-[#2e5335] to-[#243521] overflow-hidden">
               {/* Ambient orbs */}
-              <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#7ae582]/20 blur-3xl rounded-full pointer-events-none" />
-              <div className="absolute -bottom-20 -left-10 w-56 h-56 bg-[#16BAC5]/15 blur-3xl rounded-full pointer-events-none" />
+              <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#35c8ff]/20 blur-3xl rounded-full pointer-events-none" />
+              <div className="absolute -bottom-20 -left-10 w-56 h-56 bg-[#2fa8d8]/15 blur-3xl rounded-full pointer-events-none" />
 
               <div className="relative z-10">
                 <h3 className="text-2xl font-serif font-bold mb-2">Contact Information</h3>
@@ -159,7 +159,7 @@ export default function ContactSection() {
                   <button
                     type="submit"
                     disabled={status === 'submitting'}
-                    className="flex-1 inline-flex items-center justify-center bg-gradient-to-r from-[#415b3e] to-[#2d402b] text-white font-semibold text-lg px-8 py-3.5 rounded-full hover:shadow-2xl hover:scale-[1.02] transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="flex-1 inline-flex items-center justify-center bg-gradient-to-r from-[#2e5335] to-[#2d402b] text-white font-semibold text-lg px-8 py-3.5 rounded-full hover:shadow-2xl hover:scale-[1.02] transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
                     {status === 'submitting' ? (
                       <>

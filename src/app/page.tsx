@@ -67,7 +67,8 @@ export default function Home() {
         <div className="reveal"><HeroSection /></div>
         <div className="reveal"><AboutSection /></div>
         <TechnologySection />
-        <div className="reveal"><ProcessSection /></div>
+        {/* How We Work section — commented out */}
+        {/* <div className="reveal"><ProcessSection /></div> */}
         <div className="reveal"><ClientsSection /></div>
         {/* <div className="reveal"><TeamSection /></div> */}
         <div className="reveal"><EthicsSection /></div>

@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       subject: `New Consultation Request from ${name}${company ? ` (${company})` : ''}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #415b3e;">New Consultation Request</h2>
+          <h2 style="color: #2e5335;">New Consultation Request</h2>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
       subject: 'Your Consultation Request - RootStock Technology',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #415b3e;">Consultation Request Received</h2>
+          <h2 style="color: #2e5335;">Consultation Request Received</h2>
           <p>Dear ${name},</p>
           <p>Thank you for your interest in consulting with RootStock Technology!</p>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">

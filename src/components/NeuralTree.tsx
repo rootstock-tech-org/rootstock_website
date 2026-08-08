@@ -40,7 +40,7 @@ export default function NeuralTree() {
 
             const pathData = {
                 d: `M${x} ${y} Q${cx} ${cy} ${x2} ${y2}`,
-                color: depth % 2 === 0 ? '#0b182f' : '#415b3e',
+                color: depth % 2 === 0 ? '#0b163b' : '#2e5335',
                 width: Math.max(0.5, depth * 0.8),
                 delay: startTime,
                 duration: duration
@@ -58,7 +58,7 @@ export default function NeuralTree() {
             if (depth !== 6) {
                 n.push({
                     x: x2, y: y2,
-                    color: Math.random() > 0.6 ? '#415b3e' : '#0b182f', // Mix colors
+                    color: Math.random() > 0.6 ? '#2e5335' : '#0b163b', // Mix colors
                     size: 3 + Math.random() * 3,
                     delay: endTime // Appear as branch finishes
                 });

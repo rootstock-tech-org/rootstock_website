@@ -24,22 +24,22 @@ const STEPS = [
 const CARDS = [
   // ─ Lead Profile ─────────────────────────────────────────────────────────
   {
-    step: 0, accent: '#3a6b38',
+    step: 0, accent: '#1e6b4f',
     body: () => (
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center font-black text-sm"
-            style={{ background: 'linear-gradient(135deg,#3a6b3828,#3a6b3845)', color: '#3a6b38' }}>
+            style={{ background: 'linear-gradient(135deg,#1e6b4f28,#1e6b4f45)', color: '#1e6b4f' }}>
             JW
           </div>
           <div className="flex-1 min-w-0">
-            <div className="font-bold text-[#0b182f] text-[15px]">Jake Wilson</div>
+            <div className="font-bold text-[#0b163b] text-[15px]">Jake Wilson</div>
             <div className="text-gray-500 text-xs mt-0.5">VP of Sales · TechCorp</div>
             <div className="text-gray-400 text-[11px] mt-0.5">San Francisco, CA</div>
           </div>
           <div className="text-right">
-            <div className="text-[10px] font-semibold text-[#3a6b38] bg-[#3a6b3814] px-2.5 py-0.5 rounded-full mb-1">Score</div>
-            <div className="text-2xl font-black text-[#0b182f] leading-none">94</div>
+            <div className="text-[10px] font-semibold text-[#1e6b4f] bg-[#1e6b4f14] px-2.5 py-0.5 rounded-full mb-1">Score</div>
+            <div className="text-2xl font-black text-[#0b163b] leading-none">94</div>
           </div>
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -52,7 +52,7 @@ const CARDS = [
             <span>Profile completeness</span><span className="font-semibold text-gray-600">94%</span>
           </div>
           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full rounded-full" style={{ width:'94%', background:'linear-gradient(90deg,#3a6b38,#68a86580)' }} />
+            <div className="h-full rounded-full" style={{ width:'94%', background:'linear-gradient(90deg,#1e6b4f,#68a86580)' }} />
           </div>
         </div>
       </div>
@@ -60,14 +60,14 @@ const CARDS = [
   },
   // ─ Company Intelligence ──────────────────────────────────────────────────
   {
-    step: 1, accent: '#1a6fa8',
+    step: 1, accent: '#184b8a',
     body: () => (
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center font-black text-sm"
-            style={{ background: 'linear-gradient(135deg,#1a6fa828,#1a6fa840)', color: '#1a6fa8' }}>TC</div>
+            style={{ background: 'linear-gradient(135deg,#184b8a28,#184b8a40)', color: '#184b8a' }}>TC</div>
           <div>
-            <div className="font-bold text-[#0b182f] text-[15px]">TechCorp</div>
+            <div className="font-bold text-[#0b163b] text-[15px]">TechCorp</div>
             <div className="text-gray-500 text-xs">B2B SaaS · Series B</div>
             <div className="text-gray-400 text-[11px] mt-0.5">$24M raised · 120 employees</div>
           </div>
@@ -75,9 +75,9 @@ const CARDS = [
         <div className="grid grid-cols-3 gap-2">
           {[{l:'Growth',v:'+34%'},{l:'Founded',v:'2019'},{l:'Avg ACV',v:'$48K'}].map(s => (
             <div key={s.l} className="rounded-xl p-2.5 text-center"
-              style={{ background:`#1a6fa80a`, border:`1px solid #1a6fa818` }}>
+              style={{ background:`#184b8a0a`, border:`1px solid #184b8a18` }}>
               <div className="text-[10px] text-gray-400">{s.l}</div>
-              <div className="font-black text-[#0b182f] text-sm">{s.v}</div>
+              <div className="font-black text-[#0b163b] text-sm">{s.v}</div>
             </div>
           ))}
         </div>
@@ -94,7 +94,7 @@ const CARDS = [
   },
   // ─ Contact Enrichment ───────────────────────────────────────────────────
   {
-    step: 2, accent: '#0e9488',
+    step: 2, accent: '#157a7a',
     body: () => (
       <div className="flex flex-col gap-3">
         <div className="text-[11px] text-gray-400 font-medium uppercase tracking-wide">Enrichment complete · 2s ago</div>
@@ -106,9 +106,9 @@ const CARDS = [
           ['Recent posts','3 mentions of "AI tools"'],
         ].map(([l,v]) => (
           <div key={l} className="flex items-start gap-2.5">
-            <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background:'#0e948815' }}>
+            <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background:'#157a7a15' }}>
               <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="#0e9488" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 6l3 3 5-5" stroke="#157a7a" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <div>
@@ -122,12 +122,12 @@ const CARDS = [
   },
   // ─ AI Research ─────────────────────────────────────────────────────────
   {
-    step: 3, accent: '#7c3aed',
+    step: 3, accent: '#184b8a',
     body: () => (
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background:'#7c3aed' }} />
-          <span className="text-[10px] text-[#7c3aed] font-semibold uppercase tracking-wider">AI Insights · High confidence</span>
+          <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background:'#184b8a' }} />
+          <span className="text-[10px] text-[#184b8a] font-semibold uppercase tracking-wider">AI Insights · High confidence</span>
         </div>
         {[
           'Promoted to VP 2 months ago — new budget authority',
@@ -137,7 +137,7 @@ const CARDS = [
           'Q1 budget cycle starts in 3 weeks',
         ].map((t, i) => (
           <div key={i} className="flex items-start gap-2">
-            <span className="text-xs flex-shrink-0 mt-0.5" style={{ color:'#7c3aed' }}>·</span>
+            <span className="text-xs flex-shrink-0 mt-0.5" style={{ color:'#184b8a' }}>·</span>
             <p className="text-xs text-gray-600 leading-snug">{t}</p>
           </div>
         ))}
@@ -146,11 +146,11 @@ const CARDS = [
   },
   // ─ Buying Signals ───────────────────────────────────────────────────────
   {
-    step: 4, accent: '#d97706',
+    step: 4, accent: '#2fa8d8',
     body: () => (
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-bold text-[#d97706] bg-[#d9770612] px-3 py-1 rounded-full">High Intent</span>
+          <span className="text-xs font-bold text-[#2fa8d8] bg-[#2fa8d812] px-3 py-1 rounded-full">High Intent</span>
           <span className="text-[11px] text-gray-400">Last 7 days</span>
         </div>
         {[
@@ -165,7 +165,7 @@ const CARDS = [
               <span className="text-gray-400">{r.d}</span>
             </div>
             <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full rounded-full" style={{ width:`${r.b}%`, background:'linear-gradient(90deg,#d97706,#fbbf2490)' }} />
+              <div className="h-full rounded-full" style={{ width:`${r.b}%`, background:'linear-gradient(90deg,#2fa8d8,#7df9ff90)' }} />
             </div>
           </div>
         ))}
@@ -174,7 +174,7 @@ const CARDS = [
   },
   // ─ Email Draft ─────────────────────────────────────────────────────────
   {
-    step: 5, accent: '#0b182f',
+    step: 5, accent: '#0b163b',
     body: () => (
       <div className="flex flex-col gap-3">
         <div className="flex items-center justify-between">
@@ -193,7 +193,7 @@ const CARDS = [
           <span className="text-gray-400">[Continue reading →]</span>
         </div>
         <div className="flex gap-2">
-          <button className="flex-1 text-[11px] font-bold py-2 rounded-xl text-white" style={{ background:'#0b182f' }}>
+          <button className="flex-1 text-[11px] font-bold py-2 rounded-xl text-white" style={{ background:'#0b163b' }}>
             Send now
           </button>
           <button className="flex-1 text-[11px] font-bold py-2 rounded-xl border border-gray-200 text-gray-600">
@@ -205,12 +205,12 @@ const CARDS = [
   },
   // ─ CRM Sync ─────────────────────────────────────────────────────────────
   {
-    step: 6, accent: '#0891b2',
+    step: 6, accent: '#2fa8d8',
     body: () => (
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full" style={{ background:'#0891b2' }} />
-          <span className="text-[11px] text-[#0891b2] font-semibold">Synced to Salesforce · Just now</span>
+          <div className="w-2 h-2 rounded-full" style={{ background:'#2fa8d8' }} />
+          <span className="text-[11px] text-[#2fa8d8] font-semibold">Synced to Salesforce · Just now</span>
         </div>
         {[
           ['Contact created','Jake Wilson — VP of Sales'],
@@ -220,9 +220,9 @@ const CARDS = [
           ['Sequence enrolled','Enterprise SaaS v3 — Step 1'],
         ].map(([l,v]) => (
           <div key={l} className="flex items-start gap-2.5">
-            <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background:'#0891b215' }}>
+            <div className="w-4 h-4 rounded-full flex-shrink-0 mt-0.5 flex items-center justify-center" style={{ background:'#2fa8d815' }}>
               <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
-                <path d="M2 6l3 3 5-5" stroke="#0891b2" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 6l3 3 5-5" stroke="#2fa8d8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <div>
@@ -236,33 +236,33 @@ const CARDS = [
   },
   // ─ Task Completed ───────────────────────────────────────────────────────
   {
-    step: 7, accent: '#16a34a',
+    step: 7, accent: '#1e6b4f',
     body: () => (
       <div className="flex flex-col gap-4 items-center text-center py-1">
         <div className="w-14 h-14 rounded-full flex items-center justify-center"
-          style={{ background:'linear-gradient(135deg,#16a34a22,#16a34a38)' }}>
+          style={{ background:'linear-gradient(135deg,#1e6b4f22,#1e6b4f38)' }}>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M5 13l4 4L19 7" stroke="#1e6b4f" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
         <div>
-          <div className="font-black text-[#0b182f] text-base">Pipeline Complete</div>
+          <div className="font-black text-[#0b163b] text-base">Pipeline Complete</div>
           <div className="text-gray-400 text-xs mt-1">Jake Wilson · TechCorp</div>
         </div>
         <div className="w-full flex flex-col gap-2 text-left">
           {['Lead enriched','Company researched','Signals detected','Email drafted','CRM synced'].map(s => (
             <div key={s} className="flex items-center gap-2">
-              <div className="w-3.5 h-3.5 rounded-full flex-shrink-0 flex items-center justify-center" style={{ background:'#16a34a18' }}>
+              <div className="w-3.5 h-3.5 rounded-full flex-shrink-0 flex items-center justify-center" style={{ background:'#1e6b4f18' }}>
                 <svg width="7" height="7" viewBox="0 0 12 12" fill="none">
-                  <path d="M2 6l3 3 5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 6l3 3 5-5" stroke="#1e6b4f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <span className="text-xs text-gray-600">{s}</span>
             </div>
           ))}
         </div>
-        <div className="w-full rounded-xl px-4 py-2.5 text-center" style={{ background:'#16a34a0a', border:'1px solid #16a34a1e' }}>
-          <div className="text-[11px] text-[#16a34a] font-semibold">Next: Schedule discovery call →</div>
+        <div className="w-full rounded-xl px-4 py-2.5 text-center" style={{ background:'#1e6b4f0a', border:'1px solid #1e6b4f1e' }}>
+          <div className="text-[11px] text-[#1e6b4f] font-semibold">Next: Schedule discovery call →</div>
         </div>
       </div>
     ),
@@ -326,7 +326,7 @@ export default function StackingCards() {
     <div
       className="w-full flex flex-col"
       style={{
-        background: '#F8F8F6',
+        background: '#f7f8fa',
         borderRadius: 24,
         border: '1.5px solid rgba(0,0,0,0.07)',
         boxShadow: '0 32px 80px rgba(0,0,0,0.10), 0 6px 20px rgba(0,0,0,0.05)',
@@ -361,7 +361,7 @@ export default function StackingCards() {
 
         {/* Live badge */}
         <div className="flex items-center gap-1.5 flex-shrink-0 px-2.5 py-1 rounded-full"
-          style={{ background:'#16a34a0f', border:'1px solid #16a34a20' }}>
+          style={{ background:'#1e6b4f0f', border:'1px solid #1e6b4f20' }}>
           <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-[9px] font-bold text-emerald-600 tracking-wider">LIVE</span>
         </div>

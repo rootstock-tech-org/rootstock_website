@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 {slug === 'persona-fit-engine' && (
                     <section className="container mx-auto px-6 max-w-5xl mb-16">
                         <div className="text-center mb-10">
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#415b3e] to-teal-700">
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#2e5335] to-teal-700">
                                 Live virtual try-on preview
                             </h2>
                             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -162,8 +162,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                         <div className="grid md:grid-cols-2 gap-6">
                             {product.features.map((feature, index) => (
                                 <div key={index} className="flex items-start gap-3">
-                                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#415b3e]/10 flex items-center justify-center mt-1">
-                                        <svg className="w-4 h-4 text-[#415b3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#2e5335]/10 flex items-center justify-center mt-1">
+                                        <svg className="w-4 h-4 text-[#2e5335]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
@@ -181,7 +181,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                         <div className="space-y-4">
                             {product.useCases.map((useCase, index) => (
                                 <div key={index} className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#415b3e] text-white flex items-center justify-center font-bold text-sm">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2e5335] text-white flex items-center justify-center font-bold text-sm">
                                         {index + 1}
                                     </div>
                                     <p className="text-gray-700 leading-relaxed pt-1">{useCase}</p>
@@ -193,12 +193,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                 {/* Technical Highlights Section */}
                 <section className="container mx-auto px-6 max-w-5xl mb-16">
-                    <div className="bg-gradient-to-br from-[#415b3e]/5 to-[#0b182f]/5 rounded-3xl p-8 md:p-12 border border-gray-200">
+                    <div className="bg-gradient-to-br from-[#2e5335]/5 to-[#0b163b]/5 rounded-3xl p-8 md:p-12 border border-gray-200">
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">Technical Highlights</h2>
                         <div className="grid md:grid-cols-2 gap-4">
                             {product.technicalHighlights.map((highlight, index) => (
                                 <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-xl border border-gray-100">
-                                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#415b3e] mt-2"></div>
+                                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[#2e5335] mt-2"></div>
                                     <p className="text-gray-700 leading-relaxed">{highlight}</p>
                                 </div>
                             ))}
@@ -281,17 +281,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                         <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
                                             <h4 className="font-bold text-gray-900 mb-1">InvenSync</h4>
                                             <p className="text-sm text-gray-600 mb-2">From reactive stock management to AI driven demand forecasting and proactive replenishment.</p>
-                                            <p className="text-sm font-semibold text-[#415b3e]">20 to 30 percent reduction in inventory carrying costs.</p>
+                                            <p className="text-sm font-semibold text-[#2e5335]">20 to 30 percent reduction in inventory carrying costs.</p>
                                         </div>
                                         <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
                                             <h4 className="font-bold text-gray-900 mb-1">CostEngine</h4>
                                             <p className="text-sm text-gray-600 mb-2">From hours of manual Excel work per component to an automated drawing to costing workflow.</p>
-                                            <p className="text-sm font-semibold text-[#415b3e]">2 to 4 hours saved per component with near zero calculation errors.</p>
+                                            <p className="text-sm font-semibold text-[#2e5335]">2 to 4 hours saved per component with near zero calculation errors.</p>
                                         </div>
                                         <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
                                             <h4 className="font-bold text-gray-900 mb-1">GateFlow</h4>
                                             <p className="text-sm text-gray-600 mb-2">From manual gate entry and disconnected QC checks to a verified barcoded inbound chain.</p>
-                                            <p className="text-sm font-semibold text-[#415b3e]">Under 2 minutes gate clearance with zero re verification at QC.</p>
+                                            <p className="text-sm font-semibold text-[#2e5335]">Under 2 minutes gate clearance with zero re verification at QC.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -311,8 +311,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                             "Dealer network extension for inventory visibility across direct and indirect distribution channels."
                                         ].map((item, idx) => (
                                             <li key={idx} className="flex items-start gap-3">
-                                                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#415b3e]/10 flex items-center justify-center mt-0.5">
-                                                    <svg className="w-4 h-4 text-[#415b3e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#2e5335]/10 flex items-center justify-center mt-0.5">
+                                                    <svg className="w-4 h-4 text-[#2e5335]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                                     </svg>
                                                 </div>
@@ -329,7 +329,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 {/* Why RootStock Technology (Only for Manufacturing Products) */}
                 {product.industry === 'Manufacturing / ERP' && (
                     <section className="container mx-auto px-6 max-w-5xl mb-16">
-                        <div className="bg-gradient-to-r from-[#415b3e] to-[#0b182f] rounded-3xl p-8 md:p-12 border border-gray-200 shadow-2xl text-white">
+                        <div className="bg-gradient-to-r from-[#2e5335] to-[#0b163b] rounded-3xl p-8 md:p-12 border border-gray-200 shadow-2xl text-white">
                             <div className="max-w-4xl mx-auto text-center">
                                 <h3 className="text-3xl font-bold font-serif mb-4">Intelligence engineered for the real world.</h3>
                                 <p className="text-lg text-white/90 mb-10 leading-relaxed">
@@ -345,7 +345,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                                         "Dedicated support after deployment."
                                     ].map((item, idx) => (
                                         <div key={idx} className="flex items-center gap-3 bg-white/10 rounded-xl p-4 backdrop-blur-sm border border-white/10">
-                                            <svg className="w-5 h-5 text-[#7ae582] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg className="w-5 h-5 text-[#35c8ff] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                             </svg>
                                             <span className="text-sm font-medium">{item}</span>
@@ -359,7 +359,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                 {/* Default CTA */}
                 <section className="container mx-auto px-6 max-w-5xl">
-                    <div className="bg-gradient-to-r from-[#415b3e] to-[#0b182f] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
+                    <div className="bg-gradient-to-r from-[#2e5335] to-[#0b163b] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
                             {product.ctaTitle || "Ready to Transform Your Business?"}
                         </h2>

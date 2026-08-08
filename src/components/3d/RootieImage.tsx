@@ -32,7 +32,7 @@ export default function RootieImage() {
   return (
     <div ref={wrapRef} className="relative w-full h-full flex items-center justify-center">
       {/* soft glow halo behind the mascot */}
-      <div className="absolute w-[52%] aspect-square rounded-full bg-[#2d6b2d]/10 blur-3xl" />
+      <div className="absolute w-[52%] aspect-square rounded-full bg-[#25532c]/10 blur-3xl" />
 
       <motion.div
         style={{ rotateX: rotX, rotateY: rotY, transformPerspective: 900 }}
@@ -56,11 +56,11 @@ export default function RootieImage() {
             />
           </motion.div>
         ) : (
-          <div className="w-[clamp(260px,32vw,460px)] aspect-square flex items-center justify-center rounded-3xl border-2 border-dashed border-[#2d6b2d]/40 text-center p-8">
-            <p className="text-[#2d6b2d] text-sm font-medium leading-relaxed">
+          <div className="w-[clamp(260px,32vw,460px)] aspect-square flex items-center justify-center rounded-3xl border-2 border-dashed border-[#25532c]/40 text-center p-8">
+            <p className="text-[#25532c] text-sm font-medium leading-relaxed">
               Add the mascot image at
               <br />
-              <code className="text-xs bg-[#2d6b2d]/10 px-2 py-1 rounded mt-2 inline-block">
+              <code className="text-xs bg-[#25532c]/10 px-2 py-1 rounded mt-2 inline-block">
                 public/rootie.png
               </code>
             </p>

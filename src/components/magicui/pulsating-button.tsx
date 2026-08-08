@@ -18,7 +18,7 @@ export function PulsatingButton({ href, children, className = "", ...props }: Pu
         "shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.03]",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary/60",
         "animate-pulse-glow",
-        className || "bg-white text-[#415b3e] border border-[#415b3e]",
+        className || "bg-white text-[#2e5335] border border-[#2e5335]",
       ].join(" ")}
     >
       {children}

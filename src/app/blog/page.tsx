@@ -87,14 +87,14 @@ export default function BlogIndexPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-[#415b3e] uppercase tracking-wider shadow-sm">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-xs font-bold text-[#2e5335] uppercase tracking-wider shadow-sm">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#415b3e] transition-colors">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#2e5335] transition-colors">
                     {post.title}
                   </h2>
                   <p className="text-gray-600 leading-relaxed mb-6">
@@ -120,7 +120,7 @@ export default function BlogIndexPage() {
           <div className="relative border-l-2 border-gray-200 ml-4 md:ml-0 space-y-12 md:space-y-0">
             {/* Timeline Item 2023 */}
             <div className="relative md:pl-12 pb-12">
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#415b3e] shadow-[0_0_0_4px_white]"></div>
+              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#2e5335] shadow-[0_0_0_4px_white]"></div>
               <div>
                 <span className="inline-block px-3 py-1 bg-gray-100 rounded-lg text-sm font-bold text-gray-600 mb-2">2023</span>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Audio-to-Emotion</h4>
@@ -130,7 +130,7 @@ export default function BlogIndexPage() {
 
             {/* Timeline Item 2024 */}
             <div className="relative md:pl-12 pb-12">
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#415b3e] shadow-[0_0_0_4px_white]"></div>
+              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#2e5335] shadow-[0_0_0_4px_white]"></div>
               <div>
                 <span className="inline-block px-3 py-1 bg-gray-100 rounded-lg text-sm font-bold text-gray-600 mb-2">2024</span>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">LLM Pipeline for Contextual Integrity</h4>
@@ -140,7 +140,7 @@ export default function BlogIndexPage() {
 
             {/* Timeline Item 2025 */}
             <div className="relative md:pl-12">
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#415b3e] shadow-[0_0_0_4px_white]"></div>
+              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[#2e5335] shadow-[0_0_0_4px_white]"></div>
               <div>
                 <span className="inline-block px-3 py-1 bg-gray-100 rounded-lg text-sm font-bold text-gray-600 mb-2">2025</span>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Music 4D</h4>
@@ -154,7 +154,7 @@ export default function BlogIndexPage() {
       {/* Newsletter / Collaboration */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto rounded-[2.5rem] bg-[#415b3e] p-10 md:p-16 text-center shadow-2xl relative overflow-hidden">
+          <div className="max-w-5xl mx-auto rounded-[2.5rem] bg-[#2e5335] p-10 md:p-16 text-center shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] opacity-10"></div>
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Join Our Research Journey</h3>
@@ -162,7 +162,7 @@ export default function BlogIndexPage() {
                 We invite researchers, partners, and innovators to co-create the future of emotionally intelligent AI.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="/#contact" className="btn bg-white text-[#415b3e] hover:bg-green-50 px-8 py-3.5 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1">
+                <a href="/#contact" className="btn bg-white text-[#2e5335] hover:bg-green-50 px-8 py-3.5 rounded-full font-bold shadow-lg transition-transform hover:-translate-y-1">
                   Collaborate With Us
                 </a>
                 <a href="mailto:research@rootstock.tech" className="btn bg-transparent border-2 border-white/30 text-white hover:bg-white/10 px-8 py-3.5 rounded-full font-bold transition-colors">

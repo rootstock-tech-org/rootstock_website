@@ -152,7 +152,7 @@ export default function RootieGLB() {
     <div className="relative w-full h-full">
       {/* soft glow halo */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[52%] aspect-square rounded-full bg-[#2d6b2d]/10 blur-3xl" />
+        <div className="w-[52%] aspect-square rounded-full bg-[#25532c]/10 blur-3xl" />
       </div>
 
       <Canvas

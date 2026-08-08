@@ -160,7 +160,7 @@ export default function RootieChat() {
           style={{ height: '500px' }}
         >
           {/* Header */}
-          <div className="flex items-center gap-3 px-4 py-3.5 bg-gradient-to-r from-[#3a6b38] to-[#2d5a2c] flex-shrink-0">
+          <div className="flex items-center gap-3 px-4 py-3.5 bg-gradient-to-r from-[#1e6b4f] to-[#25532c] flex-shrink-0">
             <div className="flex-shrink-0">
               <RootieAvatar size={40} />
             </div>
@@ -198,7 +198,7 @@ export default function RootieChat() {
                 )}
                 <div className={`max-w-[78%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                   msg.role === 'user'
-                    ? 'bg-[#3a6b38] text-white rounded-br-sm'
+                    ? 'bg-[#1e6b4f] text-white rounded-br-sm'
                     : 'bg-gray-100 text-gray-800 rounded-bl-sm'
                 }`}>
                   {msg.text}
@@ -216,7 +216,7 @@ export default function RootieChat() {
                 <button
                   key={q}
                   onClick={() => sendMessage(q)}
-                  className="text-xs px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 hover:bg-[#3a6b38]/10 hover:text-[#3a6b38] transition-colors"
+                  className="text-xs px-3 py-1.5 rounded-full bg-gray-100 text-gray-600 hover:bg-[#1e6b4f]/10 hover:text-[#1e6b4f] transition-colors"
                 >
                   {q}
                 </button>
@@ -239,7 +239,7 @@ export default function RootieChat() {
               <button
                 onClick={() => sendMessage()}
                 disabled={loading || !input.trim()}
-                className="w-8 h-8 flex items-center justify-center bg-[#3a6b38] text-white rounded-full disabled:opacity-40 hover:bg-[#2d5a2c] transition-all flex-shrink-0"
+                className="w-8 h-8 flex items-center justify-center bg-[#1e6b4f] text-white rounded-full disabled:opacity-40 hover:bg-[#25532c] transition-all flex-shrink-0"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.269 20.876L5.999 12zm0 0h7.5" />
@@ -289,7 +289,7 @@ export default function RootieChat() {
             whileTap={{ scale: 0.93 }}
             animate={!isChatOpen ? { y: [0, -6, 0] } : { y: 0 }}
             transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative w-[82px] h-[82px] rounded-full bg-white shadow-2xl border-2 border-[#3a6b38]/25 hover:border-[#3a6b38] transition-colors overflow-hidden flex items-center justify-center"
+            className="relative w-[82px] h-[82px] rounded-full bg-white shadow-2xl border-2 border-[#1e6b4f]/25 hover:border-[#1e6b4f] transition-colors overflow-hidden flex items-center justify-center"
             title="Chat with Rootie"
           >
             <RootieAvatar size={82} />
@@ -326,9 +326,9 @@ export default function RootieChat() {
           onClick={openChat}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-2 bg-white border border-[#3a6b38]/30 text-[#3a6b38] font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:border-[#3a6b38] transition-all"
+          className="flex items-center gap-2 bg-white border border-[#1e6b4f]/30 text-[#1e6b4f] font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg hover:shadow-xl hover:border-[#1e6b4f] transition-all"
         >
-          <span className="w-2 h-2 rounded-full bg-[#3a6b38] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#1e6b4f] animate-pulse" />
           Chat with Rootie
         </motion.button>
       </div>

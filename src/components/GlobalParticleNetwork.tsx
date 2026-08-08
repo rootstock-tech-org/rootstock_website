@@ -66,7 +66,7 @@ export default function GlobalParticleNetwork() {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(65, 91, 62, 0.15)'; // subtle base opacity
+        ctx.fillStyle = 'rgba(30, 107, 79, 0.15)'; // subtle base opacity
         ctx.fill();
       }
     }
@@ -100,7 +100,7 @@ export default function GlobalParticleNetwork() {
           
           if (distance < 120) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(65, 91, 62, ${0.1 - distance/1200})`; 
+            ctx.strokeStyle = `rgba(30, 107, 79, ${0.1 - distance/1200})`; 
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -115,7 +115,7 @@ export default function GlobalParticleNetwork() {
         
         if (distanceMouse < mouse.radius) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(11, 24, 47, ${0.2 - distanceMouse/(mouse.radius*5)})`; // RootStock Dark Navy for mouse connections
+          ctx.strokeStyle = `rgba(53, 200, 255, ${0.28 - distanceMouse/(mouse.radius*4)})`; // Electric Blue glow on mouse connections
           ctx.lineWidth = 1;
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(mouse.x, mouse.y);

@@ -37,7 +37,7 @@ const MissionIcon = () => (
 const PILLARS = [
   {
     label: 'Think',
-    tint: '#7ae582',
+    tint: '#35c8ff',
     desc: 'Reasoning that understands context, not just crunches numbers.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
@@ -45,7 +45,7 @@ const PILLARS = [
   },
   {
     label: 'Act',
-    tint: '#9fe6ef',
+    tint: '#7df9ff',
     desc: 'Robust AI deployed to drive real, measurable impact in the field.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -53,7 +53,7 @@ const PILLARS = [
   },
   {
     label: 'Relate',
-    tint: '#16BAC5',
+    tint: '#2fa8d8',
     desc: 'Human-aware systems that read emotion, culture, and context.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
@@ -99,18 +99,18 @@ function EmbodiedBand() {
         onMouseMove={handleMove}
         onMouseLeave={handleLeave}
         style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-        className="relative rounded-[2rem] shadow-[0_50px_110px_-45px_rgba(11,24,47,0.65)]"
+        className="relative rounded-[2rem] shadow-[0_50px_110px_-45px_rgba(11, 22, 59,0.65)]"
       >
         {/* Background card (clipped, flat) */}
-        <div className="absolute inset-0 rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#0b182f] via-[#122a3f] to-[#0e2a24]">
+        <div className="absolute inset-0 rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#0b163b] via-[#122a3f] to-[#0e2a24]">
           {/* Animated aurora */}
           <motion.div
-            className="absolute -top-24 -left-16 w-96 h-96 rounded-full bg-[#7ae582]/25 blur-[110px]"
+            className="absolute -top-24 -left-16 w-96 h-96 rounded-full bg-[#35c8ff]/25 blur-[110px]"
             animate={prefersReducedMotion ? {} : { x: [0, 40, 0], y: [0, 30, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.div
-            className="absolute -bottom-28 -right-10 w-[28rem] h-[28rem] rounded-full bg-[#16BAC5]/25 blur-[120px]"
+            className="absolute -bottom-28 -right-10 w-[28rem] h-[28rem] rounded-full bg-[#2fa8d8]/25 blur-[120px]"
             animate={prefersReducedMotion ? {} : { x: [0, -50, 0], y: [0, -20, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
           />
@@ -126,11 +126,11 @@ function EmbodiedBand() {
           {/* Floating particles */}
           {!prefersReducedMotion &&
             [
-              { l: '14%', t: '26%', d: 6, c: '#7ae582' },
-              { l: '82%', t: '20%', d: 7, c: '#16BAC5' },
-              { l: '68%', t: '72%', d: 8, c: '#9fe6ef' },
-              { l: '24%', t: '78%', d: 9, c: '#7ae582' },
-              { l: '46%', t: '16%', d: 7, c: '#9fe6ef' },
+              { l: '14%', t: '26%', d: 6, c: '#35c8ff' },
+              { l: '82%', t: '20%', d: 7, c: '#2fa8d8' },
+              { l: '68%', t: '72%', d: 8, c: '#7df9ff' },
+              { l: '24%', t: '78%', d: 9, c: '#35c8ff' },
+              { l: '46%', t: '16%', d: 7, c: '#7df9ff' },
             ].map((p, k) => (
               <motion.span
                 key={k}
@@ -145,10 +145,10 @@ function EmbodiedBand() {
         {/* Content layers (3D depth) */}
         <div className="relative px-7 sm:px-12 md:px-16 py-14 md:py-20 text-center" style={{ transformStyle: 'preserve-3d' }}>
           <div style={{ transform: 'translateZ(30px)' }}>
-            <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.28em] uppercase text-[#7ae582] mb-6">
-              <span className="w-8 h-px bg-[#7ae582]/60" />
+            <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.28em] uppercase text-[#35c8ff] mb-6">
+              <span className="w-8 h-px bg-[#35c8ff]/60" />
               Our Philosophy
-              <span className="w-8 h-px bg-[#7ae582]/60" />
+              <span className="w-8 h-px bg-[#35c8ff]/60" />
             </span>
           </div>
 
@@ -157,7 +157,7 @@ function EmbodiedBand() {
             style={{ fontFamily: 'Outfit, sans-serif', transform: 'translateZ(60px)' }}
           >
             Embodied{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#7ae582] to-[#16BAC5]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#35c8ff] to-[#2fa8d8]">
               Intelligence
             </span>
           </h3>
@@ -168,9 +168,9 @@ function EmbodiedBand() {
           >
             We build intelligence into systems, machines, and robots — models that don&apos;t just{' '}
             <span className="text-white font-semibold">process data</span>, but{' '}
-            <span className="text-[#7ae582] font-semibold">think</span>,{' '}
-            <span className="text-[#9fe6ef] font-semibold">act</span>, and{' '}
-            <span className="text-[#16BAC5] font-semibold">relate</span>.
+            <span className="text-[#35c8ff] font-semibold">think</span>,{' '}
+            <span className="text-[#7df9ff] font-semibold">act</span>, and{' '}
+            <span className="text-[#2fa8d8] font-semibold">relate</span>.
           </p>
 
           {/* Three pillars */}
@@ -229,7 +229,7 @@ export default function AboutSection() {
       <div className="container mx-auto px-6">
 
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0b182f] mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0b163b] mb-4">
             About Us
           </h2>
         </div>
@@ -247,7 +247,7 @@ export default function AboutSection() {
             {/* Rootie standing freely — no panel/box */}
             <div className="relative w-[300px] sm:w-[340px] md:w-[380px] aspect-[4/5]">
               {/* Soft ambient glow behind the mascot */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full bg-[#7ae582]/12 blur-3xl pointer-events-none" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full bg-[#35c8ff]/12 blur-3xl pointer-events-none" />
 
               {/* Ground shadow — keeps Rootie grounded, not floating */}
               <div className="absolute bottom-[26px] left-1/2 -translate-x-1/2 w-28 h-4 rounded-[100%] bg-black/15 blur-md" />
@@ -289,12 +289,12 @@ export default function AboutSection() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="bg-white/80 backdrop-blur-sm p-8 md:p-10 rounded-[1.5rem] border border-[#D4C9B8]/60 flex flex-col transition-all duration-500 hover:border-[#3a6b38]/30 hover:shadow-lg group">
+              <div className="bg-white/80 backdrop-blur-sm p-8 md:p-10 rounded-[1.5rem] border border-[#e5e7eb]/60 flex flex-col transition-all duration-500 hover:border-[#1e6b4f]/30 hover:shadow-lg group">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#415b3e]/10 text-[#415b3e] group-hover:bg-[#415b3e]/20 transition-colors">
+                  <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#2e5335]/10 text-[#2e5335] group-hover:bg-[#2e5335]/20 transition-colors">
                     <VisionIcon />
                   </span>
-                  <h3 className="text-2xl font-bold text-[#0b182f] group-hover:text-[#3a6b38] transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>
+                  <h3 className="text-2xl font-bold text-[#0b163b] group-hover:text-[#1e6b4f] transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>
                     Vision
                   </h3>
                 </div>
@@ -309,12 +309,12 @@ export default function AboutSection() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="bg-white/80 backdrop-blur-sm p-8 md:p-10 rounded-[1.5rem] border border-[#D4C9B8]/60 flex flex-col transition-all duration-500 hover:border-[#3a6b38]/30 hover:shadow-lg group">
+              <div className="bg-white/80 backdrop-blur-sm p-8 md:p-10 rounded-[1.5rem] border border-[#e5e7eb]/60 flex flex-col transition-all duration-500 hover:border-[#1e6b4f]/30 hover:shadow-lg group">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#0b182f]/8 text-[#0b182f] group-hover:bg-[#0b182f]/15 transition-colors">
+                  <span className="flex items-center justify-center w-9 h-9 rounded-xl bg-[#0b163b]/8 text-[#0b163b] group-hover:bg-[#0b163b]/15 transition-colors">
                     <MissionIcon />
                   </span>
-                  <h3 className="text-2xl font-bold text-[#3a6b38] group-hover:text-[#0b182f] transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>
+                  <h3 className="text-2xl font-bold text-[#1e6b4f] group-hover:text-[#0b163b] transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>
                     Mission
                   </h3>
                 </div>
@@ -326,8 +326,8 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Embodied Intelligence — immersive 3D statement band */}
-        <EmbodiedBand />
+        {/* Our Philosophy / Embodied Intelligence — immersive 3D statement band — commented out */}
+        {/* <EmbodiedBand /> */}
 
       </div>
     </section>

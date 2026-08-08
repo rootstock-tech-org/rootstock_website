@@ -2,31 +2,61 @@
 @import "tailwindcss";
 
 :root {
-  --foreground-rgb: 11, 24, 47;
-  --background-start-rgb: 240, 232, 220;
-  --background-end-rgb: 237, 230, 218;
-  /* Design tokens */
-  --color-primary: #0b182f;
-  /* Deep Indigo */
-  --color-secondary: #3a6b38;
-  /* Forest Green */
-  --color-dark: #0b182f;
-  --color-muted: #98a29f;
-  --color-light: #fefefe;
-  --color-cream: #F2F2F0;
-  /* Warm cream background */
+  --foreground-rgb: 17, 24, 39;
+  /* #111827 text primary */
+  --background-start-rgb: 247, 248, 250;
+  --background-end-rgb: 247, 248, 250;
+
+  /* ── Rootstock brand palette ── */
+  /* Greens (nature / growth) */
+  --brand-forest: #1B3D39;
+  --brand-evergreen: #25532C;
+  --brand-tech-green: #476143;
+  --brand-pine: #2E5335;
+  --brand-growth: #1E6B4F;
+  --brand-teal: #157A7A;
+  /* Blues (technology) */
+  --navy-deep: #081A4C;
+  --navy-midnight: #0B163B;
+  --blue-tech: #184B8A;
+  --blue-ocean: #0C4F8A;
+  --blue-electric: #35C8FF;
+  --cyan-signal: #2FA8D8;
+  /* Glow (digital signal) */
+  --cyan-neon: #7DF9FF;
+  --cyan-aqua: #5CE6FF;
+  --cyan-soft: #CFFBFF;
+  /* Neutrals */
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --border: #E5E7EB;
+  --text: #111827;
+  --text-muted: #6B7280;
+
+  /* Semantic design tokens */
+  --color-primary: #0B163B;
+  /* Midnight Navy */
+  --color-secondary: #1E6B4F;
+  /* Growth Green */
+  --color-accent: #35C8FF;
+  /* Electric Blue */
+  --color-dark: #0B163B;
+  --color-muted: #6B7280;
+  --color-light: #FFFFFF;
+  --color-cream: #F7F8FA;
+  /* Clean neutral background */
   --radius: 9999px;
   /* Pill shape default for btn */
   --radius-card: 2rem;
   /* Large rounded corners for cards */
-  --focus-ring: 0 0 0 3px rgba(58, 107, 56, 0.4);
+  --focus-ring: 0 0 0 3px rgba(53, 200, 255, 0.4);
   --section-y: 6rem;
   --font-display: 'Outfit', sans-serif;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #F2F2F0;
+  background: var(--bg);
   font-family: 'Outfit', 'Merriweather', Georgia, serif;
   overflow-x: clip;
   line-height: 1.6;
@@ -145,21 +175,21 @@ html.lenis body {
 }
 
 .btn-primary {
-  background-color: var(--color-primary);
-  color: #0a0a0a;
+  background-color: var(--color-secondary);
+  color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 90%, #000 10%);
+  background-color: color-mix(in srgb, var(--color-secondary) 88%, #000 12%);
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: #0a0a0a;
+  background-color: var(--color-primary);
+  color: #ffffff;
 }
 
 .btn-secondary:hover {
-  background-color: color-mix(in srgb, var(--color-secondary) 90%, #000 10%);
+  background-color: color-mix(in srgb, var(--color-primary) 85%, var(--blue-tech) 15%);
 }
 
 .btn-outline {
@@ -170,13 +200,13 @@ html.lenis body {
 
 .btn-outline:hover {
   background-color: var(--color-secondary);
-  color: #0a0a0a;
+  color: #ffffff;
 }
 
 .btn-text {
   padding: 0;
   background: transparent;
-  color: #0a0a0a;
+  color: var(--color-primary);
 }
 
 .btn-text:hover {
@@ -352,15 +382,15 @@ html.lenis body {
 /* Pulsating glow for CTA buttons */
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 0 0 rgba(11, 24, 47, 0.45), 0 0 0 0 rgba(65, 91, 62, 0.35);
+    box-shadow: 0 0 0 0 rgba(30, 107, 79, 0.45), 0 0 0 0 rgba(53, 200, 255, 0.35);
   }
 
   70% {
-    box-shadow: 0 0 0 10px rgba(11, 24, 47, 0), 0 0 0 20px rgba(65, 91, 62, 0);
+    box-shadow: 0 0 0 10px rgba(30, 107, 79, 0), 0 0 0 20px rgba(53, 200, 255, 0);
   }
 
   100% {
-    box-shadow: 0 0 0 0 rgba(11, 24, 47, 0), 0 0 0 0 rgba(65, 91, 62, 0);
+    box-shadow: 0 0 0 0 rgba(30, 107, 79, 0), 0 0 0 0 rgba(53, 200, 255, 0);
   }
 }
 

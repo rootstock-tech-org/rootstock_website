@@ -193,12 +193,12 @@ export default function AdminPage() {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+            className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
             required
           />
           <button
             type="submit"
-            className="mt-4 w-full rounded-xl bg-gradient-to-r from-[#7AE582] to-[#16BAC5] text-gray-900 font-semibold px-5 py-3 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7AE582]"
+            className="mt-4 w-full rounded-xl bg-gradient-to-r from-[#35c8ff] to-[#2fa8d8] text-gray-900 font-semibold px-5 py-3 hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#35c8ff]"
           >
             Sign In
           </button>
@@ -227,7 +227,7 @@ export default function AdminPage() {
                 name="title"
                 value={form.title}
                 onChange={onChange}
-                className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+                className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
                 placeholder="Post title"
                 required
               />
@@ -238,7 +238,7 @@ export default function AdminPage() {
                 name="slug"
                 value={form.slug}
                 onChange={onChange}
-                className={`w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 ${slugError ? 'ring-2 ring-red-500' : 'focus:ring-[#7AE582]'}`}
+                className={`w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 ${slugError ? 'ring-2 ring-red-500' : 'focus:ring-[#35c8ff]'}`}
                 placeholder="auto-generated-from-title"
               />
               {slugError && (
@@ -251,7 +251,7 @@ export default function AdminPage() {
                 name="excerpt"
                 value={form.excerpt}
                 onChange={onChange}
-                className="w-full min-h-24 rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+                className="w-full min-h-24 rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
                 placeholder="Short summary"
                 required
               />
@@ -266,7 +266,7 @@ export default function AdminPage() {
                   name="date"
                   value={form.date}
                   onChange={onChange}
-                  className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+                  className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
                 />
               </div>
               <div>
@@ -275,7 +275,7 @@ export default function AdminPage() {
                   name="readTime"
                   value={form.readTime}
                   onChange={onChange}
-                  className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+                  className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
                 />
               </div>
             </div>
@@ -286,7 +286,7 @@ export default function AdminPage() {
                 name="category"
                 value={form.category}
                 onChange={onChange}
-                className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+                className="w-full rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
               >
                 {CATEGORIES.map((c) => (
                   <option value={c} key={c}>
@@ -302,7 +302,7 @@ export default function AdminPage() {
                 type="file"
                 accept="image/*"
                 onChange={onImageChange}
-                className="block w-full text-sm text-white/80 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#7AE582] file:text-gray-900 hover:file:bg-[#67d374]"
+                className="block w-full text-sm text-white/80 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-[#35c8ff] file:text-gray-900 hover:file:bg-[#67d374]"
               />
               {form.image && (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -316,7 +316,7 @@ export default function AdminPage() {
                 name="content"
                 value={form.content}
                 onChange={onChange}
-                className="w-full min-h-24 rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#7AE582]"
+                className="w-full min-h-24 rounded-xl bg-white/90 text-gray-900 px-4 py-3 outline-none focus:ring-2 focus:ring-[#35c8ff]"
                 placeholder="Full article content (optional)"
               />
             </div>
@@ -325,7 +325,7 @@ export default function AdminPage() {
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="rounded-xl bg-gradient-to-r from-[#7AE582] to-[#16BAC5] text-gray-900 font-semibold px-6 py-3 disabled:opacity-60"
+                className="rounded-xl bg-gradient-to-r from-[#35c8ff] to-[#2fa8d8] text-gray-900 font-semibold px-6 py-3 disabled:opacity-60"
               >
                 Publish Post
               </button>
@@ -349,12 +349,12 @@ export default function AdminPage() {
                     <img src={p.image} alt={p.title} className="absolute inset-0 h-full w-full object-cover" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#16BAC5] to-[#7AE582]" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-[#2fa8d8] to-[#35c8ff]" />
                     </div>
                   )}
                 </div>
                 <div className="p-4">
-                  <div className="text-xs text-[#7AE582] font-semibold uppercase">{p.category}</div>
+                  <div className="text-xs text-[#35c8ff] font-semibold uppercase">{p.category}</div>
                   <div className="text-white font-semibold mt-1">{p.title}</div>
                   <div className="text-white/60 text-xs mt-1">{p.date} • {p.readTime}</div>
                   <p className="text-white/80 text-sm mt-2 line-clamp-2">{p.excerpt}</p>

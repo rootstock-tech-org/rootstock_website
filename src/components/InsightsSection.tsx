@@ -184,7 +184,7 @@ export default function InsightsSection() {
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="text-center">
                               <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-sm">
-                                <svg className="w-7 h-7 text-[#3a6b38]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+                                <svg className="w-7 h-7 text-[#1e6b4f]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 18h6M10 21h4M12 3a6 6 0 00-3.6 10.8c.5.4.9 1 .9 1.7V16h5.4v-.5c0-.7.4-1.3.9-1.7A6 6 0 0012 3z" />
                                 </svg>
                               </div>
