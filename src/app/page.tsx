@@ -61,7 +61,8 @@ export default function Home() {
         <Header activeSection={activeSection} />
         <div className="reveal"><HeroSection /></div>
         <div className="reveal"><AboutSection /></div>
-        <div className="reveal"><TechnologySection /></div>
+        {/* Not wrapped in .reveal — the wrapper's transform breaks the sticky card stack */}
+        <TechnologySection />
         <div className="reveal"><ClientsSection /></div>
         {/* <div className="reveal"><TeamSection /></div> */}
         <div className="reveal"><EthicsSection /></div>
