@@ -4,6 +4,7 @@ import path from "path";
 const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "https://e9cwq4w7punvx7-3000.proxy.runpod.net",
+    "*.ngrok-free.dev",
   ],
   turbopack: {
     root: path.resolve(__dirname),
