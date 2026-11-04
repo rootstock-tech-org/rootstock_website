@@ -1,47 +1,82 @@
-import Link from 'next/link';
-import Image from 'next/image';
+'use client';
 
-const industries = [
-  { name: 'Manufacturing', detail: 'Vision, operations and costing', href: '/solutions/manufacturing' },
-  { name: 'Financial services', detail: 'Knowledge and decision support', href: '/solutions/financial-services' },
-  { name: 'Education', detail: 'Learning and campus workflows', href: '/solutions/education' },
+import { useCallback, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import CompactDemo, { type DemoKind } from './CompactDemo';
+
+const slides: { label: string; headline: string; description: string; demo: DemoKind; caption: string }[] = [
+  { label: 'Manufacturing', headline: 'Custom AI for smarter manufacturing.', description: 'Turn CAD drawings into costing workflows and camera feeds into useful safety and vehicle insights. Built around your engineering data and operations.', demo: 'cad', caption: 'From an engineering drawing to a clearer estimate.' },
+  { label: 'Education', headline: 'Custom AI that brings learning to life.', description: 'Help learners understand through visual explanations, audio guidance and interactive 3D labs. AI tutors built around your learning material.', demo: 'education', caption: 'From a question to an explanation you can explore.' },
+  { label: 'Financial services', headline: 'Custom AI for your trading workflows.', description: 'Connect market signals, trading rules and risk checks. We build trading automation and research assistants around your strategies and data.', demo: 'trading', caption: 'From a market signal to a checked, simulated order.' },
 ];
 
 export default function HeroSection() {
-  return (
-    <section id="home" className="b2b-hero">
-      <div className="b2b-container b2b-hero-main">
-        <p className="b2b-eyebrow"><span className="b2b-eyebrow-line" /> Applied AI for enterprise teams</p>
-        <h1>Make your data <em>work in the real world.</em></h1>
-        <div className="b2b-hero-intro">
-          <p className="b2b-hero-lead">
-            We build AI assistants, vision systems and decision tools around your own data and processes.
-            For manufacturing, financial services and education teams that need results they can use.
-          </p>
-          <div className="b2b-hero-actions">
-            <Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link>
-            <Link className="b2b-text-link" href="/#solutions">Explore solutions <span aria-hidden="true">→</span></Link>
-          </div>
+  const host = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(0);
+  const [leaving, setLeaving] = useState(false);
+  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [visible, setVisible] = useState(false);
+  const [pageVisible, setPageVisible] = useState(true);
+  const [reducedMotion, setReducedMotion] = useState(true);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotion = () => setReducedMotion(media.matches);
+    const updateVisibility = () => setPageVisible(!document.hidden);
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: .25 });
+    if (host.current) observer.observe(host.current);
+    updateMotion(); updateVisibility();
+    media.addEventListener('change', updateMotion);
+    document.addEventListener('visibilitychange', updateVisibility);
+    return () => { observer.disconnect(); media.removeEventListener('change', updateMotion); document.removeEventListener('visibilitychange', updateVisibility); };
+  }, []);
+
+  const changeSlide = useCallback((index: number) => {
+    if (transitionTimer.current) clearTimeout(transitionTimer.current);
+    if (index === active || reducedMotion) {
+      setActive(index);
+      setLeaving(false);
+      return;
+    }
+    setLeaving(true);
+    transitionTimer.current = setTimeout(() => {
+      setActive(index);
+      setLeaving(false);
+      transitionTimer.current = null;
+    }, 350);
+  }, [active, reducedMotion]);
+
+  useEffect(() => () => {
+    if (transitionTimer.current) clearTimeout(transitionTimer.current);
+  }, []);
+
+  const rotating = visible && pageVisible && !reducedMotion;
+  useEffect(() => {
+    if (!rotating) return;
+    const timer = window.setTimeout(() => changeSlide((active + 1) % slides.length), 10_000);
+    return () => window.clearTimeout(timer);
+  }, [active, rotating, changeSlide]);
+
+  const slide = slides[active];
+  return <section ref={host} id="home" className="b2b-hero" aria-label="RootStock AI solutions" aria-roledescription="carousel">
+    <div className="b2b-container calm-hero rotating-hero">
+      <div>
+        <p className="b2b-eyebrow">RootStock / Applied AI</p>
+        <div className={`hero-copy-stack hero-soft-transition ${leaving ? 'is-leaving' : ''}`} aria-live="off">
+          {slides.map((item, index) => <div key={item.label} className={`hero-copy-slide ${index === active ? 'is-active' : ''}`} aria-hidden={index !== active}>
+            {index === active ? <h1>{item.headline}</h1> : <p className="hero-heading-placeholder">{item.headline}</p>}
+            <p className="calm-hero-lead">{item.description}</p>
+          </div>)}
         </div>
-        <div className="b2b-hero-proof" aria-label="Selected clients">
-          <span className="b2b-hero-proof-label">Selected clients</span>
-          <div className="b2b-hero-proof-logos">
-            <span className="b2b-hero-proof-logo"><Image src="/client_logos/definedge.png" alt="Definedge Securities" width={160} height={60} /></span>
-            <span className="b2b-hero-proof-logo"><Image src="/client_logos/ace.png" alt="Action Construction Equipment (ACE)" width={140} height={68} /></span>
-            <span className="b2b-hero-proof-logo"><Image src="/client_logos/jcb.svg" alt="JCB" width={124} height={48} /></span>
-            <span className="b2b-hero-proof-name b2b-hero-proof-name-small">Indira Securities</span>
-          </div>
+        <div className="calm-actions"><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link><Link className="b2b-text-link" href="/#solutions">Explore solutions <span aria-hidden="true">↓</span></Link></div>
+        <div className="hero-rotation-controls" aria-label="Choose an industry">
+          {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}><span aria-hidden="true">0{index + 1}</span>{item.label}</button>)}
         </div>
-        <nav className="b2b-sector-nav" aria-label="Solutions by industry">
-          <span className="b2b-sector-label">Explore your industry</span>
-          {industries.map((industry) => (
-            <Link href={industry.href} key={industry.name}>
-              <span><strong>{industry.name}</strong><small>{industry.detail}</small></span>
-              <span className="b2b-sector-arrow" aria-hidden="true">↗</span>
-            </Link>
-          ))}
-        </nav>
       </div>
-    </section>
-  );
+      <div className={`calm-hero-example hero-rotating-example hero-soft-transition ${leaving ? 'is-leaving' : ''}`}>
+        <div className="hero-demo-transition" key={slide.demo}><CompactDemo kind={slide.demo}/></div>
+        <p>{slide.caption}</p>
+      </div>
+    </div>
+  </section>;
 }

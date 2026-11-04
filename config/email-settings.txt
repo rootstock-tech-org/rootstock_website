@@ -1,16 +1,20 @@
-# RootStock mail settings. Edit this file to change routing.
-# Inquiry forms send to both addresses below.
+# RootStock mail routing. Environment variables override these values.
+MAIL_PROVIDER=gmail
+MAIL_FROM=no-reply@rootstocktech.co.in
 ADMIN_EMAIL=admin@rootstocktech.co.in
 RASHMI_EMAIL=rashmi@rootstocktech.co.in
 
-# SMTP connection. Enter the mailbox that is allowed to send mail.
-# The existing code used GoDaddy's SMTP host with inconsistent ports;
-# 465 is the SSL default here. Change these values if your provider differs.
+# Gmail API secrets belong ONLY in .env.local or hosting environment variables:
+# GMAIL_CLIENT_ID
+# GMAIL_CLIENT_SECRET
+# GMAIL_REFRESH_TOKEN
+# Setup instructions: config/gmail-setup.md
+# Authorize the sender mailbox, or a Gmail account with this verified send-as alias.
+
+# Optional SMTP alternative: set MAIL_PROVIDER=smtp and configure these values.
 SMTP_HOST=smtpout.secureserver.net
 SMTP_PORT=465
 SMTP_USER=admin@rootstocktech.co.in
-
-# Keep the SMTP password out of this tracked file.
-# Local: create .env.local with SMTP_PASS=your_app_password
-# Vercel: add SMTP_PASS in Project Settings > Environment Variables.
-# Restart the local server after changing this file or .env.local.
+# SMTP_PASS belongs only in .env.local or hosting environment variables.
+# SMTP must also authorize MAIL_FROM as a sender.
+# Restart/redeploy after changing settings.

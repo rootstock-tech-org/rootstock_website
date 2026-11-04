@@ -18,7 +18,8 @@
     "nodemailer": "^9.0.1",
     "particles.js": "^2.0.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "three": "^0.187.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -27,6 +28,7 @@
     "@types/nodemailer": "^7.0.9",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.187.0",
     "eslint": "^9",
     "eslint-config-next": "^16.1.1",
     "typescript": "^5"

@@ -8,10 +8,9 @@ interface HeaderProps { activeSection?: string }
 
 const links = [
   { label: 'Solutions', href: '/#solutions' },
-  { label: 'Work', href: '/#work' },
   { label: 'Approach', href: '/#approach' },
   { label: 'About', href: '/#about' },
-  { label: 'Careers', href: '/careers' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Header({ activeSection }: HeaderProps) {
@@ -27,7 +26,6 @@ export default function Header({ activeSection }: HeaderProps) {
         <nav className="b2b-desktop-nav" aria-label="Main navigation">
           {links.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}
         </nav>
-        <Link href="/#contact" className="b2b-button b2b-button-header">Discuss a pilot <span aria-hidden="true">↗</span></Link>
         <button
           className="b2b-menu-toggle"
           type="button"
@@ -42,7 +40,6 @@ export default function Header({ activeSection }: HeaderProps) {
       {open && (
         <nav id="b2b-mobile-nav" className="b2b-mobile-nav" aria-label="Mobile navigation">
           {links.map((link) => <Link href={link.href} key={link.label} onClick={() => setOpen(false)}>{link.label}<span aria-hidden="true">↗</span></Link>)}
-          <Link className="b2b-button b2b-button-primary" href="/#contact" onClick={() => setOpen(false)}>Discuss a pilot <span aria-hidden="true">↗</span></Link>
         </nav>
       )}
     </header>

@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
 
     // Send email to company
     await transporter.sendMail({
-      from: `"RootStock Technology" <${settings.user}>`,
+      from: `"RootStock Technology" <${settings.sender}>`,
       to: settings.inquiryRecipients,
       replyTo: email, // Set reply-to as the user's email
       subject: `New Contact Form Submission from ${name}`,
@@ -53,8 +53,9 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to user
     await transporter.sendMail({
-      from: `"RootStock Technology" <${settings.user}>`,
+      from: `"RootStock Technology" <${settings.sender}>`,
       to: email,
+      replyTo: settings.inquiryRecipients,
       subject: 'Thank you for contacting RootStock Technology',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -77,6 +78,8 @@ export async function POST(request: NextRequest) {
           </p>
         </div>
       `,
+    }).catch(() => {
+      console.error("Confirmation email failed after the company notification was delivered");
     });
 
     return NextResponse.json({

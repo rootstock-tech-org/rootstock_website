@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InteractiveShowcase from '@/components/InteractiveShowcase';
 import { getSolution, solutions } from '@/data/solutions';
 
 export function generateStaticParams() {
@@ -36,6 +37,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             <div className="b2b-solution-hero-grid"><div><h1>{solution.title}</h1><p>{solution.summary}</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link></div><div className="b2b-solution-tag">{solution.buyer}<span aria-hidden="true">↗</span></div></div>
           </div>
         </section>
+        <InteractiveShowcase sector={slug as 'manufacturing' | 'financial-services' | 'education'} />
         <section className="b2b-section"><div className="b2b-container b2b-detail-intro"><p className="b2b-eyebrow">The challenge</p><h2>{solution.problem}</h2></div></section>
         <section className="b2b-section b2b-detail-capabilities"><div className="b2b-container"><div className="b2b-section-heading"><div><p className="b2b-eyebrow">What we build</p><h2>Practical systems for<br /><em>your team’s workflow.</em></h2></div><p>Each engagement begins with your operating context and the decisions people need to make.</p></div><div className="b2b-capability-grid">{solution.capabilities.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.description}</p>{item.product && <Link href={`/products/${item.product}`}>Explore capability <span aria-hidden="true">↗</span></Link>}</article>)}</div></div></section>
         <section className="b2b-section b2b-detail-flow"><div className="b2b-container"><p className="b2b-eyebrow">From context to action</p><div className="b2b-detail-flow-grid"><div><h2>What goes in</h2>{solution.inputs.map((item) => <p key={item}>{item}</p>)}</div><div><span className="b2b-flow-arrow" aria-hidden="true">→</span><strong>ROOTSTOCK<br />ENGINE</strong></div><div><h2>What comes out</h2>{solution.outputs.map((item) => <p key={item}>{item}</p>)}</div></div></div></section>

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "./b2b.css";
+import "./showcase.css";
 
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",
