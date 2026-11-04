@@ -2,6 +2,8 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import TechnologySection from '@/components/TechnologySection';
 import ClientsSection from '@/components/ClientsSection';
+import OutcomesStrip from '@/components/OutcomesStrip';
+import LatestInsights from '@/components/LatestInsights';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -13,8 +15,10 @@ export default function Home() {
       <main>
         <HeroSection />
         <ClientsSection />
+        <OutcomesStrip />
         <TechnologySection />
         <AboutSection />
+        <LatestInsights />
         <ContactSection />
       </main>
       <Footer />

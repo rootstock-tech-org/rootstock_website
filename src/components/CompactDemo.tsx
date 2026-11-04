@@ -31,7 +31,7 @@ export default function CompactDemo({ kind }: { kind: DemoKind }) {
     setSpeaking(true); window.speechSynthesis.speak(utterance);
   };
   return <div ref={host} className={`compact-demo demo-${kind} ${visible ? 'is-playing' : ''}`}>
-    <div className="demo-bar"><span>{ { cad: 'Drawing → estimate', vision: 'Camera → insight', trading: 'Signal → action', education: 'Question → understanding' }[kind]}</span><span>Illustrative demo</span></div>
+    <div className="demo-bar"><span>{ { cad: 'Drawing → estimate', vision: 'Camera → insight', trading: 'Signal → action', education: 'Question → understanding' }[kind]}</span><span>Interactive preview</span></div>
     {(kind === 'vision' || kind === 'education') && <div className="demo-options" aria-label="Choose demonstration">{(kind === 'vision' ? ['Safety', 'Vehicle identification'] : ['Circuit lab', 'Mechanics lab']).map((label, i) => <button key={label} type="button" aria-pressed={option === Boolean(i)} onClick={() => { setOption(Boolean(i)); setVersion(v => v + 1); if (kind === 'education' && audio) { window.speechSynthesis.cancel(); setSpeaking(false); } }}>{label}</button>)}</div>}
     <div className="demo-stage" key={`${version}-${option}`}>
       {kind === 'cad' && <><svg viewBox="0 0 520 290" role="img" aria-label="An engineering bracket drawing becomes a cost breakdown">

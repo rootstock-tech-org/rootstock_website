@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import CompactDemo from './CompactDemo';
 import RevealHeading from './RevealHeading';
+import { getProductBySlug } from '@/data/products';
 import type { CSSProperties } from 'react';
 type Sector = 'manufacturing' | 'financial-services' | 'education';
+const accelerators: Record<Sector, string[]> = { manufacturing: ['costingai', 'inventoai', 'gateai'], 'financial-services': ['finsight'], education: ['edu-stream-pipeline'] };
+
 const entries: { sector: Sector; label: string; title: string; text: string; tags: string[] }[] = [
   { sector: 'manufacturing', label: '01 / Manufacturing', title: 'From engineering data to everyday decisions.', text: 'Turn CAD drawings into costing workflows. Use camera vision to help teams review safety events and identify vehicles.', tags: ['CAD costing', 'PPE detection', 'Number plate recognition'] },
   { sector: 'financial-services', label: '02 / Financial services', title: 'Put your trading logic to work.', text: 'Connect market signals, strategy rules and risk checks in a trading bot that follows your process. Give research teams AI assistants grounded in their own information.', tags: ['Trading automation', 'Risk checks', 'Research assistants'] },
@@ -11,6 +14,6 @@ const entries: { sector: Sector; label: string; title: string; text: string; tag
 export default function InteractiveShowcase({ sector }: { sector?: Sector }) {
   return <section id={sector ? 'showcase' : 'solutions'} className="calm-solutions"><div className="b2b-container">
     {!sector && <div className="calm-section-intro"><p className="b2b-eyebrow" data-reveal="up">What we build</p><RevealHeading lines={['Three sectors we know well.']}/></div>}
-    {entries.filter(entry => !sector || entry.sector === sector).map(entry => <article className="calm-solution-row" key={entry.sector}><div className="calm-solution-copy" data-reveal="up"><p className="b2b-eyebrow">{entry.label}</p><h3>{entry.title}</h3><p>{entry.text}</p><ul>{entry.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><Link className="b2b-text-link" href={sector ? '/#contact' : `/solutions/${entry.sector}`}>{sector ? 'Discuss your use case' : `Explore ${entry.sector === 'financial-services' ? 'financial services' : entry.sector}`} <span aria-hidden="true">↗</span></Link></div><div className="calm-solution-demo" data-reveal="up" style={{ '--reveal-i': 1 } as CSSProperties}><CompactDemo kind={entry.sector === 'manufacturing' ? 'vision' : entry.sector === 'education' ? 'education' : 'trading'}/></div></article>)}
+    {entries.filter(entry => !sector || entry.sector === sector).map(entry => <article className="calm-solution-row" key={entry.sector}><div className="calm-solution-copy" data-reveal="up"><p className="b2b-eyebrow">{entry.label}</p><h3>{entry.title}</h3><p>{entry.text}</p><ul>{entry.tags.map(tag => <li key={tag}>{tag}</li>)}</ul><p className="calm-accelerators"><span>Accelerators</span>{accelerators[entry.sector].map(slug => getProductBySlug(slug)).filter(product => product !== undefined).map(product => <Link key={product.slug} href={`/products/${product.slug}`}>{product.title}</Link>)}</p><Link className="b2b-text-link" href={sector ? '/#contact' : `/solutions/${entry.sector}`}>{sector ? 'Discuss your use case' : `Explore ${entry.sector === 'financial-services' ? 'financial services' : entry.sector}`} <span aria-hidden="true">↗</span></Link></div><div className="calm-solution-demo" data-reveal="up" style={{ '--reveal-i': 1 } as CSSProperties}><CompactDemo kind={entry.sector === 'manufacturing' ? 'vision' : entry.sector === 'education' ? 'education' : 'trading'}/></div></article>)}
   </div></section>;
 }

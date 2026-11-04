@@ -9,7 +9,7 @@ export default function ClientsSection() {
     <div className="b2b-client-groups">
       {clientGroups.map((group, groupIndex) => <div key={group.sector} className="b2b-client-group" data-reveal="draw" style={{ '--reveal-i': groupIndex } as CSSProperties}>
         <h3>{group.label}</h3>
-        <ul>{clientsBySector(group.sector).map(client => <li key={client.name} title={client.name} data-reveal="up" style={{ '--reveal-i': logoIndex++ } as CSSProperties}><Image src={client.logo} alt={client.name} width={140} height={48}/></li>)}</ul>
+        <ul>{clientsBySector(group.sector).map(client => <li key={client.name} title={client.name} className={client.darkTile ? 'is-dark' : undefined} data-reveal="up" style={{ '--reveal-i': logoIndex++ } as CSSProperties}><Image src={client.logo} alt={client.name} width={140} height={48} style={client.scale ? { transform: `scale(${client.scale})` } : undefined}/></li>)}</ul>
       </div>)}
     </div>
   </div></section>;

@@ -90,6 +90,7 @@ export default function HeroSection() {
           <span className="sr-only">{TAGLINE_LEAD}{TAGLINE_ACCENT}</span>
           <strong aria-hidden="true">{TAGLINE_LEAD.slice(0, typed)}<em>{TAGLINE_ACCENT.slice(0, Math.max(0, typed - TAGLINE_LEAD.length))}</em></strong>
           <span className={`apple-hero-caret${typed >= TAGLINE_LENGTH ? ' is-done' : ''}`} aria-hidden="true"/>
+          <span className={`apple-hero-position${typed >= TAGLINE_LENGTH ? ' is-shown' : ''}`}>Custom AI for manufacturing, finance and education</span>
         </p>
         <div className={`hero-copy-stack hero-soft-transition ${leaving ? 'is-leaving' : ''}`} aria-live="off">
           {slides.map((item, index) => <div key={item.label} className={`hero-copy-slide ${index === active ? 'is-active' : ''}`} aria-hidden={index !== active}>
