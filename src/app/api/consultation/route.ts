@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createMailTransport, escapeEmailHtml, getMailSettings } from '@/lib/mail-config';
 
 export async function POST(request: NextRequest) {
   try {
@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const { name, email, company, message, productInterested } = body;
 
     // Validate input
-    if (!name || !email || !message) {
+    if (typeof name !== 'string' || !name.trim() || typeof email !== 'string' || typeof message !== 'string' || !message.trim()) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -23,34 +23,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create a transporter using SMTP
-    const port = Number(process.env.SMTP_PORT) || 587;
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtpout.secureserver.net',
-      port: port,
-      secure: port === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    const settings = getMailSettings();
+    const transporter = createMailTransport(settings);
+    const safeName = escapeEmailHtml(name);
+    const safeEmail = escapeEmailHtml(email);
+    const safeCompany = typeof company === 'string' ? escapeEmailHtml(company) : '';
+    const safeInterest = typeof productInterested === 'string' ? escapeEmailHtml(productInterested) : '';
+    const safeMessage = escapeEmailHtml(message);
 
     // Send notification email to company
     await transporter.sendMail({
-      from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
+      from: `"RootStock Technology" <${settings.user}>`,
+      to: settings.inquiryRecipients,
       replyTo: email,
       subject: `New Consultation Request from ${name}${company ? ` (${company})` : ''}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">New Consultation Request</h2>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            ${company ? `<p><strong>Company/Organization:</strong> ${company}</p>` : ''}
-            ${productInterested ? `<p><strong>Product Interested:</strong> ${productInterested}</p>` : ''}
+            <p><strong>Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            ${safeCompany ? `<p><strong>Company/Organization:</strong> ${safeCompany}</p>` : ''}
+            ${safeInterest ? `<p><strong>Product Interested:</strong> ${safeInterest}</p>` : ''}
             <p><strong>Requirements/Message:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
           </div>
           <p style="color: #666; font-size: 12px;">
             Received at: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} IST
@@ -61,20 +57,20 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to requester
     await transporter.sendMail({
-      from: `"RootStock Technology" <${process.env.SMTP_USER}>`,
+      from: `"RootStock Technology" <${settings.user}>`,
       to: email,
       subject: 'Your Consultation Request - RootStock Technology',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">Consultation Request Received</h2>
-          <p>Dear ${name},</p>
+          <p>Dear ${safeName},</p>
           <p>Thank you for your interest in consulting with RootStock Technology!</p>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Your request details:</strong></p>
-            ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
-            ${productInterested ? `<p><strong>Product Interested:</strong> ${productInterested}</p>` : ''}
+            ${safeCompany ? `<p><strong>Company:</strong> ${safeCompany}</p>` : ''}
+            ${safeInterest ? `<p><strong>Product Interested:</strong> ${safeInterest}</p>` : ''}
             <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
           </div>
           <p>Our team will review your consultation request and reach out to you within 24-48 hours to schedule a meeting.</p>
           <p>We're excited to discuss how our AI solutions can help transform your business!</p>

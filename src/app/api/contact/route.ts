@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createMailTransport, escapeEmailHtml, getMailSettings } from '@/lib/mail-config';
 
 export async function POST(request: NextRequest) {
   try {
@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
     const { name, email, message } = body;
 
     // Validate input
-    if (!name || !email || !message) {
+    if (typeof name !== 'string' || !name.trim() || typeof email !== 'string' || typeof message !== 'string' || !message.trim()) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -23,32 +23,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const port = Number(process.env.SMTP_PORT) || 465;
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtpout.secureserver.net',
-      port: port,
-      secure: port === 465, // true for 465, false for other ports
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-      debug: false, // set to true if you need debugging
-    });
+    const settings = getMailSettings();
+    const transporter = createMailTransport(settings);
+    const safeName = escapeEmailHtml(name);
+    const safeEmail = escapeEmailHtml(email);
+    const safeMessage = escapeEmailHtml(message);
 
     // Send email to company
     await transporter.sendMail({
-      from: `"${name}" <${process.env.SMTP_USER}>`, // GoDaddy requires sender to be the authenticated user
-      to: process.env.SMTP_USER, // Send to company email
+      from: `"RootStock Technology" <${settings.user}>`,
+      to: settings.inquiryRecipients,
       replyTo: email, // Set reply-to as the user's email
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">New Contact Form Submission</h2>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
             <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
           </div>
           <p style="color: #666; font-size: 12px;">
             Received at: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} IST
@@ -59,17 +53,17 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to user
     await transporter.sendMail({
-      from: `"RootStock Technology" <${process.env.SMTP_USER}>`,
+      from: `"RootStock Technology" <${settings.user}>`,
       to: email,
       subject: 'Thank you for contacting RootStock Technology',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">Thank You for Reaching Out!</h2>
-          <p>Dear ${name},</p>
+          <p>Dear ${safeName},</p>
           <p>We've received your message and appreciate you taking the time to contact us.</p>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <p><strong>Your message:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
+            <p style="white-space: pre-wrap;">${safeMessage}</p>
           </div>
           <p>Our team will review your inquiry and get back to you within 24-48 hours.</p>
           <p>In the meantime, feel free to explore our products and services at <a href="https://rootstocktech.co.in" style="color: #415b3e;">rootstocktech.co.in</a>.</p>
@@ -92,7 +86,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Error sending contact form emails:', error);
     return NextResponse.json(
-      { error: `SMTP Error: ${error instanceof Error ? error.message : String(error)}` },
+      { error: 'Unable to send your message right now. Please email us directly.' },
       { status: 500 }
     );
   }

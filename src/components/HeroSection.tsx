@@ -1,59 +1,47 @@
-'use client';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import NeuralTree from './NeuralTree';
-import ConsultationModal from './ConsultationModal';
+const industries = [
+  { name: 'Manufacturing', detail: 'Vision, operations and costing', href: '/solutions/manufacturing' },
+  { name: 'Financial services', detail: 'Knowledge and decision support', href: '/solutions/financial-services' },
+  { name: 'Education', detail: 'Learning and campus workflows', href: '/solutions/education' },
+];
 
 export default function HeroSection() {
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-
-      {/* Neural Roots SVG Animation */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-        <NeuralTree />
+    <section id="home" className="b2b-hero">
+      <div className="b2b-container b2b-hero-main">
+        <p className="b2b-eyebrow"><span className="b2b-eyebrow-line" /> Applied AI for enterprise teams</p>
+        <h1>Make your data <em>work in the real world.</em></h1>
+        <div className="b2b-hero-intro">
+          <p className="b2b-hero-lead">
+            We build AI assistants, vision systems and decision tools around your own data and processes.
+            For manufacturing, financial services and education teams that need results they can use.
+          </p>
+          <div className="b2b-hero-actions">
+            <Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link>
+            <Link className="b2b-text-link" href="/#solutions">Explore solutions <span aria-hidden="true">→</span></Link>
+          </div>
+        </div>
+        <div className="b2b-hero-proof" aria-label="Selected clients">
+          <span className="b2b-hero-proof-label">Selected clients</span>
+          <div className="b2b-hero-proof-logos">
+            <span className="b2b-hero-proof-logo"><Image src="/client_logos/definedge.png" alt="Definedge Securities" width={160} height={60} /></span>
+            <span className="b2b-hero-proof-logo"><Image src="/client_logos/ace.png" alt="Action Construction Equipment (ACE)" width={140} height={68} /></span>
+            <span className="b2b-hero-proof-logo"><Image src="/client_logos/jcb.svg" alt="JCB" width={124} height={48} /></span>
+            <span className="b2b-hero-proof-name b2b-hero-proof-name-small">Indira Securities</span>
+          </div>
+        </div>
+        <nav className="b2b-sector-nav" aria-label="Solutions by industry">
+          <span className="b2b-sector-label">Explore your industry</span>
+          {industries.map((industry) => (
+            <Link href={industry.href} key={industry.name}>
+              <span><strong>{industry.name}</strong><small>{industry.detail}</small></span>
+              <span className="b2b-sector-arrow" aria-hidden="true">↗</span>
+            </Link>
+          ))}
+        </nav>
       </div>
-
-      {/* Premium Ambient Blobs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1200px] h-[600px] pointer-events-none z-0">
-        <div className="absolute top-10 left-1/4 w-[400px] h-[400px] bg-[#415b3e]/[0.08] rounded-full blob" />
-        <div className="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-indigo-600/[0.04] rounded-full blob" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-radial from-white/40 via-transparent to-transparent z-0 pointer-events-none" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-[95rem] mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="space-y-8 md:space-y-10"
-        >
-          {/* Main Heading covering multiple lines properly */}
-          <h1 className="flex flex-col items-center justify-center text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[0.92] tracking-tighter font-serif font-bold text-[#0b182f]">
-            <span>Intelligence</span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#415b3e] to-[#0b182f] pb-2 sm:pb-4 drop-shadow-sm">Engineered.</span>
-          </h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-xl sm:text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto font-medium leading-relaxed px-4"
-          >
-            Human-Aware Intelligence that blends data, emotion, and <span className="text-[#0b182f] font-semibold">real-world context</span>.
-          </motion.p>
-
-
-        </motion.div>
-      </div>
-
-      <ConsultationModal
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-      />
     </section>
   );
 }

@@ -1,68 +1,34 @@
-'use client';
+import Link from 'next/link';
 
-import { useState, useEffect } from 'react';
+const steps = [
+  { number: '01', title: 'Choose one process', description: 'We identify the decision, data and people involved, then agree on what success should look like.' },
+  { number: '02', title: 'Build a focused pilot', description: 'A scoped engagement puts the system into a real workflow with the people who will use it.' },
+  { number: '03', title: 'Measure and extend', description: 'We compare the result with your existing measures and plan the next deployment step.' },
+];
 
 export default function AboutSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
   return (
-    <section id="about" className="section section--divider divider-light relative overflow-hidden">
-
-      <div className="container mx-auto px-6">
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-serif text-dark mb-4">About Us</h2>
+    <>
+      <section id="approach" className="b2b-section b2b-approach">
+        <div className="b2b-container">
+          <div className="b2b-section-heading">
+            <div><p className="b2b-eyebrow">03 / How we work</p><h2>Start with one<br /><em>useful outcome.</em></h2></div>
+            <p>We work from your material and your operating context, then test the result where your team actually uses it.</p>
+          </div>
+          <div className="b2b-steps">{steps.map((step) => <div className="b2b-step" key={step.number}><span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p></div>)}</div>
+          <div className="b2b-approach-callout"><p>Our work combines retrieval, knowledge graphs and feedback so answers can stay connected to the material behind them.</p><Link href="/#contact">Talk through your use case <span aria-hidden="true">↗</span></Link></div>
         </div>
-
-        <div className="relative mb-20">
-          {/* vertical connector on md+ */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent" aria-hidden="true"></div>
-          <div className="grid md:grid-cols-2 gap-10 items-stretch">
-            <div className={`transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="bg-white p-8 md:p-10 rounded-[1.5rem] border border-gray-200 h-full flex flex-col transition-all duration-500 hover:border-gray-300 group">
-                <h3 className="text-2xl font-bold font-serif text-primary mb-4 group-hover:text-[#415b3e] transition-colors">Vision</h3>
-                <p className="text-lg text-gray-600 leading-relaxed flex-grow">
-                  To lead the world in AI-powered evaluation and decision systems, enabling every individual and organization to make confident, informed choices.
-                </p>
-              </div>
-            </div>
-            <div className={`transition-all duration-1000 delay-150 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-
-              <div className="bg-white p-8 md:p-10 rounded-[1.5rem] border border-gray-200 h-full flex flex-col transition-all duration-500 hover:border-gray-300 group">
-                <h3 className="text-2xl font-bold font-serif text-secondary mb-4 group-hover:text-[#0b182f] transition-colors">Mission</h3>
-                <div className="flex-grow">
-                  <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                    We design intuitive, emotion-aware AI tools that translate complexity into clarity. We democratize access to sophisticated decision systems, embedding trust, transparency, and ethical intelligence into every product.
-                  </p>
-                </div>
-              </div>
-            </div>
+      </section>
+      <section id="about" className="b2b-section b2b-about">
+        <div className="b2b-container b2b-about-grid">
+          <div><p className="b2b-eyebrow">04 / About RootStock</p><h2>Engineering intelligence<br /><em>for people at work.</em></h2></div>
+          <div>
+            <p className="b2b-about-lead">RootStock Technology builds applied AI systems for organizations navigating complex information and physical operations.</p>
+            <p>Our team brings together language systems, vision and software engineering. We adapt the technology to a client’s data, process and goals, with a focus on making the result understandable to the people using it.</p>
+            <div className="b2b-about-facts"><div><strong>03</strong><span>Core sectors</span></div><div><strong>01</strong><span>Shared AI engine</span></div></div>
           </div>
         </div>
-
-        {/* Why RootStock Technology Exists - Refined Content */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl md:text-4xl font-bold font-serif text-gray-900 mb-6 tracking-tight">Embodied Intelligence</h3>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-              We are RootStock Technology. We build intelligence into systems, machines, and robots.
-            </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-4 leading-relaxed">
-              As a consultancy firm, we provide embodied intelligence solutions that enable systems to not just process data, but to think, act, and relate.
-            </p>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-4 leading-relaxed">
-              Our approach balances immediate impact with future innovation: we dedicate ourselves to deploying robust, existing AI models tailored to customer demands while consistently pushing boundaries through pure R&D in new logic pipelines and model architectures.
-            </p>
-          </div>
-        </div>
-
-
-      </div>
-
-
-
-    </section>
+      </section>
+    </>
   );
 }

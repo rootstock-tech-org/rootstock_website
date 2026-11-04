@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import "./b2b.css";
 
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",
@@ -8,7 +9,6 @@ const departureMono = localFont({
   display: "swap",
 });
 import "./carousel.css";
-import FloatingWhatsApp from "../components/FloatingWhatsApp";
 import HydrationSuppressor from "../components/HydrationSuppressor";
 
 export const viewport: Viewport = {
@@ -19,10 +19,19 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Root Stock Tech - AI + EI: The Future of Investment Intelligence",
-  description: "We humanize investment technology, bridging the gap between quantitative data and human emotional dynamics to give institutional investors a decisive edge.",
-  keywords: "AI, emotional intelligence, investment intelligence, fintech, mutual funds, stock market analysis, AI evaluation tools",
-  authors: [{ name: "Root Stock Tech" }],
+  metadataBase: new URL("https://www.rootstocktech.co.in"),
+  title: "RootStock Technology | Applied AI for enterprise teams",
+  description: "RootStock builds AI assistants, vision systems and decision tools around client data and workflows for manufacturing, financial services and education.",
+  keywords: "applied AI, manufacturing AI, financial services AI, education AI, enterprise AI, computer vision",
+  authors: [{ name: "RootStock Technology" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "RootStock Technology | Applied AI for enterprise teams",
+    description: "AI systems built around your data, processes and people.",
+    url: "https://www.rootstocktech.co.in",
+    siteName: "RootStock Technology",
+    type: "website",
+  },
   icons: {
     icon: '/RootStock.jpeg',
     apple: '/RootStock.jpeg',
@@ -36,14 +45,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={`antialiased bg-[#FCFBF9] ${departureMono.variable}`}>
+      <body className={`antialiased ${departureMono.variable}`}>
         {/* Use HydrationSuppressor for content to avoid extension-related hydration issues */}
         <HydrationSuppressor>
           {children}
-          <FloatingWhatsApp />
         </HydrationSuppressor>
       </body>
     </html>

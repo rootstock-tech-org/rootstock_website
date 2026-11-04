@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { createMailTransport, escapeEmailHtml, getMailSettings } from '@/lib/mail-config';
 
 export async function POST(request: NextRequest) {
   try {
@@ -28,16 +28,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const port = Number(process.env.SMTP_PORT) || 465;
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtpout.secureserver.net',
-      port: port,
-      secure: port === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+    const settings = getMailSettings();
+    const transporter = createMailTransport(settings);
+    const safeName = escapeEmailHtml(name);
+    const safeEmail = escapeEmailHtml(email);
+    const safeRole = escapeEmailHtml(role);
+    const safeType = escapeEmailHtml(type);
+    const safeResumeName = resume ? escapeEmailHtml(resume.name) : '';
 
     // Prepare resume attachment if provided
     let resumeAttachment = undefined;
@@ -53,19 +50,19 @@ export async function POST(request: NextRequest) {
 
     // Send email to company
     await transporter.sendMail({
-      from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_USER,
+      from: `"RootStock Technology" <${settings.user}>`,
+      to: settings.adminRecipient,
       replyTo: email,
       subject: `Job Application: ${role} (${type}) - ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">New Job Application</h2>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Applicant Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Position:</strong> ${role}</p>
-            <p><strong>Type:</strong> ${type}</p>
-            ${resume ? `<p><strong>Resume:</strong> ${resume.name} (attached)</p>` : '<p><strong>Resume:</strong> Not provided</p>'}
+            <p><strong>Applicant Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            <p><strong>Position:</strong> ${safeRole}</p>
+            <p><strong>Type:</strong> ${safeType}</p>
+            ${resume ? `<p><strong>Resume:</strong> ${safeResumeName} (attached)</p>` : '<p><strong>Resume:</strong> Not provided</p>'}
           </div>
           <p style="color: #666; font-size: 12px;">
             Received at: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} IST
@@ -77,18 +74,18 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to applicant
     await transporter.sendMail({
-      from: `"RootStock Technology" <${process.env.SMTP_USER}>`,
+      from: `"RootStock Technology" <${settings.user}>`,
       to: email,
       subject: 'Application Received - RootStock Technology',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #415b3e;">Application Received!</h2>
-          <p>Dear ${name},</p>
+          <p>Dear ${safeName},</p>
           <p>Thank you for applying to RootStock Technology!</p>
           <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Position Applied:</strong> ${role}</p>
-            <p><strong>Type:</strong> ${type}</p>
-            ${resume ? `<p><strong>Resume:</strong> ${resume.name}</p>` : ''}
+            <p><strong>Position Applied:</strong> ${safeRole}</p>
+            <p><strong>Type:</strong> ${safeType}</p>
+            ${resume ? `<p><strong>Resume:</strong> ${safeResumeName}</p>` : ''}
           </div>
           <p>We've received your application and our hiring team will review it carefully. We typically respond within 5-7 business days.</p>
           <p>If your qualifications match our requirements, we'll reach out to schedule an interview.</p>

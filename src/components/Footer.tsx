@@ -1,57 +1,23 @@
+import Image from 'next/image';
 import Link from 'next/link';
+
+const links = [
+  { label: 'Manufacturing', href: '/solutions/manufacturing' },
+  { label: 'Financial services', href: '/solutions/financial-services' },
+  { label: 'Education & training', href: '/solutions/education' },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-secondary to-primary text-black py-6 pixel-font text-sm leading-relaxed font-normal">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-10 mb-6">
-          <div>
-            <h4 className="heading-section text-black text-lg mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><Link href="/#home" className="transition-colors hover:text-dark">Home</Link></li>
-              <li><Link href="/#about" className="transition-colors hover:text-dark">About Us</Link></li>
-              <li><Link href="/#technology" className="transition-colors hover:text-dark">Technology</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="heading-section text-black text-lg mb-4">Connect</h4>
-            <p className="mb-3">Get product updates and insights</p>
-            <form
-              action={process.env.NEXT_PUBLIC_FORMSPREE_ACTION || "https://formspree.io/f/your-id"}
-              method="POST"
-              className="flex flex-col sm:flex-row gap-2 items-stretch"
-              aria-label="Subscribe for updates"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <label htmlFor="footer-email" className="sr-only">Email</label>
-              <input
-                id="footer-email"
-                name="email"
-                type="email"
-                required
-                inputMode="email"
-                placeholder="Your email"
-                className="flex-1 rounded-xl px-3 py-2 bg-white/90 border border-black/10 placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-dark/30"
-              />
-              <button
-                type="submit"
-                className="rounded-xl px-4 py-2 bg-white text-dark font-bold hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-lg transition-all"
-                aria-label="Subscribe"
-                title="Subscribe"
-              >
-                Subscribe
-              </button>
-            </form>
-            <div className="mt-2 text-xs text-black/70">
-              Or WhatsApp us via the green button.
-            </div>
-          </div>
+    <footer className="b2b-footer">
+      <div className="b2b-container">
+        <div className="b2b-footer-main">
+          <div><Link href="/" className="b2b-brand b2b-footer-brand"><Image src="/RootStock.jpeg" alt="" width={42} height={42} /><span><strong>RootStock</strong><small>TECHNOLOGY</small></span></Link><p>Applied intelligence for the work that matters.</p></div>
+          <div><h2>Solutions</h2>{links.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}</div>
+          <div><h2>Company</h2><Link href="/#work">Selected work</Link><Link href="/#approach">Our approach</Link><Link href="/#about">About us</Link><Link href="/careers">Careers</Link></div>
+          <div><h2>Contact</h2><a href="mailto:info@rootstocktech.co.in">info@rootstocktech.co.in</a><a href="tel:+918085522102">+91 80855 22102</a><Link className="b2b-footer-cta" href="/#contact">Discuss a pilot ↗</Link></div>
         </div>
-        <div className="border-t border-black/10 pt-4 text-center">
-          <p className="mb-1 text-black/70">&copy; 2026 RootStock Technology. All Rights Reserved.</p>
-          <p className="text-xs text-black/60">Built by RootStock Technology</p>
-        </div>
+        <div className="b2b-footer-bottom"><span>© {new Date().getFullYear()} RootStock Technology Pvt. Ltd.</span><span>Built for real-world decisions.</span></div>
       </div>
     </footer>
   );

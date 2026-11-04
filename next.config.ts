@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  outputFileTracingIncludes: {
+    '/api/consultation': ['./config/email-settings.txt'],
+    '/api/contact': ['./config/email-settings.txt'],
+    '/api/apply': ['./config/email-settings.txt'],
+  },
 };
 
 export default nextConfig;
