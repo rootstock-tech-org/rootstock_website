@@ -10,6 +10,8 @@ const slides: { label: string; headline: string; description: string; demo: Demo
   { label: 'Finance', headline: 'Rules first. Trades second.', description: 'Every signal is checked against your strategy and risk limits before anything reaches the market.', demo: 'trading' },
 ]
 
+const ROTATE_MS = 10_000;
+
 // One sentence per line so short two-part headlines never break mid-phrase.
 const headlineLines = (headline: string) => headline.split(/(?<=\.)\s+/).map(line => <span key={line} className="apple-hero-line">{line}</span>);
 
@@ -56,7 +58,7 @@ export default function HeroSection() {
   const rotating = visible && pageVisible && !reducedMotion;
   useEffect(() => {
     if (!rotating) return;
-    const timer = window.setTimeout(() => changeSlide((active + 1) % slides.length), 10_000);
+    const timer = window.setTimeout(() => changeSlide((active + 1) % slides.length), ROTATE_MS);
     return () => window.clearTimeout(timer);
   }, [active, rotating, changeSlide]);
 
@@ -65,9 +67,6 @@ export default function HeroSection() {
     <div className="b2b-container apple-hero-inner">
       <div className="apple-hero-copy">
         <p className="apple-hero-eyebrow">RootStock · Applied AI</p>
-        <div className="apple-hero-tabs" role="group" aria-label="Choose an industry">
-          {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}>{item.label}</button>)}
-        </div>
         <div className={`hero-copy-stack hero-soft-transition ${leaving ? 'is-leaving' : ''}`} aria-live="off">
           {slides.map((item, index) => <div key={item.label} className={`hero-copy-slide ${index === active ? 'is-active' : ''}`} aria-hidden={index !== active}>
             {index === active ? <h1>{headlineLines(item.headline)}</h1> : <p className="hero-heading-placeholder">{headlineLines(item.headline)}</p>}
@@ -75,6 +74,12 @@ export default function HeroSection() {
           </div>)}
         </div>
         <div className="apple-hero-actions"><Link className="apple-hero-cta" href="/#contact">Discuss a pilot</Link><Link className="apple-hero-link" href="/#solutions">Explore solutions <span aria-hidden="true">›</span></Link></div>
+        <div className="apple-hero-progress" role="group" aria-label="Choose an industry">
+          {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}>
+            {item.label}
+            <span className="apple-hero-track" aria-hidden="true">{active === index && <span key={`${active}-${rotating}`} className={`apple-hero-fill${rotating ? ' is-running' : ''}`} style={{ animationDuration: `${ROTATE_MS}ms` }}/>}</span>
+          </button>)}
+        </div>
       </div>
       <div className={`apple-hero-stage hero-soft-transition ${leaving ? 'is-leaving' : ''}`}>
         <div className="hero-demo-transition" key={slide.demo}><CompactDemo kind={slide.demo}/></div>

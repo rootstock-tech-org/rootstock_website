@@ -113,12 +113,8 @@
 /* Hero: centred, large type, one demo at a time. */
 .apple-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: center; gap: 64px; padding-block: 76px 84px; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
 .apple-hero-eyebrow { margin: 0; color: var(--b2b-muted); font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
-.apple-hero-tabs { display: inline-flex; gap: 4px; margin-top: 20px; padding: 4px; border: 1px solid var(--b2b-line); border-radius: 999px; background: var(--b2b-surface); }
-.apple-hero-tabs button { padding: 8px 18px; border: 0; border-radius: 999px; background: transparent; color: var(--b2b-slate); font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; transition: background .2s ease, color .2s ease, box-shadow .2s ease; }
-.apple-hero-tabs button[aria-pressed="true"] { background: white; color: var(--b2b-ink); box-shadow: 0 1px 3px rgba(18,49,61,.14); }
-.apple-hero-tabs button:focus-visible { outline: 2px solid var(--b2b-teal); outline-offset: 2px; }
 .apple-hero-copy { min-width: 0; }
-.apple-hero .hero-copy-stack { margin-top: 30px; }
+.apple-hero .hero-copy-stack { margin-top: 22px; }
 .apple-hero h1, .apple-hero .hero-heading-placeholder { margin: 0; color: var(--b2b-ink); font-size: clamp(44px, 5vw, 76px); font-weight: 700; line-height: 1.02; letter-spacing: -.035em; }
 .apple-hero-line { display: block; }
 .apple-hero-sub { max-width: 500px; margin: 22px 0 0; color: var(--b2b-slate); font-size: clamp(18px, 1.7vw, 23px); line-height: 1.42; letter-spacing: -.012em; }
@@ -128,6 +124,15 @@
 .apple-hero-link { color: var(--b2b-teal); font-size: 16px; text-decoration: none; }
 .apple-hero-link:hover { text-decoration: underline; }
 .apple-hero-cta:focus-visible, .apple-hero-link:focus-visible { outline: 2px solid var(--b2b-teal); outline-offset: 4px; }
+.apple-hero-progress { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 470px; margin-top: 48px; }
+.apple-hero-progress button { display: flex; flex-direction: column; gap: 11px; padding: 6px 0; border: 0; background: none; color: var(--b2b-muted); font: inherit; font-size: 14px; font-weight: 500; text-align: left; cursor: pointer; transition: color .2s ease; }
+.apple-hero-progress button:hover, .apple-hero-progress button[aria-pressed="true"] { color: var(--b2b-ink); }
+.apple-hero-progress button:focus-visible { outline: 2px solid var(--b2b-teal); outline-offset: 4px; border-radius: 2px; }
+.apple-hero-track { position: relative; display: block; height: 2px; overflow: hidden; border-radius: 2px; background: var(--b2b-line); }
+.apple-hero-fill { position: absolute; inset: 0; background: var(--b2b-teal); transform-origin: left; }
+.apple-hero-fill.is-running { animation: hero-progress linear forwards; }
+@keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) { .apple-hero-fill.is-running { animation: none; } }
 .apple-hero-stage { min-width: 0; }
 .apple-hero-stage .compact-demo { display: flex; flex-direction: column; min-height: 480px; border: 0; border-radius: 22px; box-shadow: 0 0 0 1px var(--b2b-line), 0 34px 70px -28px rgba(18,49,61,.32); }
 .apple-hero-stage .demo-stage { flex: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -138,6 +143,7 @@
 }
 @media (max-width: 760px) {
   .apple-hero-inner { padding-block: 48px 48px; }
-  .apple-hero-tabs button { padding: 7px 12px; font-size: 12px; }
+  .apple-hero-progress { gap: 14px; margin-top: 36px; }
+  .apple-hero-progress button { font-size: 13px; }
   .apple-hero-stage .compact-demo { min-height: 440px; border-radius: 16px; }
 }
