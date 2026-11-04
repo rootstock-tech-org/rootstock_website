@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,9 +15,19 @@ const links = [
 
 export default function Header({ activeSection }: HeaderProps) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => { frame = 0; setScrolled(window.scrollY > 12); };
+    const onScroll = () => { if (!frame) frame = window.requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); window.cancelAnimationFrame(frame); };
+  }, []);
 
   return (
-    <header className="b2b-header" data-active-section={activeSection}>
+    <header className={`b2b-header${scrolled || open ? ' is-scrolled' : ''}`} data-active-section={activeSection}>
       <div className="b2b-container b2b-header-inner">
         <Link href="/" className="b2b-brand" aria-label="RootStock Technology home" onClick={() => setOpen(false)}>
           <Image src="/RootStock.jpeg" alt="" width={42} height={42} priority />

@@ -8,12 +8,11 @@
 .b2b-button:hover { box-shadow: none; transform: none; }
 .b2b-hero { background: var(--b2b-bg); }
 .calm-clients { padding: 44px 0 50px; border-block: 1px solid var(--b2b-line); background: var(--b2b-surface); }
-.calm-clients .b2b-eyebrow { color: var(--b2b-slate); margin: 0; }
-.calm-clients-title { margin: 12px 0 30px; color: var(--b2b-ink); font-size: clamp(30px, 3.4vw, 46px); font-weight: 600; line-height: 1.1; letter-spacing: -.045em; }
-.calm-clients-title em { color: var(--b2b-teal); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.calm-clients .b2b-eyebrow { color: var(--b2b-slate); margin: 0 0 26px; }
 .b2b-client-groups { display: grid; grid-template-columns: 3fr 2fr 2fr 2fr; gap: 28px; }
-.b2b-client-group { min-width: 0; padding-top: 14px; border-top: 2px solid var(--b2b-teal); }
-.b2b-client-group:last-child { border-top-color: var(--b2b-line); }
+.b2b-client-group { min-width: 0; padding-top: 14px; }
+.b2b-client-group:last-child { --draw-color: var(--b2b-line); }
+.calm-solution-demo { min-width: 0; }
 .b2b-client-group h3 { margin: 0 0 14px; color: var(--b2b-muted); font-family: var(--font-departure-mono), "Courier New", monospace; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .b2b-client-group ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
 .b2b-client-group li { display: grid; place-items: center; height: 76px; padding: 12px 14px; border: 1px solid var(--b2b-line); border-radius: 4px; background: white; }
@@ -83,10 +82,7 @@
 /* Keep copy and demo space stable while the hero changes industry. */
 .hero-copy-stack { display: grid; }
 .hero-copy-slide { grid-area: 1 / 1; visibility: hidden; }
-.hero-copy-slide.is-active { visibility: visible; animation: hero-fade .55s ease both; }
-.hero-demo-transition { animation: hero-fade .55s ease both; }
-@keyframes hero-fade { from { opacity: .2; } to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .hero-copy-slide.is-active, .hero-demo-transition { animation: none; } }
+.hero-copy-slide.is-active { visibility: visible; }
 
 .demo-trading-status { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 10px; align-self: center; width: fit-content; max-width: 100%; margin: 0 auto 20px; padding: 10px 16px; border: 1px solid var(--b2b-line); border-radius: 4px; background: white; color: var(--b2b-teal); font-size: 12px; line-height: 1.5; text-align: center; }
 .demo-trading-status strong { font-weight: 600; }
@@ -105,14 +101,20 @@
 /* Fade the outgoing content before replacing it; keep navigation and CTAs still. */
 .hero-soft-transition { opacity: 1; transform: translateY(0); transition: opacity 600ms ease, transform 600ms cubic-bezier(.22, 1, .36, 1); }
 .hero-soft-transition.is-leaving { opacity: 0; transform: translateY(5px); transition-duration: 350ms; pointer-events: none; }
-.hero-copy-slide.is-active, .hero-demo-transition { animation: none; }
 @media (prefers-reduced-motion: reduce) {
   .hero-soft-transition, .hero-soft-transition.is-leaving { transition: none; transform: none; }
 }
 
 /* Hero: centred, large type, one demo at a time. */
 .apple-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); align-items: center; gap: 64px; padding-block: 76px 84px; font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif; }
-.apple-hero-eyebrow { margin: 0; color: var(--b2b-muted); font-size: 15px; font-weight: 600; letter-spacing: -.01em; }
+.apple-hero-eyebrow { margin: 0; color: var(--b2b-muted); font-size: 16px; font-weight: 500; letter-spacing: -.01em; }
+.apple-hero-eyebrow strong { color: var(--b2b-ink); font-weight: 600; }
+.apple-hero-eyebrow em { color: var(--b2b-teal); font-family: Georgia, "Times New Roman", serif; font-style: italic; font-weight: 400; }
+.apple-hero-eyebrow { min-height: 1.5em; }
+.apple-hero-caret { display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: -.17em; background: var(--b2b-teal); animation: caret-blink 1s steps(1) infinite; }
+.apple-hero-caret.is-done { animation: caret-blink 1s steps(1) 3 forwards; }
+@keyframes caret-blink { 0% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .apple-hero-caret { display: none; } }
 .apple-hero-copy { min-width: 0; }
 .apple-hero .hero-copy-stack { margin-top: 22px; }
 .apple-hero h1, .apple-hero .hero-heading-placeholder { margin: 0; color: var(--b2b-ink); font-size: clamp(44px, 5vw, 76px); font-weight: 700; line-height: 1.02; letter-spacing: -.035em; }

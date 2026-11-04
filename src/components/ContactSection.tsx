@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useState, type CSSProperties, type FormEvent } from 'react';
+import RevealHeading from './RevealHeading';
 
 type FormData = { name: string; email: string; company: string; sector: string; message: string };
 const initialForm: FormData = { name: '', email: '', company: '', sector: '', message: '' };
@@ -39,16 +40,16 @@ export default function ContactSection() {
     <section id="contact" className="b2b-section b2b-contact">
       <div className="b2b-container b2b-contact-grid">
         <div>
-          <p className="b2b-eyebrow">Start a conversation</p>
-          <h2>Have one process<br /><em>in mind?</em></h2>
-          <p>Tell us where your team spends time searching, checking or interpreting information. We’ll tell you honestly whether AI is the right fit.</p>
-          <div className="b2b-contact-details">
+          <p className="b2b-eyebrow" data-reveal="up">Start a conversation</p>
+          <RevealHeading lines={['Have one process', <em key="e">in mind?</em>]}/>
+          <p data-reveal="up" style={{ '--reveal-i': 2 } as CSSProperties}>Tell us where your team spends time searching, checking or interpreting information. We’ll tell you honestly whether AI is the right fit.</p>
+          <div className="b2b-contact-details" data-reveal="up" style={{ '--reveal-i': 3 } as CSSProperties}>
             <div className="contact-detail-item"><span>Email us</span><a href="mailto:info@rootstocktech.co.in">info@rootstocktech.co.in</a></div>
             <div className="contact-detail-item"><span>Call us</span><a href="tel:+918085522102">+91 80855 22102</a></div>
             <span>IIITD Innovation and Incubation Center, New Delhi</span>
           </div>
         </div>
-        <form className="b2b-contact-form" onSubmit={submit}>
+        <form className="b2b-contact-form" onSubmit={submit} data-reveal="up" style={{ '--reveal-i': 1 } as CSSProperties}>
           <p className="b2b-form-label">LET’S DISCUSS YOUR USE CASE</p>
           <div className="b2b-form-row">
             <label>Full name <span>*</span><input required name="name" autoComplete="name" value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Your name" /></label>

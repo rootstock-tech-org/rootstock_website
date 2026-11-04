@@ -1,0 +1,34 @@
+:root {
+  --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+  --reveal-dur: .85s;
+  --reveal-step: 80ms;
+}
+
+/* Elements are hidden only after ScrollReveal adds .reveal-ready, so visitors without JavaScript see everything. */
+.reveal-ready [data-reveal="up"] { opacity: 0; transform: translateY(22px); transition: opacity var(--reveal-dur) var(--ease-out-expo), transform var(--reveal-dur) var(--ease-out-expo); transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step)); }
+.reveal-ready [data-reveal="up"].is-revealed { opacity: 1; transform: none; }
+
+/* Padding plus matching negative margin keeps descenders inside the clipping box without changing line spacing. */
+.reveal-line, .apple-hero-line { overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.reveal-line { display: block; }
+.reveal-line > span, .apple-hero-line > span { display: inline-block; }
+.reveal-ready [data-reveal="lines"] .reveal-line > span { transform: translateY(110%); transition: transform .9s var(--ease-out-expo); transition-delay: calc(var(--line-i, 0) * 90ms); }
+.reveal-ready [data-reveal="lines"].is-revealed .reveal-line > span { transform: none; }
+
+[data-reveal="draw"] { position: relative; }
+[data-reveal="draw"]::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--draw-color, var(--b2b-teal)); transform-origin: left; }
+.reveal-ready [data-reveal="draw"]::before { transform: scaleX(0); transition: transform 1.1s var(--ease-out-expo); transition-delay: calc(var(--reveal-i, 0) * 120ms); }
+.reveal-ready [data-reveal="draw"].is-revealed::before { transform: scaleX(1); }
+
+/* Hero: replays on every slide because .is-active moves and the demo remounts per slide. */
+.hero-copy-slide.is-active .apple-hero-line > span { animation: line-rise .9s var(--ease-out-expo) both; animation-delay: calc(var(--line-i, 0) * 90ms); }
+.hero-copy-slide.is-active .apple-hero-sub { animation: fade-up .8s var(--ease-out-expo) .25s both; }
+.hero-demo-transition { animation: settle .8s var(--ease-out-expo) .1s both; }
+@keyframes line-rise { from { transform: translateY(110%); } to { transform: none; } }
+@keyframes fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes settle { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal="up"], .reveal-ready [data-reveal="lines"] .reveal-line > span, .reveal-ready [data-reveal="draw"]::before { opacity: 1; transform: none; transition: none; }
+  .hero-copy-slide.is-active .apple-hero-line > span, .hero-copy-slide.is-active .apple-hero-sub, .hero-demo-transition { animation: none; }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import Link from 'next/link';
 import CompactDemo, { type DemoKind } from './CompactDemo';
 
@@ -11,9 +11,13 @@ const slides: { label: string; headline: string; description: string; demo: Demo
 ]
 
 const ROTATE_MS = 10_000;
+const TAGLINE_LEAD = 'Intelligence, ';
+const TAGLINE_ACCENT = 'engineered.';
+const TAGLINE_LENGTH = TAGLINE_LEAD.length + TAGLINE_ACCENT.length;
+const TYPE_MS = 70;
 
 // One sentence per line so short two-part headlines never break mid-phrase.
-const headlineLines = (headline: string) => headline.split(/(?<=\.)\s+/).map(line => <span key={line} className="apple-hero-line">{line}</span>);
+const headlineLines = (headline: string) => headline.split(/(?<=\.)\s+/).map((line, index) => <span key={line} className="apple-hero-line" style={{ '--line-i': index } as CSSProperties}><span>{line}</span></span>);
 
 export default function HeroSection() {
   const host = useRef<HTMLElement>(null);
@@ -34,6 +38,22 @@ export default function HeroSection() {
     media.addEventListener('change', updateMotion);
     document.addEventListener('visibilitychange', updateVisibility);
     return () => { observer.disconnect(); media.removeEventListener('change', updateMotion); document.removeEventListener('visibilitychange', updateVisibility); };
+  }, []);
+
+  const [typed, setTyped] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setTyped(TAGLINE_LENGTH);
+      return;
+    }
+    let timer: number | undefined;
+    const start = window.setTimeout(() => {
+      timer = window.setInterval(() => setTyped(count => {
+        if (count + 1 >= TAGLINE_LENGTH) window.clearInterval(timer);
+        return Math.min(count + 1, TAGLINE_LENGTH);
+      }), TYPE_MS);
+    }, 300);
+    return () => { window.clearTimeout(start); window.clearInterval(timer); };
   }, []);
 
   const changeSlide = useCallback((index: number) => {
@@ -66,7 +86,11 @@ export default function HeroSection() {
   return <section ref={host} id="home" className="b2b-hero apple-hero" aria-label="RootStock AI solutions" aria-roledescription="carousel">
     <div className="b2b-container apple-hero-inner">
       <div className="apple-hero-copy">
-        <p className="apple-hero-eyebrow">RootStock · Applied AI</p>
+        <p className="apple-hero-eyebrow">
+          <span className="sr-only">{TAGLINE_LEAD}{TAGLINE_ACCENT}</span>
+          <strong aria-hidden="true">{TAGLINE_LEAD.slice(0, typed)}<em>{TAGLINE_ACCENT.slice(0, Math.max(0, typed - TAGLINE_LEAD.length))}</em></strong>
+          <span className={`apple-hero-caret${typed >= TAGLINE_LENGTH ? ' is-done' : ''}`} aria-hidden="true"/>
+        </p>
         <div className={`hero-copy-stack hero-soft-transition ${leaving ? 'is-leaving' : ''}`} aria-live="off">
           {slides.map((item, index) => <div key={item.label} className={`hero-copy-slide ${index === active ? 'is-active' : ''}`} aria-hidden={index !== active}>
             {index === active ? <h1>{headlineLines(item.headline)}</h1> : <p className="hero-heading-placeholder">{headlineLines(item.headline)}</p>}

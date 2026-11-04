@@ -31,7 +31,8 @@ html, body { overflow-x: clip; }
 .b2b-text-link { color: var(--b2b-ink); font-weight: 700; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--b2b-ink); padding-bottom: 5px; }
 .b2b-text-link span { margin-left: 14px; }
 
-.b2b-header { position: sticky; top: 0; z-index: 70; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--b2b-line); backdrop-filter: blur(16px); }
+.b2b-header { position: sticky; top: 0; z-index: 70; background: rgba(255,255,255,0); border-bottom: 1px solid transparent; transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, backdrop-filter .3s ease; }
+.b2b-header.is-scrolled { background: rgba(255,255,255,.8); border-bottom-color: var(--b2b-line); box-shadow: 0 8px 24px rgba(18,49,61,.06); -webkit-backdrop-filter: saturate(180%) blur(18px); backdrop-filter: saturate(180%) blur(18px); }
 .b2b-header-inner { display: flex; align-items: center; min-height: 78px; gap: 40px; }
 .b2b-brand { display: inline-flex; align-items: center; gap: 10px; min-width: 190px; color: var(--b2b-ink); text-decoration: none; }
 .b2b-brand img { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; mix-blend-mode: multiply; }

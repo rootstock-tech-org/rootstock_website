@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "./b2b.css";
 import "./showcase.css";
+import "./motion.css";
 
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",
@@ -11,6 +12,7 @@ const departureMono = localFont({
 });
 import "./carousel.css";
 import HydrationSuppressor from "../components/HydrationSuppressor";
+import ScrollReveal from "../components/ScrollReveal";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -51,6 +53,7 @@ export default function RootLayout({
         <HydrationSuppressor>
           {children}
         </HydrationSuppressor>
+        <ScrollReveal />
       </body>
     </html>
   );
