@@ -41,7 +41,7 @@ export default function ContactSection() {
         <div>
           <p className="b2b-eyebrow">Start a conversation</p>
           <h2>Have one process<br /><em>in mind?</em></h2>
-          <p>Tell us where your team spends time searching, checking or interpreting information. We’ll discuss whether a focused pilot makes sense.</p>
+          <p>Tell us where your team spends time searching, checking or interpreting information. We’ll tell you honestly whether AI is the right fit.</p>
           <div className="b2b-contact-details">
             <div className="contact-detail-item"><span>Email us</span><a href="mailto:info@rootstocktech.co.in">info@rootstocktech.co.in</a></div>
             <div className="contact-detail-item"><span>Call us</span><a href="tel:+918085522102">+91 80855 22102</a></div>

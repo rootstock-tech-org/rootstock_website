@@ -21,9 +21,9 @@ export default function AboutSection() {
       </section>
       <section id="about" className="b2b-section b2b-about">
         <div className="b2b-container b2b-about-grid">
-          <div><p className="b2b-eyebrow">About RootStock</p><h2>Engineering intelligence<br /><em>for people at work.</em></h2></div>
+          <div><p className="b2b-eyebrow">About RootStock</p><h2>Applied AI<br /><em>for people at work.</em></h2></div>
           <div>
-            <p className="b2b-about-lead">RootStock Technology builds applied AI systems for organizations navigating complex information and physical operations.</p>
+            <p className="b2b-about-lead">RootStock Technology works with organizations that run on complex information and physical operations.</p>
             <p>Our team brings together language systems, vision and software engineering. We adapt the technology to a client’s data, process and goals, with a focus on making the result understandable to the people using it.</p>
             <div className="b2b-about-facts"><div><strong>03</strong><span>Core sectors</span></div><div><strong>01</strong><span>Shared AI engine</span></div></div>
           </div>

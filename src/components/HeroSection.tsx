@@ -4,11 +4,14 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import CompactDemo, { type DemoKind } from './CompactDemo';
 
-const slides: { label: string; headline: string; description: string; demo: DemoKind; caption: string }[] = [
-  { label: 'Manufacturing', headline: 'Custom AI for smarter manufacturing.', description: 'Turn CAD drawings into costing workflows and camera feeds into useful safety and vehicle insights. Built around your engineering data and operations.', demo: 'cad', caption: 'From an engineering drawing to a clearer estimate.' },
-  { label: 'Education', headline: 'Custom AI that brings learning to life.', description: 'Help learners understand through visual explanations, audio guidance and interactive 3D labs. AI tutors built around your learning material.', demo: 'education', caption: 'From a question to an explanation you can explore.' },
-  { label: 'Financial services', headline: 'Custom AI for your trading workflows.', description: 'Connect market signals, trading rules and risk checks. We build trading automation and research assistants around your strategies and data.', demo: 'trading', caption: 'From a market signal to a checked, simulated order.' },
-];
+const slides: { label: string; headline: string; description: string; demo: DemoKind }[] = [
+  { label: 'Manufacturing', headline: 'Drawings in. Costs out.', description: 'Upload a part drawing and get an estimate your engineers can check, line by line.', demo: 'cad' },
+  { label: 'Education', headline: 'Learning you can see.', description: 'Lessons that explain with visuals, voice and hands-on 3D labs, drawn from your own course books.', demo: 'education' },
+  { label: 'Finance', headline: 'Rules first. Trades second.', description: 'Every signal is checked against your strategy and risk limits before anything reaches the market.', demo: 'trading' },
+]
+
+// One sentence per line so short two-part headlines never break mid-phrase.
+const headlineLines = (headline: string) => headline.split(/(?<=\.)\s+/).map(line => <span key={line} className="apple-hero-line">{line}</span>);
 
 export default function HeroSection() {
   const host = useRef<HTMLElement>(null);
@@ -58,24 +61,23 @@ export default function HeroSection() {
   }, [active, rotating, changeSlide]);
 
   const slide = slides[active];
-  return <section ref={host} id="home" className="b2b-hero" aria-label="RootStock AI solutions" aria-roledescription="carousel">
-    <div className="b2b-container calm-hero rotating-hero">
-      <div>
-        <p className="b2b-eyebrow">RootStock / Applied AI</p>
+  return <section ref={host} id="home" className="b2b-hero apple-hero" aria-label="RootStock AI solutions" aria-roledescription="carousel">
+    <div className="b2b-container apple-hero-inner">
+      <div className="apple-hero-copy">
+        <p className="apple-hero-eyebrow">RootStock · Applied AI</p>
+        <div className="apple-hero-tabs" role="group" aria-label="Choose an industry">
+          {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}>{item.label}</button>)}
+        </div>
         <div className={`hero-copy-stack hero-soft-transition ${leaving ? 'is-leaving' : ''}`} aria-live="off">
           {slides.map((item, index) => <div key={item.label} className={`hero-copy-slide ${index === active ? 'is-active' : ''}`} aria-hidden={index !== active}>
-            {index === active ? <h1>{item.headline}</h1> : <p className="hero-heading-placeholder">{item.headline}</p>}
-            <p className="calm-hero-lead">{item.description}</p>
+            {index === active ? <h1>{headlineLines(item.headline)}</h1> : <p className="hero-heading-placeholder">{headlineLines(item.headline)}</p>}
+            <p className="apple-hero-sub">{item.description}</p>
           </div>)}
         </div>
-        <div className="calm-actions"><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link><Link className="b2b-text-link" href="/#solutions">Explore solutions <span aria-hidden="true">↓</span></Link></div>
-        <div className="hero-rotation-controls" aria-label="Choose an industry">
-          {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}><span aria-hidden="true">0{index + 1}</span>{item.label}</button>)}
-        </div>
+        <div className="apple-hero-actions"><Link className="apple-hero-cta" href="/#contact">Discuss a pilot</Link><Link className="apple-hero-link" href="/#solutions">Explore solutions <span aria-hidden="true">›</span></Link></div>
       </div>
-      <div className={`calm-hero-example hero-rotating-example hero-soft-transition ${leaving ? 'is-leaving' : ''}`}>
+      <div className={`apple-hero-stage hero-soft-transition ${leaving ? 'is-leaving' : ''}`}>
         <div className="hero-demo-transition" key={slide.demo}><CompactDemo kind={slide.demo}/></div>
-        <p>{slide.caption}</p>
       </div>
     </div>
   </section>;
