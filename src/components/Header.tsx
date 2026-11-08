@@ -8,6 +8,7 @@ interface HeaderProps { activeSection?: string }
 
 const links = [
   { label: 'Solutions', href: '/#solutions' },
+  { label: 'Work', href: '/work' },
   { label: 'Approach', href: '/#approach' },
   { label: 'About', href: '/#about' },
   { label: 'Contact', href: '/#contact' },

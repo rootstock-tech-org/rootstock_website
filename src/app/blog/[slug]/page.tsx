@@ -3,6 +3,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 // Built-in demo posts. In a real app, fetch by slug from a CMS or filesystem.
 const builtin = [
@@ -217,58 +219,44 @@ export default function BlogPostPage() {
       .catch(() => {});
   }, [slug]);
 
-  const post = customPost || builtinPost;
+  // posts.json carries one-line stubs for the built-in slugs, so the full built-in article wins; the admin only adds new slugs.
+  const post = builtinPost ?? customPost;
 
   return (
-    <main className="bg-gray-900 min-h-screen">
-      <section className="relative overflow-hidden">
-        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[#16BAC5]/30 blur-3xl" />
-        <div className="absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-[#7AE582]/25 blur-3xl" />
-
-        <div className="container mx-auto px-6 pt-16 pb-10">
-          <div className="max-w-3xl">
-            <Link href="/blog" className="text-[#7AE582] hover:text-white text-sm font-semibold">← All posts</Link>
+    <>
+      <Header activeSection="blog" />
+      <main className="b2b-article-page">
+        <section className="b2b-article-hero">
+          <div className="b2b-container">
+            <Link className="b2b-back-link" href="/blog">← All posts</Link>
             {post ? (
               <>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mt-3">
-                  {post.title}
-                </h1>
-                <p className="text-white/70 mt-2 text-sm">
-                  {post.date} • {post.readTime}
-                </p>
+                <h1>{post.title}</h1>
+                <p className="b2b-article-meta">{post.date} · {post.readTime} read</p>
               </>
             ) : (
               <>
-                <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mt-3">Post not found</h1>
-                <p className="text-white/70 mt-2 text-sm">We couldn't find this article.</p>
+                <h1>Post not found</h1>
+                <p className="b2b-article-meta">We couldn&apos;t find this article. Try the <Link href="/blog">blog index</Link>.</p>
               </>
             )}
           </div>
-        </div>
-      </section>
-
-      <section className="pb-20">
-        <div className="container mx-auto px-6">
-          {post ? (
-            <article className="prose prose-invert max-w-3xl text-white">
-              {customPost?.image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={customPost.image} alt={post.title} className="rounded-2xl border border-white/10 mb-6" />
-              )}
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: post.content || ""
-                }}
-                className="prose-headings:text-white prose-headings:font-bold prose-p:text-white prose-strong:text-white prose-strong:font-semibold prose-li:text-white prose-li:marker:text-[#7AE582] prose-a:text-[#7AE582] hover:prose-a:text-white prose-a:transition-colors"
-              />
-            </article>
-          ) : (
-            <div className="prose prose-invert max-w-3xl">
-              <p>Try returning to the <Link href="/blog" className="text-[#7AE582]">blog index</Link>.</p>
+        </section>
+        {post && (
+          <section className="b2b-section b2b-article-body">
+            <div className="b2b-container">
+              <article className="b2b-article">
+                {post === customPost && customPost?.image && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={customPost.image} alt={post.title} />
+                )}
+                <div dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+              </article>
             </div>
-          )}
-        </div>
-      </section>
-    </main>
+          </section>
+        )}
+      </main>
+      <Footer />
+    </>
   );
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import "./b2b.css";
 import "./showcase.css";
 import "./motion.css";
+import "./work.css";
 
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",

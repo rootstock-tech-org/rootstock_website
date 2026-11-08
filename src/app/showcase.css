@@ -44,13 +44,6 @@
 .demo-options button { border: 1px solid transparent; padding: 7px 10px; background: transparent; border-radius: 4px; font-size: 11px; color: var(--b2b-muted); cursor: pointer; }
 .demo-options button[aria-pressed="true"] { border-color: var(--b2b-line); background: #fff; color: var(--b2b-teal); }
 .demo-result { margin: 0; text-align: center; color: var(--b2b-teal); font-size: 12px; }
-.demo-question { display: inline-block; padding: 9px 12px; background: white; border: 1px solid var(--b2b-line); border-radius: 4px; font-size: 12px; color: var(--b2b-ink); }
-.demo-answer { margin: 0; padding: 0 6px; color: var(--b2b-slate); font-size: 12px; line-height: 1.65; min-height: 60px; }
-.b2b-lab-canvas { height: 230px; width: 100%; touch-action: pan-y; }
-.b2b-lab-canvas canvas { display: block; }
-.b2b-lab-canvas:focus-visible { outline: 2px solid var(--b2b-teal); outline-offset: -2px; }
-.b2b-lab-canvas p { font-size: 12px; padding: 30px; }
-.demo-education .demo-stage { min-height: 350px; }
 .cad-object { transform-origin: 220px 145px; animation: cad-drift 9s ease-in-out 1 both; }
 .demo-reveal { animation: demo-reveal 9s ease 1 both; }
 .demo-chart-line { stroke-dasharray: 1; animation: chart-draw 9s ease 1 both; }
@@ -215,3 +208,29 @@
 }
 @media (max-width: 520px) { .b2b-trust ul { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .b2b-insight-card { transition: none; } }
+
+/* Real screenshots in the demo frames: a slow settle-in zoom stands in for the old drawn animation. */
+.demo-stage:has(.demo-shot) { position: relative; display: flex; flex-direction: column; gap: 14px; }
+.demo-shot { overflow: hidden; border: 1px solid var(--b2b-line); border-radius: 6px; background: white; box-shadow: 0 14px 30px -18px rgba(18,49,61,.35); }
+.demo-shot img { display: block; width: 100%; height: auto; max-height: 340px; object-fit: cover; object-position: top center; transform-origin: 50% 30%; animation: demo-shot-settle 9s var(--ease-out-expo, ease-out) both; animation-play-state: paused; }
+.compact-demo.is-playing .demo-shot img { animation-play-state: running; }
+@keyframes demo-shot-settle { from { transform: scale(1.08); } to { transform: none; } }
+.demo-cad .demo-shot img { max-height: none; object-fit: contain; }
+.demo-shot-card { position: absolute; right: 26px; top: 46%; display: flex; flex-direction: column; gap: 3px; padding: 12px 16px; border: 1px solid var(--b2b-line); border-radius: 6px; background: white; box-shadow: 0 16px 34px -14px rgba(18,49,61,.35); }
+.demo-shot-card span { color: var(--b2b-muted); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+.demo-shot-card strong { color: var(--b2b-teal); font-size: 26px; font-weight: 600; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.demo-shot-card small { color: var(--b2b-slate); font-size: 11px; }
+.demo-footer a { color: var(--b2b-teal); font-size: 10px; font-weight: 700; text-decoration: none; }
+.demo-footer a:hover { text-decoration: underline; }
+.demo-stage:has(.demo-shot) .demo-trading-status { margin-bottom: 0; }
+@media (max-width: 520px) { .demo-shot-card { position: static; align-self: flex-start; } }
+@media (prefers-reduced-motion: reduce) { .demo-shot img { animation: none; } }
+/* Rotating examples: a thin bar under the active tab shows time until the next one. */
+.demo-options button { position: relative; overflow: hidden; }
+.demo-option-timer { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--b2b-teal); transform-origin: left; animation: demo-option-timer linear both; }
+@keyframes demo-option-timer { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.demo-stage:has(.demo-shot) .demo-shot { animation: demo-shot-in .5s var(--ease-out-expo, ease-out) both; }
+@keyframes demo-shot-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .demo-option-timer, .demo-stage:has(.demo-shot) .demo-shot { animation: none; } }
+/* The rotating demos change every 4.5s, so their caption fades in quickly instead of over the 9s scene. */
+.compact-demo.demo-vision .demo-reveal, .compact-demo.demo-education .demo-reveal { animation-duration: 1.4s; animation-iteration-count: 1; }

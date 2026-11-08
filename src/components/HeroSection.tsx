@@ -6,7 +6,7 @@ import CompactDemo, { type DemoKind } from './CompactDemo';
 
 const slides: { label: string; headline: string; description: string; demo: DemoKind }[] = [
   { label: 'Manufacturing', headline: 'Drawings in. Costs out.', description: 'Upload a part drawing and get an estimate your engineers can check, line by line.', demo: 'cad' },
-  { label: 'Education', headline: 'Learning you can see.', description: 'Lessons that explain with visuals, voice and hands-on 3D labs, drawn from your own course books.', demo: 'education' },
+  { label: 'Education', headline: 'Learning you can see.', description: 'A tutor that teaches out loud, builds each slide as it speaks and opens hands-on labs, all from your own course books.', demo: 'education' },
   { label: 'Finance', headline: 'Rules first. Trades second.', description: 'Every signal is checked against your strategy and risk limits before anything reaches the market.', demo: 'trading' },
 ]
 

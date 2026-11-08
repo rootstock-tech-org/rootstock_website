@@ -214,3 +214,23 @@ html, body { overflow-x: clip; }
   .b2b-button, .b2b-solution-card, .b2b-work-card, .b2b-logo { transition: none; }
   .b2b-hero-main > .b2b-eyebrow, .b2b-hero-main > h1, .b2b-hero-intro, .b2b-hero-proof, .b2b-sector-nav { animation: none; }
 }
+
+/* Blog post pages */
+.b2b-article-hero { padding: 58px 0 70px; background: var(--b2b-surface); }
+.b2b-article-hero h1 { max-width: 900px; margin: 48px 0 0; color: var(--b2b-ink); font-size: clamp(40px, 5vw, 68px); font-weight: 700; letter-spacing: -.06em; line-height: 1.05; text-wrap: balance; }
+.b2b-article-meta { margin-top: 18px; color: var(--b2b-muted); font-family: var(--font-departure-mono), "Courier New", monospace; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.b2b-article-meta a { color: var(--b2b-teal); text-transform: none; }
+.b2b-article-body { background: white; padding-top: 70px; }
+.b2b-article { max-width: 720px; color: var(--b2b-slate); font-size: 17px; line-height: 1.75; }
+.b2b-article img { width: 100%; height: auto; margin-bottom: 28px; border: 1px solid var(--b2b-line); border-radius: 6px; }
+.b2b-article h2 { margin: 0 0 22px; color: var(--b2b-ink); font-size: clamp(28px, 3vw, 38px); font-weight: 700; letter-spacing: -.045em; line-height: 1.15; }
+.b2b-article h3 { margin: 40px 0 12px; color: var(--b2b-ink); font-size: 22px; font-weight: 700; letter-spacing: -.03em; }
+.b2b-article p { margin: 0 0 18px; }
+.b2b-article ul, .b2b-article ol { margin: 0 0 22px; padding-left: 22px; }
+.b2b-article ul { list-style: disc; }
+.b2b-article ol { list-style: decimal; }
+.b2b-article li { margin: 8px 0; padding-left: 4px; }
+.b2b-article li::marker { color: var(--b2b-teal); }
+.b2b-article strong { color: var(--b2b-ink); }
+.b2b-article a { color: var(--b2b-teal); text-decoration: underline; }
+@media (max-width: 680px) { .b2b-article-hero { padding: 35px 0 50px; } .b2b-article-hero h1 { margin-top: 36px; } .b2b-article { font-size: 16px; } }
