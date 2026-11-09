@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-export type DemoKind = 'cad' | 'vision' | 'trading' | 'education';
+export type DemoKind = 'cad' | 'vision' | 'trading' | 'education' | 'labs';
 
 // Real screens from shipped systems; crops live in public/work/showcase/.
 type RealShot = { src: string; width: number; height: number; alt: string };
@@ -24,16 +24,19 @@ const examples: Partial<Record<DemoKind, Example[]>> = {
     { label: 'Cross-section', shot: { src: '/work/showcase/lab-cross-section.webp', width: 1200, height: 631, alt: 'CMOS inverter cross-section with live voltage, current and delay' }, result: 'CMOS inverter cross-section · live voltage, current and delay' },
   ],
 };
+examples.labs = examples.education?.slice(1);
+
 const sources: Record<DemoKind, { label: string; href: string }> = {
+  labs: { label: 'Interactive labs', href: '/work/ai-tutor' },
   cad: { label: 'Real screen · CostEngine', href: '/products/costingai' },
   vision: { label: 'Real screen · Rootstock Vision AI', href: '/work/vision-ai' },
   trading: { label: 'Real screen · Investing Co-Pilot, paper money', href: '/work/investing-copilot' },
   education: { label: 'Real screens · Voice AI Tutor and Chip Lab', href: '/work/ai-tutor' },
 };
-const ROTATE_MS = 4500;
+const ROTATE_MS = 7000;
 const Shot = ({ shot }: { shot: RealShot }) => <div className="demo-shot"><Image src={shot.src} alt={shot.alt} width={shot.width} height={shot.height} sizes="(max-width: 900px) 100vw, 600px" /></div>;
 
-export default function CompactDemo({ kind }: { kind: DemoKind }) {
+export default function CompactDemo({ kind, overview = false }: { kind: DemoKind; overview?: boolean }) {
   const host = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(true);
@@ -53,13 +56,13 @@ export default function CompactDemo({ kind }: { kind: DemoKind }) {
   }, [index, list, visible, reducedMotion]);
   const current = list?.[index];
   return <div ref={host} className={`compact-demo demo-${kind} ${visible ? 'is-playing' : ''}`}>
-    <div className="demo-bar"><span>{ { cad: 'Drawing → estimate', vision: 'Camera → insight', trading: 'Signal → action', education: 'Question → understanding' }[kind]}</span><span>From a running system</span></div>
-    {list && <div className="demo-options" aria-label="Choose demonstration">{list.map((example, i) => <button key={example.label} type="button" aria-pressed={index === i} onClick={() => setIndex(i)}>{example.label}{index === i && visible && !reducedMotion && <span key={index} className="demo-option-timer" style={{ animationDuration: `${ROTATE_MS}ms` }} aria-hidden="true" />}</button>)}</div>}
+    <div className="demo-bar"><span>{ { cad: 'Drawing → estimate', vision: 'Camera → insight', trading: 'Signal → action', education: 'AI tutor', labs: 'Interactive labs' }[kind]}</span><span>{overview ? 'In practice' : 'From a running system'}</span></div>
+    {list && <div className="demo-options" aria-label="Choose demonstration">{list.map((example, i) => <button key={example.label} type="button" aria-pressed={index === i} onClick={() => setIndex(i)}>{overview && kind === 'labs' ? `Lab ${i + 1}` : overview && kind === 'education' && i > 0 ? `Lab ${i}` : example.label}{index === i && visible && !reducedMotion && <span key={index} className="demo-option-timer" style={{ animationDuration: `${ROTATE_MS}ms` }} aria-hidden="true" />}</button>)}</div>}
     <div className="demo-stage" key={index}>
       {kind === 'cad' && <><Shot shot={cad} /><div className="demo-shot-card demo-reveal"><span>Part cost (unit)</span><strong>₹2,864.37</strong><small>14 parts on one 6300 × 1500 mm plate</small></div><div className="demo-steps"><span>Drawing read</span><span>Parts nested</span><span>Cost sheet ready</span></div></>}
       {kind === 'trading' && <><Shot shot={trading} /><div className="demo-trading-status demo-reveal"><span>Form filled by the co-pilot</span><span aria-hidden="true">→</span><strong>Your click deploys</strong></div><div className="demo-steps"><span>Screen read</span><span>Rules applied</span><span>Stops before money moves</span></div></>}
-      {current && <><Shot shot={current.shot} /><p className="demo-result demo-reveal">{current.result}</p></>}
+      {current && <><Shot shot={current.shot} /><p className="demo-result demo-reveal">{overview ? ({ education: 'AI tutors and labs that bring learning to life.', labs: 'Explore ideas through hands-on learning.', vision: 'Visual insights that help teams review events.', cad: '', trading: '' }[kind]) : current.result}</p></>}
     </div>
-    <div className="demo-footer"><Link href={sources[kind].href}>{sources[kind].label} <span aria-hidden="true">↗</span></Link></div>
+    <div className="demo-footer"><Link href={sources[kind].href}>{overview ? 'Explore this work' : sources[kind].label} <span aria-hidden="true">↗</span></Link></div>
   </div>;
 }
