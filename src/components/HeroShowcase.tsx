@@ -38,7 +38,6 @@ export default function HeroShowcase() {
   const elapsed = useRef(0);
   const [mode, setMode] = useState<'motion' | 'static'>('motion');
   const [active, setActive] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [position, setPosition] = useState({ scene: 0, beat: 0 });
 
   useEffect(() => {
@@ -56,9 +55,9 @@ export default function HeroShowcase() {
     return () => { observer.disconnect(); motion.removeEventListener('change', update); document.removeEventListener('visibilitychange', update); };
   }, []);
 
-  // One clock drives every scene and beat; pausing freezes it so playback resumes mid-scene.
+  // One clock drives every scene and beat; it stops while offscreen and resumes mid-scene.
   useEffect(() => {
-    if (!active || paused) return;
+    if (!active) return;
     let last = performance.now();
     let frame = 0;
     const tick = (now: number) => {
@@ -71,7 +70,7 @@ export default function HeroShowcase() {
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [active, paused]);
+  }, [active]);
 
   const previous = (position.scene + scenes.length - 1) % scenes.length;
   // The wrapper stays mounted across modes so the visibility observer keeps watching it.
@@ -86,7 +85,6 @@ export default function HeroShowcase() {
     </div>
     <div className="showcase-caption">
       <span>{scenes[position.scene].caption}</span>
-      <button type="button" aria-pressed={paused} aria-label={paused ? 'Play demonstration' : 'Pause demonstration'} onClick={() => setPaused(value => !value)}>{paused ? 'Play' : 'Pause'}</button>
     </div></>}
   </div>;
 }
