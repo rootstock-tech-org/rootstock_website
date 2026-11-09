@@ -12,6 +12,7 @@ const departureMono = localFont({
   display: "swap",
 });
 import "./carousel.css";
+import "./home.css";
 import HydrationSuppressor from "../components/HydrationSuppressor";
 import ScrollReveal from "../components/ScrollReveal";
 import FloatingWhatsApp from "../components/FloatingWhatsApp";

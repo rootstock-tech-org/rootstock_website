@@ -1,116 +1,43 @@
 'use client';
 
-import PilotButton from '@/components/PilotButton';
-
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import CompactDemo, { type DemoKind } from './CompactDemo';
+import PilotButton from './PilotButton';
 
-const slides: { label: string; headline: string; description: string; demo: DemoKind }[] = [
-  { label: 'Manufacturing', headline: 'Drawings in. Costs out.', description: 'Upload a part drawing and get an estimate your engineers can check, line by line.', demo: 'cad' },
-  { label: 'Education', headline: 'Learning you can see.', description: 'A tutor that teaches out loud, builds each slide as it speaks and opens hands-on labs, all from your own course books.', demo: 'education' },
-  { label: 'Finance', headline: 'Rules first. Trades second.', description: 'Every signal is checked against your strategy and risk limits before anything reaches the market.', demo: 'trading' },
-]
-
-const ROTATE_MS = 10_000;
-const TAGLINE_LEAD = 'Intelligence, ';
-const TAGLINE_ACCENT = 'engineered.';
-const TAGLINE_LENGTH = TAGLINE_LEAD.length + TAGLINE_ACCENT.length;
-const TYPE_MS = 70;
-
-// One sentence per line so short two-part headlines never break mid-phrase.
-const headlineLines = (headline: string) => headline.split(/(?<=\.)\s+/).map((line, index) => <span key={line} className="apple-hero-line" style={{ '--line-i': index } as CSSProperties}><span>{line}</span></span>);
+const capabilities = [
+  { title: 'AI tutors', detail: 'Learning that responds to the learner.', href: '/work/ai-tutor', symbol: '◌' },
+  { title: 'Interactive labs', detail: 'Space to explore, practise and build.', href: '/work/ai-tutor', symbol: '⌘' },
+  { title: 'Computer vision', detail: 'Make sense of images and video.', href: '/work/vision-ai', symbol: '◎' },
+  { title: 'AI assistants', detail: 'Information made useful in the moment.', href: '/work/research-assistant', symbol: '✳' },
+];
 
 export default function HeroSection() {
-  const host = useRef<HTMLElement>(null);
   const [active, setActive] = useState(0);
-  const [leaving, setLeaving] = useState(false);
-  const transitionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [visible, setVisible] = useState(false);
-  const [pageVisible, setPageVisible] = useState(true);
-  const [reducedMotion, setReducedMotion] = useState(true);
-
+  const [running, setRunning] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const host = useRef<HTMLElement>(null);
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const updateMotion = () => setReducedMotion(media.matches);
-    const updateVisibility = () => setPageVisible(!document.hidden);
-    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: .25 });
+    let visible = false;
+    const update = () => setRunning(visible && !document.hidden && !media.matches);
+    const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; update(); }, { threshold: .25 });
     if (host.current) observer.observe(host.current);
-    updateMotion(); updateVisibility();
-    media.addEventListener('change', updateMotion);
-    document.addEventListener('visibilitychange', updateVisibility);
-    return () => { observer.disconnect(); media.removeEventListener('change', updateMotion); document.removeEventListener('visibilitychange', updateVisibility); };
+    media.addEventListener('change', update);
+    document.addEventListener('visibilitychange', update);
+    return () => { observer.disconnect(); media.removeEventListener('change', update); document.removeEventListener('visibilitychange', update); };
   }, []);
-
-  const [typed, setTyped] = useState(0);
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setTyped(TAGLINE_LENGTH);
-      return;
-    }
-    let timer: number | undefined;
-    const start = window.setTimeout(() => {
-      timer = window.setInterval(() => setTyped(count => {
-        if (count + 1 >= TAGLINE_LENGTH) window.clearInterval(timer);
-        return Math.min(count + 1, TAGLINE_LENGTH);
-      }), TYPE_MS);
-    }, 300);
-    return () => { window.clearTimeout(start); window.clearInterval(timer); };
-  }, []);
-
-  const changeSlide = useCallback((index: number) => {
-    if (transitionTimer.current) clearTimeout(transitionTimer.current);
-    if (index === active || reducedMotion) {
-      setActive(index);
-      setLeaving(false);
-      return;
-    }
-    setLeaving(true);
-    transitionTimer.current = setTimeout(() => {
-      setActive(index);
-      setLeaving(false);
-      transitionTimer.current = null;
-    }, 350);
-  }, [active, reducedMotion]);
-
-  useEffect(() => () => {
-    if (transitionTimer.current) clearTimeout(transitionTimer.current);
-  }, []);
-
-  const rotating = visible && pageVisible && !reducedMotion;
-  useEffect(() => {
-    if (!rotating) return;
-    const timer = window.setTimeout(() => changeSlide((active + 1) % slides.length), ROTATE_MS);
+    if (!running || paused) return;
+    const timer = window.setTimeout(() => setActive((value) => (value + 1) % capabilities.length), 8000);
     return () => window.clearTimeout(timer);
-  }, [active, rotating, changeSlide]);
-
-  const slide = slides[active];
-  return <section ref={host} id="home" className="b2b-hero apple-hero" aria-label="RootStock AI solutions" aria-roledescription="carousel">
-    <div className="b2b-container apple-hero-inner">
-      <div className="apple-hero-copy">
-        <p className="apple-hero-eyebrow">
-          <span className="sr-only">{TAGLINE_LEAD}{TAGLINE_ACCENT}</span>
-          <strong aria-hidden="true">{TAGLINE_LEAD.slice(0, typed)}<em>{TAGLINE_ACCENT.slice(0, Math.max(0, typed - TAGLINE_LEAD.length))}</em></strong>
-          <span className={`apple-hero-caret${typed >= TAGLINE_LENGTH ? ' is-done' : ''}`} aria-hidden="true"/>
-          <span className={`apple-hero-position${typed >= TAGLINE_LENGTH ? ' is-shown' : ''}`}>Custom AI for manufacturing, finance and education</span>
-        </p>
-        <div className={`hero-copy-stack hero-soft-transition ${leaving ? 'is-leaving' : ''}`} aria-live="off">
-          {slides.map((item, index) => <div key={item.label} className={`hero-copy-slide ${index === active ? 'is-active' : ''}`} aria-hidden={index !== active}>
-            {index === active ? <h1>{headlineLines(item.headline)}</h1> : <p className="hero-heading-placeholder">{headlineLines(item.headline)}</p>}
-            <p className="apple-hero-sub">{item.description}</p>
-          </div>)}
-        </div>
-        <div className="apple-hero-actions"><PilotButton className="apple-hero-cta">Discuss a pilot</PilotButton><Link className="apple-hero-link" href="/#solutions">Explore solutions <span aria-hidden="true">›</span></Link></div>
-        <div className="apple-hero-progress" role="group" aria-label="Choose an industry">
-          {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}>
-            {item.label}
-            <span className="apple-hero-track" aria-hidden="true">{active === index && <span key={`${active}-${rotating}`} className={`apple-hero-fill${rotating ? ' is-running' : ''}`} style={{ animationDuration: `${ROTATE_MS}ms` }}/>}</span>
-          </button>)}
-        </div>
-      </div>
-      <div className={`apple-hero-stage hero-soft-transition ${leaving ? 'is-leaving' : ''}`}>
-        <div className="hero-demo-transition" key={slide.demo}><CompactDemo kind={slide.demo}/></div>
-      </div>
+  }, [active, running, paused]);
+  const item = capabilities[active];
+  return <section ref={host} id="home" className="home-hero"><div className="b2b-container home-hero-grid">
+    <div className="home-hero-copy"><p className="home-eyebrow">ROOTSTOCK TECHNOLOGY / APPLIED AI</p><h1>AI built for <em>real work.</em></h1><p>From AI tutors and interactive labs to vision systems and assistants, we build around the way people learn and work.</p><div className="home-actions"><PilotButton className="home-button">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton><Link href="#capabilities" className="home-text-link">Explore what we build <span aria-hidden="true">↓</span></Link></div></div>
+    <div className="home-hero-panel" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false); }}>
+      <div className="home-panel-top"><span>CAPABILITIES / {String(active + 1).padStart(2, '0')}</span><span>ROOTSTOCK ↗</span></div>
+      <div key={item.title} className="home-panel-content"><span className="home-panel-symbol" aria-hidden="true">{item.symbol}</span><div><p>BUILT FOR PEOPLE</p><h2>{item.title}</h2><p>{item.detail}</p><Link href={item.href}>Explore related work ↗</Link></div></div>
+      <div className="home-hero-tabs" role="group" aria-label="Choose a capability">{capabilities.map((capability, index) => <button type="button" key={capability.title} aria-pressed={active === index} onClick={() => setActive(index)}><span>0{index + 1}</span>{capability.title}</button>)}</div>
     </div>
-  </section>;
+  </div></section>;
 }
