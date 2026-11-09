@@ -4,7 +4,7 @@ import { clientGroups, clientsBySector } from '@/data/clients';
 
 export default function ClientsSection() {
   let logoIndex = 0;
-  return <section id="work" className="calm-clients" aria-labelledby="clients-heading"><div className="b2b-container">
+  return <section id="clients" className="calm-clients" aria-labelledby="clients-heading"><div className="b2b-container">
     <p id="clients-heading" className="b2b-eyebrow" data-reveal="up">Selected clients & collaborators</p>
     <div className="b2b-client-groups">
       {clientGroups.map((group, groupIndex) => <div key={group.sector} className="b2b-client-group" data-reveal="draw" style={{ '--reveal-i': groupIndex } as CSSProperties}>

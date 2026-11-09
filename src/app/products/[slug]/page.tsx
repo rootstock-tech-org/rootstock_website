@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <main className="b2b-product-page">
         <section className="b2b-product-hero">
           <div className="b2b-container">
-            <Link className="b2b-back-link" href={solution ? `/solutions/${solution}` : '/#solutions'}>← {solution ? 'Back to solution' : 'All solutions'}</Link>
+            <Link className="b2b-back-link" href={solution ? `/solutions/${solution}` : '/#work'}>← {solution ? 'Back to solution' : 'All solutions'}</Link>
             <p className="b2b-eyebrow">ROOTSTOCK / {product.industry}</p>
             <div className="b2b-product-hero-grid">
               <div><h1>{product.title}</h1><p className="b2b-product-tagline">{product.tagline}</p><p className="b2b-product-description">{product.description}</p><PilotButton className="b2b-button b2b-button-primary">Discuss this use case <span aria-hidden="true">↗</span></PilotButton></div>

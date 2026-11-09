@@ -35,7 +35,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       <main className={`b2b-solution-page b2b-accent-${solution.accent}`}>
         <section className="b2b-solution-hero">
           <div className="b2b-container">
-            <Link className="b2b-back-link" href="/#solutions">← All solutions</Link>
+            <Link className="b2b-back-link" href="/#work">← All solutions</Link>
             <p className="b2b-eyebrow">{solution.number} / {solution.sector}</p>
             <div className="b2b-solution-hero-grid"><div><h1>{solution.title}</h1><p>{solution.summary}</p><PilotButton className="b2b-button b2b-button-primary">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton></div><div className="b2b-solution-tag">{solution.buyer}<span aria-hidden="true">↗</span></div></div>
           </div>

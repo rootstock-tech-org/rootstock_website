@@ -3,14 +3,14 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import PilotButton from './PilotButton';
 
 interface HeaderProps { activeSection?: string }
 
 const links = [
-  { label: 'Solutions', href: '/#solutions' },
-  { label: 'Work', href: '/work' },
-  { label: 'Approach', href: '/#approach' },
-  { label: 'About', href: '/#about' },
+  { label: 'Our work', href: '/#work' },
+  { label: 'Case studies', href: '/work' },
+  { label: 'Clients', href: '/#clients' },
   { label: 'Contact', href: '/#contact' },
 ];
 
@@ -37,6 +37,7 @@ export default function Header({ activeSection }: HeaderProps) {
         <nav className="b2b-desktop-nav" aria-label="Main navigation">
           {links.map((link) => <Link href={link.href} key={link.label}>{link.label}</Link>)}
         </nav>
+        <PilotButton className="b2b-button b2b-button-header">Discuss a pilot</PilotButton>
         <button
           className="b2b-menu-toggle"
           type="button"
@@ -51,6 +52,7 @@ export default function Header({ activeSection }: HeaderProps) {
       {open && (
         <nav id="b2b-mobile-nav" className="b2b-mobile-nav" aria-label="Mobile navigation">
           {links.map((link) => <Link href={link.href} key={link.label} onClick={() => setOpen(false)}>{link.label}<span aria-hidden="true">↗</span></Link>)}
+          <PilotButton className="b2b-button b2b-button-primary">Discuss a pilot</PilotButton>
         </nav>
       )}
     </header>
