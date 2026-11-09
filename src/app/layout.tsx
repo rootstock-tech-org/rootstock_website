@@ -6,6 +6,8 @@ import "./showcase.css";
 import "./motion.css";
 import "./work.css";
 
+const manrope = localFont({ src: "./fonts/Manrope.ttf", variable: "--font-manrope", display: "swap" });
+
 const departureMono = localFont({
   src: "./fonts/DepartureMono-Regular.woff2",
   variable: "--font-departure-mono",
@@ -51,7 +53,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`antialiased ${departureMono.variable}`}>
+      <body className={`antialiased ${departureMono.variable} ${manrope.variable}`}>
         {/* Use HydrationSuppressor for content to avoid extension-related hydration issues */}
         <HydrationSuppressor>
           {children}
