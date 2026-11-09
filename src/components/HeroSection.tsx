@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import WorkReel from './WorkReel';
+import HeroShowcase from './HeroShowcase';
 
 const TAGLINE = 'Intelligence, engineered.';
 const TYPE_MS = 60;
@@ -32,7 +32,7 @@ export default function HeroSection() {
         <p className="home-hero-lead">AI tutors, interactive labs, vision systems and assistants, built around your content, data and workflows.</p>
         <a href="#work" className="home-button">Explore our work <span aria-hidden="true">↓</span></a>
       </div>
-      <WorkReel/>
+      <HeroShowcase/>
     </div>
   </section>;
 }
