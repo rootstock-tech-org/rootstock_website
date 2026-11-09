@@ -1,3 +1,4 @@
+import PilotButton from '@/components/PilotButton';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -36,7 +37,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           <div className="b2b-container">
             <Link className="b2b-back-link" href="/#solutions">← All solutions</Link>
             <p className="b2b-eyebrow">{solution.number} / {solution.sector}</p>
-            <div className="b2b-solution-hero-grid"><div><h1>{solution.title}</h1><p>{solution.summary}</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link></div><div className="b2b-solution-tag">{solution.buyer}<span aria-hidden="true">↗</span></div></div>
+            <div className="b2b-solution-hero-grid"><div><h1>{solution.title}</h1><p>{solution.summary}</p><PilotButton className="b2b-button b2b-button-primary">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton></div><div className="b2b-solution-tag">{solution.buyer}<span aria-hidden="true">↗</span></div></div>
           </div>
         </section>
         <InteractiveShowcase sector={slug as 'manufacturing' | 'financial-services' | 'education'} />
@@ -45,7 +46,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
         {work.length > 0 && <section className="b2b-section b2b-solution-shots"><div className="b2b-container"><p className="b2b-eyebrow">Already built for {solution.sector.toLowerCase()}</p><h2>Systems running today.</h2><div className="b2b-work-links">{work.map(item => <Link key={item.slug} href={`/work/${item.slug}`}>{item.title} <span aria-hidden="true">↗</span></Link>)}</div></div></section>}
         <section className="b2b-section b2b-detail-flow"><div className="b2b-container"><p className="b2b-eyebrow">From context to action</p><div className="b2b-detail-flow-grid"><div><h2>What goes in</h2>{solution.inputs.map((item) => <p key={item}>{item}</p>)}</div><div><span className="b2b-flow-arrow" aria-hidden="true">→</span><strong>ROOTSTOCK<br />ENGINE</strong></div><div><h2>What comes out</h2>{solution.outputs.map((item) => <p key={item}>{item}</p>)}</div></div></div></section>
         <section className="b2b-section b2b-detail-outcomes"><div className="b2b-container"><div className="b2b-section-heading"><div><p className="b2b-eyebrow">Designed to help</p><h2>Outcomes your team<br /><em>can work toward.</em></h2></div></div><div>{solution.outcomes.map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div></div></section>
-        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Start with one use case</p><h2>Let’s make the next step concrete.</h2><p>Tell us about the process you want to improve. We’ll explore what a focused pilot could include.</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link></div></section>
+        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Start with one use case</p><h2>Let’s make the next step concrete.</h2><p>Tell us about the process you want to improve. We’ll explore what a focused pilot could include.</p><PilotButton className="b2b-button b2b-button-primary">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton></div></section>
       </main>
       <Footer />
     </>

@@ -1,3 +1,4 @@
+import PilotButton from '@/components/PilotButton';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -47,7 +48,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
                 <h1>{item.title}</h1>
                 <p className="b2b-product-tagline">{item.tagline}</p>
                 <p className="work-hero-lead">{item.summary}</p>
-                <Link className="b2b-button b2b-button-primary" href="/#contact">Discuss this use case <span aria-hidden="true">↗</span></Link>
+                <PilotButton className="b2b-button b2b-button-primary">Discuss this use case <span aria-hidden="true">↗</span></PilotButton>
               </div>
               <aside className="work-facts" aria-label="At a glance">
                 {item.status && <p className="work-status">{item.status}</p>}
@@ -78,7 +79,7 @@ export default async function WorkItemPage({ params }: { params: Promise<{ slug:
             <Link href={`/work/${next.slug}`}><span>Next →</span><strong>{next.title}</strong></Link>
           </div>
         </nav>
-        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Discuss your requirements</p><h2>See how this fits your process.</h2><p>Tell us about the data, team and decision involved. We’ll define a practical next step together.</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link></div></section>
+        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Discuss your requirements</p><h2>See how this fits your process.</h2><p>Tell us about the data, team and decision involved. We’ll define a practical next step together.</p><PilotButton className="b2b-button b2b-button-primary">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton></div></section>
       </main>
       <Footer />
     </>

@@ -1,5 +1,7 @@
 'use client';
 
+import PilotButton from '@/components/PilotButton';
+
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import Link from 'next/link';
 import CompactDemo, { type DemoKind } from './CompactDemo';
@@ -98,7 +100,7 @@ export default function HeroSection() {
             <p className="apple-hero-sub">{item.description}</p>
           </div>)}
         </div>
-        <div className="apple-hero-actions"><Link className="apple-hero-cta" href="/#contact">Discuss a pilot</Link><Link className="apple-hero-link" href="/#solutions">Explore solutions <span aria-hidden="true">›</span></Link></div>
+        <div className="apple-hero-actions"><PilotButton className="apple-hero-cta">Discuss a pilot</PilotButton><Link className="apple-hero-link" href="/#solutions">Explore solutions <span aria-hidden="true">›</span></Link></div>
         <div className="apple-hero-progress" role="group" aria-label="Choose an industry">
           {slides.map((item, index) => <button key={item.label} type="button" aria-pressed={active === index} onClick={() => { changeSlide(index); }}>
             {item.label}

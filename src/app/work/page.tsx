@@ -1,3 +1,4 @@
+import PilotButton from '@/components/PilotButton';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,7 +44,7 @@ export default function WorkPage() {
             </ul>
           </div>
         </section>
-        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Start with one use case</p><h2>Want something like this?</h2><p>Tell us about the process you want to improve. We’ll show you what we have already built that fits it.</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link></div></section>
+        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Start with one use case</p><h2>Want something like this?</h2><p>Tell us about the process you want to improve. We’ll show you what we have already built that fits it.</p><PilotButton className="b2b-button b2b-button-primary">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton></div></section>
       </main>
       <Footer />
     </>

@@ -1,3 +1,4 @@
+import PilotButton from '@/components/PilotButton';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -46,7 +47,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <Link className="b2b-back-link" href={solution ? `/solutions/${solution}` : '/#solutions'}>← {solution ? 'Back to solution' : 'All solutions'}</Link>
             <p className="b2b-eyebrow">ROOTSTOCK / {product.industry}</p>
             <div className="b2b-product-hero-grid">
-              <div><h1>{product.title}</h1><p className="b2b-product-tagline">{product.tagline}</p><p className="b2b-product-description">{product.description}</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss this use case <span aria-hidden="true">↗</span></Link></div>
+              <div><h1>{product.title}</h1><p className="b2b-product-tagline">{product.tagline}</p><p className="b2b-product-description">{product.description}</p><PilotButton className="b2b-button b2b-button-primary">Discuss this use case <span aria-hidden="true">↗</span></PilotButton></div>
               <div className="b2b-product-mark" aria-hidden="true"><span>R.</span><small>APPLIED INTELLIGENCE<br />/ {product.title.toUpperCase()}</small></div>
             </div>
           </div>
@@ -72,7 +73,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         {slug === 'finsight' && (
           <section className="b2b-section b2b-product-demo"><div className="b2b-container"><p className="b2b-eyebrow">Product demo</p><h2>Explore Finsight</h2><p>Open the external demo to see the analysis workflow.</p><a className="b2b-button b2b-button-primary" href="https://finsight-frontend-2026.vercel.app" target="_blank" rel="noopener noreferrer">Open Finsight demo <span aria-hidden="true">↗</span></a></div></section>
         )}
-        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Discuss your requirements</p><h2>See how this fits your process.</h2><p>Tell us about the data, team and decision involved. We’ll define a practical next step together.</p><Link className="b2b-button b2b-button-primary" href="/#contact">Discuss a pilot <span aria-hidden="true">↗</span></Link></div></section>
+        <section className="b2b-detail-cta"><div className="b2b-container"><p className="b2b-eyebrow">Discuss your requirements</p><h2>See how this fits your process.</h2><p>Tell us about the data, team and decision involved. We’ll define a practical next step together.</p><PilotButton className="b2b-button b2b-button-primary">Discuss a pilot <span aria-hidden="true">↗</span></PilotButton></div></section>
       </main>
       <Footer />
     </>
