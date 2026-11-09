@@ -140,6 +140,14 @@
   .home-story.is-revealed [data-step="3"] { transition-delay:1.45s; }
 }
 
+/* Pilot invitation after the work stories. */
+.home-cta { position:relative; overflow:hidden; padding:88px 0; border-top:1px solid var(--b2b-line); background:#fff; }
+.home-cta-inner { position:relative; display:flex; flex-direction:column; align-items:flex-start; }
+.home-cta h2 { max-width:640px; margin:0; font-size:clamp(30px,3.4vw,46px); line-height:1.12; }
+.home-cta p { margin:16px 0 30px; color:var(--b2b-slate); font-size:18px; }
+.home-circuit { position:absolute; right:0; top:50%; width:min(560px,45%); transform:translateY(-50%); color:var(--home-accent); opacity:.22; stroke-width:1.2; pointer-events:none; }
+button.home-link { padding:0; border:0; background:none; cursor:pointer; }
+
 /* Clients */
 .home-page .calm-clients { padding:28px 0 34px; border-block:1px solid var(--b2b-line); background:transparent; }
 .home-page .b2b-client-group h3 { font-family:inherit; }
@@ -153,6 +161,7 @@
 .home-page .b2b-contact .b2b-eyebrow { color:rgba(247,248,250,.7); }
 .home-page .b2b-contact-grid > div > p:not(.b2b-eyebrow), .home-page .b2b-contact-details, .home-page .contact-detail-item span { color:rgba(247,248,250,.78); }
 .home-page .b2b-contact-details { border-top-color:rgba(247,248,250,.18); }
+.home-page .b2b-contact-details > span { margin-top:10px; color:rgba(247,248,250,.7); }
 .home-page .b2b-contact .b2b-button-primary { background:var(--b2b-bg); border-color:var(--b2b-bg); color:var(--b2b-ink); }
 .home-page .b2b-contact .b2b-button-primary:hover { background:#dde3ea; border-color:#dde3ea; }
 .home-page .pilot-dialog .b2b-eyebrow { color:var(--b2b-muted); }
@@ -204,6 +213,6 @@
   .home-story-vision .home-story-copy > p:not(.home-story-kicker) { margin:18px 0 22px; }
   .home-story .vision-event { grid-template-columns:minmax(0,1fr); gap:14px; }
 }
-@media(max-width:750px) { .home-work { padding-top:56px; } .home-story .vision-card { font-size:15px; padding:16px; } .learning-main { width:100%; } .learning-visual { padding-bottom:0; } .learning-lab { position:relative; width:80%; margin:-18% 0 0 auto; } }
+@media(max-width:750px) { .home-work { padding-top:56px; } .home-cta { padding:60px 0; } .home-circuit { display:none; } .home-story .vision-card { font-size:15px; padding:16px; } .learning-main { width:100%; } .learning-visual { padding-bottom:0; } .learning-lab { position:relative; width:80%; margin:-18% 0 0 auto; } }
 @media(max-width:750px) { .showcase-stage, .showcase-grid .showcase-scene { aspect-ratio:1.15; } .showcase-scene { padding:14px; } .showcase-grid { grid-template-columns:1fr; } }
 @media(prefers-reduced-motion:reduce) { [data-step], .showcase-scene { transition:none; } }

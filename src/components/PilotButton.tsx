@@ -3,9 +3,13 @@
 import { useId, useRef, useState, type FormEvent, type ReactNode } from 'react';
 
 type FormData = { name: string; email: string; company: string; sector: string; message: string };
-const initialForm: FormData = { name: '', email: '', company: '', sector: '', message: '' };
+const emptyForm: FormData = { name: '', email: '', company: '', sector: '', message: '' };
+export const PILOT_INTERESTS = ['AI tutors & labs', 'Computer vision', 'AI assistants', 'Something else'] as const;
+export type PilotInterest = typeof PILOT_INTERESTS[number];
 
-export default function PilotButton({ className, children = 'Discuss a pilot' }: { className?: string; children?: ReactNode }) {
+// `interest` pre-selects the area when the button sits next to a specific piece of work.
+export default function PilotButton({ className, children = 'Discuss a pilot', interest }: { className?: string; children?: ReactNode; interest?: PilotInterest }) {
+  const initialForm: FormData = { ...emptyForm, sector: interest ?? '' };
   const dialog = useRef<HTMLDialogElement>(null);
   const titleId = useId();
   const [form, setForm] = useState<FormData>(initialForm);
@@ -49,7 +53,7 @@ export default function PilotButton({ className, children = 'Discuss a pilot' }:
           </div>
           <div className="b2b-form-row">
             <label>Company<input name="company" autoComplete="organization" value={form.company} onChange={(event) => setForm({ ...form, company: event.target.value })} placeholder="Organization name" /></label>
-            <label>Area of interest<select name="sector" value={form.sector} onChange={(event) => setForm({ ...form, sector: event.target.value })}><option value="">Select an area</option><option>Manufacturing</option><option>Financial services</option><option>Education & training</option><option>Other</option></select></label>
+            <label>Area of interest<select name="sector" value={form.sector} onChange={(event) => setForm({ ...form, sector: event.target.value })}><option value="">Select an area</option>{PILOT_INTERESTS.map(option => <option key={option}>{option}</option>)}</select></label>
           </div>
           <label>What would you like to improve? <span>*</span><textarea required name="message" rows={5} value={form.message} onChange={(event) => setForm({ ...form, message: event.target.value })} placeholder="A few lines about your process, data or challenge" /></label>
           <button className="b2b-button b2b-button-primary" disabled={status === 'submitting'} type="submit">{status === 'submitting' ? 'Sending…' : 'Discuss a pilot'} <span aria-hidden="true">↗</span></button>

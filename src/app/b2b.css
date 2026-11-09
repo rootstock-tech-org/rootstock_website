@@ -238,12 +238,20 @@ html, body { overflow-x: clip; }
 /* Pilot inquiry dialog */
 .pilot-dialog { width: min(640px, calc(100% - 32px)); max-height: min(90vh, 900px); margin: auto; padding: 30px; border: 1px solid var(--b2b-line); border-radius: 10px; background: var(--b2b-bg); color: var(--b2b-ink); box-shadow: 0 24px 80px rgba(18,49,61,.3); }
 .pilot-dialog::backdrop { background: rgba(18,49,61,.7); }
+.pilot-dialog[open] { animation: pilot-in .2s ease-out; }
+.pilot-dialog[open]::backdrop { animation: pilot-fade .2s ease-out; }
+@keyframes pilot-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pilot-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .pilot-dialog[open], .pilot-dialog[open]::backdrop { animation: none; } }
 .pilot-dialog-header { display: flex; justify-content: space-between; gap: 20px; }
 .pilot-dialog-header h2 { margin: 8px 0; font-size: 30px; letter-spacing: -.04em; }
 .pilot-dialog-header p:not(.b2b-eyebrow) { color: var(--b2b-slate); }
 .pilot-dialog-close { align-self: flex-start; border: 0; background: transparent; color: var(--b2b-ink); font-size: 30px; line-height: 1; cursor: pointer; }
 .pilot-dialog .b2b-contact-form { padding: 24px 0 0; border: 0; box-shadow: none; }
 .pilot-dialog .b2b-form-label { display: none; }
+/* Keep the required mark on the same line as its label text. */
+.pilot-dialog .b2b-contact-form label { display: grid; grid-template-columns: auto 1fr; column-gap: 4px; }
+.pilot-dialog .b2b-contact-form label > :is(input, select, textarea) { grid-column: 1 / -1; }
 .b2b-contact-grid > div > .b2b-button { margin-top: 28px; }
 .apple-hero-cta, .b2b-footer-cta { cursor: pointer; }
 button.b2b-footer-cta { display: block; padding: 0; border: 0; background: transparent; color: #a8d7c5; font-size: 13px; font-weight: 700; text-align: left; margin-top: 10px; }
