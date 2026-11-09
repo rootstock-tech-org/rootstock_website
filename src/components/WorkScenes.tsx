@@ -18,9 +18,9 @@ export const gearEvent: VisionEventProps = {
   title: '2 without a helmet, 1 without a vest', detail: 'Picture saved for the safety team',
 };
 export const zoneEvent: VisionEventProps = {
-  src: '/work/showcase/vision-zone-frame.webp', width: 798, height: 564,
+  src: '/work/showcase/vision-zone-wide.webp', width: 798, height: 442,
   alt: 'Camera view of a loading bay with a marked restricted zone',
-  box: { left: 21.9, top: 60.1, width: 59.3, height: 37.6 }, label: 'Loading bay',
+  box: { left: 21.9, top: 49.1, width: 59.3, height: 48 }, label: 'Loading bay',
   title: 'Person in restricted zone “Loading bay”', detail: 'CAM 03 · Assembly line B · picture saved',
 };
 
